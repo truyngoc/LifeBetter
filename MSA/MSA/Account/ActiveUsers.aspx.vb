@@ -33,10 +33,36 @@ Public Class ActiveUsers
             txtCMND.Text = info.CMND
             txtDIEN_THOAI.Text = info.DIEN_THOAI
 
+            If String.IsNullOrEmpty(info.MA_BAO_TRO) Then
+                txtBaoTro.Enabled = True
+                btnCheckBaoTro.Enabled = True
+                lblError.Text = "Không tìm thấy mã người bảo trợ"
+                lblError.Visible = True
+            Else
+                Dim infoBaoTro As MSA_MemberInfo = Singleton(Of MSA_MemberDAO).Inst.FindByMA_BAO_TRO(info.MA_BAO_TRO)
+                txtTEN_BAO_TRO.Text = infoBaoTro.TEN
+                txtBaoTro.Text = infoBaoTro.MA_KH
+                txtMA_BAO_TRO.Text = info.MA_BAO_TRO
+                txtBaoTro.Enabled = False
+                btnCheckBaoTro.Enabled = False
+            End If
+
             lblError.Visible = False
             EnableForm()
         End If
 
+    End Sub
+
+
+    Protected Sub btnCheckBaoTro_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnCheckBaoTro.Click
+        Dim info As MSA_MemberInfo = Singleton(Of MSA_MemberDAO).Inst.FindByMA_KH(txtBaoTro.Text.Trim)
+        If info Is Nothing Then
+            lblError.Text = "Không tìm thấy mã người chỉ định"
+            lblError.Visible = True
+        Else
+            txtTEN_BAO_TRO.Text = info.TEN
+            txtMA_BAO_TRO.Text = info.MA_CAY
+        End If
     End Sub
 
     Protected Sub btnKICHHOAT_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnKichHoat.Click
@@ -45,14 +71,15 @@ Public Class ActiveUsers
         info.MA_CAY_TT = txtMA_UPLINE.Text
         If lstVITRI.SelectedIndex = 0 Then
             info.MA_CAY = txtMA_UPLINE.Text + "01"
-            info.NHANH_CAY_TT = 0
+            info.NHANH_CAY_TT = 1
         Else
             info.MA_CAY = txtMA_UPLINE.Text + "02"
-            info.NHANH_CAY_TT = 1
+            info.NHANH_CAY_TT = 2
         End If
-
+        info.MA_BAO_TRO = txtMA_BAO_TRO.Text
         info.MA_GOI_DAU_TU = lstGOI_DAU_TU.SelectedIndex + 1
         Singleton(Of MSA_MemberDAO).Inst.Update_KICH_HOAT(info)
+        Response.Redirect("AccountTreeView")
     End Sub
 
     Protected Sub btnUPLINE_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSearchUpline.Click
@@ -63,6 +90,23 @@ Public Class ActiveUsers
         Else
             txtTEN_UPLINE.Text = info.TEN
             txtMA_UPLINE.Text = info.MA_CAY
+            'CHECK VỊ TRÍ
+            Dim i As Integer = Singleton(Of MSA_MemberDAO).Inst.CHECK_VI_TRI_TRONG(txtMA_UPLINE.Text.Trim)
+            If i = 0 Then
+                lblError.Text = "Người chỉ định đã bảo trợ đủ hai nhánh"
+                lblError.Visible = True
+                Exit Sub
+            ElseIf i = 1 Then
+                lstVITRI.SelectedIndex = 0
+                lstVITRI.Visible = True
+                lstVITRI.Enabled = False
+            ElseIf i = 2 Then
+                lstVITRI.SelectedIndex = 1
+                lstVITRI.Visible = True
+                lstVITRI.Enabled = False
+            Else
+                lstVITRI.Enabled = True
+            End If
             lblError.Visible = False
         End If
     End Sub

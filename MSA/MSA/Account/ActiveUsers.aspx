@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-            <br />
+            <br />  
             <br />
 
             <asp:Panel runat="server" ID="pnDetail">
@@ -55,6 +55,28 @@
                 </div>
                 <br />
 
+                <div class="form-group col-lg-12" >
+                    <label for="firstname" class="control-label col-lg-2">Mã bảo trợ</label>
+                    <div class="col-lg-6">
+                        <asp:TextBox runat="server" ID="txtBaoTro" CssClass="form-control" ForeColor="#464646" Font-Bold="True" Visible="True"></asp:TextBox>
+                    </div>
+                    <div class="col-lg-4">
+                        <asp:Button runat="server" class="btn btn-info" ID="btnCheckBaoTro" Text="KIỂM TRA" CausesValidation="false" Visible="True" />
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="form-group col-lg-12">
+                    <label for="firstname" class="control-label col-lg-2"></label>
+                    <div class="col-lg-6">
+                        <asp:TextBox runat="server" ID="txtTEN_BAO_TRO" CssClass="form-control" ForeColor="#464646" Font-Bold="True" ReadOnly="True"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtMA_BAO_TRO" CssClass="form-control" ForeColor="#464646" Font-Bold="True" Visible="false"></asp:TextBox>
+                    </div>
+
+                </div>
+                               
+                <br />
                 <div class="form-group col-lg-12">
                     <label for="firstname" class="control-label col-lg-2">Mã người chỉ định</label>
                     <div class="col-lg-6">
@@ -67,33 +89,31 @@
 
                 <br />
 
-                
-                
+
+
                 <div class="form-group col-lg-12">
-                   
-                    <%--<label for="firstname" class="control-label col-lg-2">Tên người chỉ định</label>--%>
                     <div class="col-lg-6">
                         <asp:TextBox runat="server" ID="txtTEN_UPLINE" CssClass="form-control" ForeColor="#464646" Font-Bold="True" ReadOnly="true"></asp:TextBox>
                         <asp:TextBox runat="server" ID="txtMA_UPLINE" CssClass="form-control" ForeColor="#464646" Font-Bold="True" Visible="false"></asp:TextBox>
                     </div>
-                     
+
                 </div>
                 <br />
 
                 <div class="form-group col-lg-12">
                     <label for="firstname" class="control-label col-lg-2">Vị trí chỉ định</label>
                     <div class="col-lg-6">
-                        <asp:DropDownList runat="server" ID="lstVITRI" Tex="TRÁI" CssClass="form-control col-md-6" ForeColor="#464646" Font-Bold="True">
+                        <asp:DropDownList runat="server" ID="lstVITRI" Tex="TRÁI" CssClass="form-control col-md-6" ForeColor="#464646" Font-Bold="True" Visible="false">
                             <asp:ListItem>TRÁI </asp:ListItem>
                             <asp:ListItem>PHẢI </asp:ListItem>
                         </asp:DropDownList>
                     </div>
-                  
+
                 </div>
                 <br />
 
                 <div class="form-group col-lg-12">
-                    
+
                     <div class="col-lg-6">
                         <asp:Button runat="server" class="btn btn-info" ID="btnKichHoat" Text="KÍCH HOẠT" CausesValidation="false" />
                     </div>

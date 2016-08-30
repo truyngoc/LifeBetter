@@ -59,11 +59,11 @@ Public Class Register
                 strBuilder.AppendLine("<b><a href='http://lifebetter.org/LoginAccount'>http://lifebetter.org </a></b><br/>")
 
                 strBuilder.AppendLine("<b><br/><br/><br/>Thanks & Best regards!</b><br/>")
-                strBuilder.AppendLine("<b><br/>Adminstrator LIFE BETTER!</b><br/>")
+                strBuilder.AppendLine("<b><br/>LIFE BETTER!</b><br/>")
 
                 Dim str = MSA_Helper.SendMail(txtDIA_CHI.Text, "LIFE BETTER", strBuilder.ToString())
 
-                lblMessages.Text = "Tạo tài khoản thành công!, thông tin tài khoản vừa tạo:  " + MA_KH + "  sẽ gửi vào email:  " + txtDIA_CHI.Text
+                lblMessages.Text = "Chào mừng bạn đến với LIFE BETTER! Thông tin tài khoản vừa tạo:  " + MA_KH + "  sẽ gửi vào email:  " + txtDIA_CHI.Text
                 ''
                 Me.strLink = Request.Url.Authority & "/Account/RegisterEx?ref=" + Singleton(Of MSACurrentSession).Inst.SessionMember.MA_BAO_TRO.MSA_Encrypt(MSA_Constants.ConstEncriptKey.KeyEncriptRef)
             Catch ex As Exception

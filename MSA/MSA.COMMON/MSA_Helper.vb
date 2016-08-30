@@ -23,7 +23,7 @@ Public Class MSA_Helper
             ' smtp server address here…
             Dim smtp As New SmtpClient() With { _
                  .Host = "smtp.gmail.com", _
-                 .Port = 578, _
+                 .Port = 25, _
                  .EnableSsl = True, _
                  .DeliveryMethod = SmtpDeliveryMethod.Network, _
                  .Timeout = 30000, _

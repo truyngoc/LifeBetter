@@ -13,6 +13,16 @@ Public Class MSA_MemberDAO
 
     End Function
 
+    Public Function CHECK_VI_TRI_TRONG(MA_UPLINE As String) As Integer
+
+        Dim parameter As New DynamicParameters()
+        parameter.Add("@MA_CAY", MA_UPLINE, DbType.String)
+        parameter.Add("@STATUS", "", DbType.String, ParameterDirection.Output)
+        'db.Execute("sproc_MEMBERS_Add", New With {Key .MA_KH = mInfo.MA_KH, Key .MAT_KHAU = mInfo.MAT_KHAU, Key .TEN = mInfo.TEN, Key .DIEN_THOAI = mInfo.DIEN_THOAI, Key .DIA_CHI = mInfo.DIA_CHI, Key .MA_BAO_TRO_TT = mInfo.MA_BAO_TRO_TT, Key .URL = mInfo.URL, Key .NV = mInfo.NV}, commandType:=CommandType.StoredProcedure)
+        db.Execute("sproc_MEMBERS_CHECK_VI_TRI", parameter, commandType:=CommandType.StoredProcedure)
+        Return Integer.Parse(parameter.Get(Of String)("@STATUS"))
+    End Function
+
     Public Function FindByMA_BAO_TRO(MA_BAO_TRO As String) As MSA_MemberInfo
 
         Return DirectCast(db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_GetByMA_BAO_TRO", New With {Key .MA_BAO_TRO = MA_BAO_TRO}, commandType:=CommandType.StoredProcedure _

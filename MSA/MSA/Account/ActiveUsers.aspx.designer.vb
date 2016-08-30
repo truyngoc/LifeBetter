@@ -86,6 +86,42 @@ Partial Public Class ActiveUsers
     Protected WithEvents lstGOI_DAU_TU As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''txtBaoTro control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtBaoTro As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''btnCheckBaoTro control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCheckBaoTro As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''txtTEN_BAO_TRO control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtTEN_BAO_TRO As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMA_BAO_TRO control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMA_BAO_TRO As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''txtUPLINE control.
     '''</summary>
     '''<remarks>
