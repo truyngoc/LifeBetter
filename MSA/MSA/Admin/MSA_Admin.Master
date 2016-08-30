@@ -113,6 +113,7 @@
                         <div class="textwidget" style="color: white">
                             <i></i>
                             +84 974297983
+                       
                         </div>
                     </div>
                 </div>
@@ -152,25 +153,23 @@
                         <li class="dropdown">
                             <a href="#" class="dropbtn">Hệ thống</a>
                             <ul class="dropdown-content">
-
                                 <li><a href="../Account/AccountTreeView">Doanh số</a></li>
                                 <li><a href="../Account/AccountCommision">Hoa hồng</a></li>
                                 <%--<li><a href="../Account/BusinessReport">Báo cáo kinh doanh</a></li>--%>
                                 <li><a href="#">Báo cáo kinh doanh</a></li>
                             </ul>
                         </li>
-                        
+
                         <li class="dropdown" runat="server" id="mnuQuantri">
                             <a href="#" class="dropbtn">Quản trị</a>
                             <ul class="dropdown-content">
-                                <li><a href="../Account/Register">Tạo tài khoản</a></li>
                                 <li><a href="../Account/ActiveUsers">Kích hoạt tài khoản</a></li>
                                 <li><a href="#">Danh sách thành viên</a></li>
                                 <li><a href="../Account/CommisionStatistics">Báo cáo thống kê</a></li>
                                 <li><a href="../Account/AccountCommisionCommit">Chốt hoa hồng hàng tháng</a></li>
                             </ul>
                         </li>
-                        </asp:>
+                        <li><a href="../Account/Register">Tạo tài khoản</a></li>
 
                         <%--<li><a runat="server" href="../Account/AccountCommision">Hoa hồng</a></li>
                         <li><a runat="server" href="../Account/Register">Tạo tài khoản</a></li>
@@ -247,6 +246,7 @@
                                                 <div class="lblname">
                                                     <asp:Label ID="lblMaKH" runat="server" />
                                                     -
+                                                   
                                                     <asp:Label ID="lblName" runat="server"></asp:Label>
                                                 </div>
                                                 <br />
@@ -262,6 +262,7 @@
 
                                         <div>
                                             <span><b>DANH HIỆU KIM CƯƠNG
+                                               
                                                 <br />
                                                 BALI + 3000$ </b></span>
                                             <br />
@@ -273,6 +274,7 @@
                                             <br />
 
                                             <span><b>DANH HIỆU CHỦ TỊCH:
+                                               
                                                 <br />
                                                 THƯỞNG XE Ô TÔ:</b> </span>
                                             <br />
@@ -293,8 +295,8 @@
                                     <div style="color: black; font-family: GeosansLight">
 
                                         <div class="infodetail" style="padding-left: 10px;">
-                                            <div class="content text-center" style="padding:5px">
-                                                <asp:ImageButton ID="imgAnhDaiDien" runat="server" AlternateText="Ảnh đại diện" Height="160" Width="160"  />
+                                            <div class="content text-center" style="padding: 5px">
+                                                <asp:ImageButton ID="imgAnhDaiDien" runat="server" AlternateText="Ảnh đại diện" Height="160" Width="160" />
                                             </div>
                                             <span class="header">Tên gói đầu tư: </span>
                                             <span class="content">
@@ -389,7 +391,8 @@
             <div id="copyright" class="container">
                 <div class="pull-right">
                     <a href="#">Terms Of Use</a> |
-					<a href="#">Privacy Statement</a>
+				
+                    <a href="#">Privacy Statement</a>
                 </div>
                 <span class="pull-left">Copyright 2016 by LIFE BETTER Group;</span>
 
