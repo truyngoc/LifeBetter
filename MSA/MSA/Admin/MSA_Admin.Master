@@ -1,0 +1,403 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MSA_Admin.master.vb" Inherits="MSA.MSA_Admin" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> LIFE BETTER Group</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <%--<webopt:bundlereference runat="server" path="~/Content/css" />--%>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap.min_t.js"></script>
+
+    <link rel="stylesheet" href="~/Content/bootstrap_t.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min_t.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/MSA_style_truybn.css" type="text/css" />
+
+
+    <%--<link rel="stylesheet" href="~/Content/main-style.css" type="text/css" />--%>
+
+    <style type="text/css">
+        .contentdisplay3 {
+            border: 1px solid #ECF4FF;
+            background-color: #fbfbff;
+            text-align: left;
+            color: #4b4b4b;
+            font-size: 11px;
+            font-weight: normal;
+            font-family: verdana, arial, helvetica, sans-serif;
+            text-decoration: none;
+            width: 650px;
+        }
+
+
+
+        table {
+            border-collapse: inherit;
+            border-spacing: 0;
+        }
+
+
+        .blf-orgchart-node {
+            text-align: center;
+            vertical-align: middle;
+            font-family: arial,helvetica;
+            cursor: default;
+            /*border: 2px solid #b5d9ea;*/
+            /* bo border va background cua node
+        
+        -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
+    background-color: #edf7ff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#edf7ff), to(#cde7ee));*/
+        }
+
+        .navbar-fixed-top, .navbar-fixed-bottom {
+            position: relative;
+            right: 0;
+            left: 0;
+            border-width: 0 0 1px;
+            margin-left: 120px;
+            margin-right: 120px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="row" style="background-color: #83868a; margin-left: 120px; margin-right: 120px">
+            <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
+
+                <div class="logo pull-left">
+                    <a href="../Home.aspx" class="">
+
+
+                        <img src="/images/logo LB- convert-04.png" alt="LIFE BETTER" title="LIVE YOUR DREAM" style="width: 190px; height: 80px" /></a>
+                    <%-- <p class="logo_tagline">LIVE YOUR DREAM</p>--%>
+                </div>
+            </div>
+            <div class="span6">
+                <div class="header_widget" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="header-sidebar">
+                    <div id="text-7" class="text-right" style="color: white">
+                        <h4>Hỗ trợ</h4>
+                        <div class="textwidget" style="color: white">
+                            <i></i>
+                            +84 974297983
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden-phone" data-motopress-type="static" data-motopress-static-file="static/static-search.php">
+
+                    <div align="right">
+                        <font size="2px" color="010101" style="color: white">   
+                                            <%=Date.Now.ToString("dd/MM/yyyy hh:mm:ss")%>
+                                        </font>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <%--<a class="navbar-brand" runat="server" href="~/">Better life</a>--%>
+                </div>
+                <div class="navbar-collapse collapse nav__primary">
+                    <ul class="nav navbar-nav sf-menu">
+                        <li><a runat="server" href="../Home">Trang chủ</a></li>
+                        <%--<li class="dropdown">
+                            <a href="#" class="dropbtn">Doanh số</a>
+
+                            <div class="dropdown-content">
+                                <a href="../Account/AccountCommisionCommit">Doanh số hàng tháng</a>
+                                <a href="../Account/CommisionStatistics">Thống kê</a>
+                            </div>
+                        </li>--%>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn">Hệ thống</a>
+                            <ul class="dropdown-content">
+
+                                <li><a href="../Account/AccountTreeView">Doanh số</a></li>
+                                <li><a href="../Account/AccountCommision">Hoa hồng</a></li>
+                                <%--<li><a href="../Account/BusinessReport">Báo cáo kinh doanh</a></li>--%>
+                                <li><a href="#">Báo cáo kinh doanh</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown" runat="server" id="mnuQuantri">
+                            <a href="#" class="dropbtn">Quản trị</a>
+                            <ul class="dropdown-content">
+                                <li><a href="../Account/Register">Tạo tài khoản</a></li>
+                                <li><a href="../Account/ActiveUsers">Kích hoạt tài khoản</a></li>
+                                <li><a href="#">Danh sách thành viên</a></li>
+                                <li><a href="../Account/CommisionStatistics">Báo cáo thống kê</a></li>
+                                <li><a href="../Account/AccountCommisionCommit">Chốt hoa hồng hàng tháng</a></li>
+                            </ul>
+                        </li>
+                        </asp:>
+
+                        <%--<li><a runat="server" href="../Account/AccountCommision">Hoa hồng</a></li>
+                        <li><a runat="server" href="../Account/Register">Tạo tài khoản</a></li>
+                        <li><a runat="server" href="../Account/ActiveUsers">Kích hoạt tài khoản</a></li>--%>
+                        <li><a runat="server" href="../Account/SignOut.aspx">Thoát</a></li>
+                    </ul>
+
+                    <%--<div class="nav navbar-nav navbar-right">
+                        Xin chào TruyBN
+                        <a href="#">Đăng xuất</a>
+                    </div>--%>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="container body-content">
+            <div id="contentWrapper1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <%--<div class="maintop"></div> 83868a--%>
+                            <div class="col-md-12" style="background-color: white; color: black; border-radius: 8px; margin-bottom: 5px; padding: 4px;">
+
+                                <%-- <div>
+                                    <div class="LB_Content" >
+                                        <div>
+                                        
+                                           <%-- <div class="day1"><%=Date.Now.ToString("dd/MM/yyyy hh:mm:ss")%></div>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>--%>
+
+                                <%--<div>
+                                    <div class="LB_Content">
+
+                                        <div >
+                                            <div>
+                                                <span>Còn lại</span>
+                                                <span>23</span>
+                                                <span>ngày</span>
+                                                <span>13</span>
+                                                <span>giờ</span>
+                                                <span>59</span>
+                                                <span>phút</span>
+                                            </div>
+                                            <div>
+                                                <span >Bạn chưa năng động 390 CV tháng này</span>
+                                                <span ></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>--%>
+
+                                <div class="LB_Content">
+                                    <div class="dnntitle">
+                                        <h2 class="TitleH2">THÔNG TIN TÀI KHOẢN</h2>
+                                    </div>
+                                    <div>
+
+                                        <div>
+                                            <div class="col12" style="text-align: center;">
+
+                                                <div class="lblname">
+                                                    <asp:Label ID="lblMaKH" runat="server" />
+                                                    -
+                                                    <asp:Label ID="lblName" runat="server"></asp:Label>
+                                                </div>
+                                                <br />
+                                                <div class="lblname">
+                                                    <asp:Label ID="lblTrangThai" runat="server" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="infodetail" style="padding-left: 10px;">
+
+                                        <div>
+                                            <span><b>DANH HIỆU KIM CƯƠNG
+                                                <br />
+                                                BALI + 3000$ </b></span>
+                                            <br />
+                                            <span>- Trong 60 ngày: tích lũy doanh số 180 triệu nhánh yếu</span>
+                                            <br />
+                                            <span>- Trong 150 ngày: tích lũy doanh số 300 triệu nhánh yếu</span>
+                                            <br />
+                                            <span>- Sau 150 ngày: tích lũy doanh số 3 tỷ nhánh yếu</span>
+                                            <br />
+
+                                            <span><b>DANH HIỆU CHỦ TỊCH:
+                                                <br />
+                                                THƯỞNG XE Ô TÔ:</b> </span>
+                                            <br />
+                                            <span>- Giúp 2F1 lên KIM CƯƠNG</span>
+                                            <br />
+                                            <span>- Tích lũy doanh số 9 tỷ</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="clear"></div>
+                                </div>
+
+                                <div class="LB_Content">
+                                    <div class="dnntitle">
+                                        <h2 class="TitleH2">THÔNG TIN CÁ NHÂN</h2>
+                                    </div>
+                                    <div style="color: black; font-family: GeosansLight">
+
+                                        <div class="infodetail" style="padding-left: 10px;">
+                                            <div class="content text-center" style="padding:5px">
+                                                <asp:ImageButton ID="imgAnhDaiDien" runat="server" AlternateText="Ảnh đại diện" Height="160" Width="160"  />
+                                            </div>
+                                            <span class="header">Tên gói đầu tư: </span>
+                                            <span class="content">
+                                                <asp:Label ID="lblTEN_GOI" runat="server" /></span>
+                                            <br />
+                                            <span class="header">CMND: </span>
+                                            <span class="content">
+                                                <asp:Label ID="lblCMND" runat="server" /></span>
+                                            <br />
+                                            <span class="header">Ngày sinh: </span>
+                                            <span class="content">
+                                                <asp:Label ID="lblNGAY_SINH" runat="server" /></span>
+                                            <br />
+                                            <span class="header">Điện thoại: </span>
+                                            <span class="content">
+                                                <asp:Label ID="lblDIEN_THOAI" runat="server" /></span>
+                                            <br />
+
+                                            <span class="header">Email: </span>
+                                            <span class="content">
+                                                <asp:Label ID="lblDIA_CHI" runat="server" /></span>
+                                            <br />
+                                            <span class="header">Số tài khoản: </span>
+                                            <span class="content">
+                                                <asp:Label ID="lblSO_TAI_KHOAN" runat="server" /></span>
+                                            <br />
+                                            <span class="header">Ngân hàng: </span>
+                                            <span class="content">
+                                                <asp:Label ID="lblNGAN_HANG" runat="server" /></span>
+                                            <br />
+
+                                            <span class="header">Ngày tham gia: </span>
+                                            <span class="content">
+                                                <asp:Label ID="lblNGAY_THAM_GIA" runat="server" /></span>
+
+                                        </div>
+
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+
+                                <div class="LB_Content">
+                                    <div class="dnntitle">
+                                        <h2 class="TitleH2">THÔNG TIN HỆ THỐNG</h2>
+                                    </div>
+                                    <div>
+                                        <div class="infosystem">
+                                            <div class="first">
+                                                <p class="header">Người bảo trợ</p>
+
+                                                <span class="content">
+                                                    <asp:Label ID="lblMabaotro" runat="server" /></span>
+                                            </div>
+                                            <div>
+                                                <p class="header">Tuyến trên trực tiếp</p>
+                                                <span class="content">
+                                                    <asp:Label ID="lblCAY_TT" runat="server" /></span>
+                                            </div>
+                                            <div class="last">
+                                                <p class="header">Là nhánh dưới bên</p>
+                                                <span class="content">
+                                                    <asp:Label ID="lblNhanh" runat="server" /></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-9">
+                            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <hr />
+        <div id="footer">
+            <div class="container">
+            </div>
+            <div class="container">
+                <hr class="col-md-12" style="margin-left: 0px;" />
+            </div>
+            <div id="copyright" class="container">
+                <div class="pull-right">
+                    <a href="#">Terms Of Use</a> |
+					<a href="#">Privacy Statement</a>
+                </div>
+                <span class="pull-left">Copyright 2016 by LIFE BETTER Group;</span>
+
+            </div>
+            <!--/copyright-->
+        </div>
+        <!--/footer-->
+        <%-- </div>--%>
+    </form>
+</body>
+</html>

