@@ -49,12 +49,14 @@ Public Class RegisterEx
 
                 Dim str = MSA_Helper.SendMail(txtDIA_CHI.Text, "LIFE BETTER", strBuilder.ToString())
 
-                lblMessages.Text = "Tạo tài khoản thành công!, thông tin tài khoản vừa tạo:  " + MA_KH + "  sẽ gửi vào email:  " + txtDIA_CHI.Text
+                lblMessages.Text = "CHÚC MỪNG BẠN ĐÃ ĐĂNG KÝ THÀNH CÔNG! MÃ SỐ THÀNH VIÊN CỦA BẠN LÀ :  "
+                lblMaKHMOI.Text = MA_KH
                 ''
 
             Catch ex As Exception
                 Throw New Exception(ex.ToString)
                 lblMessages.Text = ""
+                lblMaKHMOI.Text = ""
             End Try
 
 

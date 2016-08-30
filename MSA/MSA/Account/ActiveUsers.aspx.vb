@@ -66,6 +66,11 @@ Public Class ActiveUsers
     End Sub
 
     Protected Sub btnKICHHOAT_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnKichHoat.Click
+        If lstVITRI.Visible = False Then
+            lblError.Text = "Người chỉ định đã đủ hai nhánh, hãy chọn người chỉ định khác"
+            lblError.Visible = True
+            Exit Sub
+        End If
         Dim info As New MSA_MemberInfo
         info.MA_KH = txtMa_KH.Text
         info.MA_CAY_TT = txtMA_UPLINE.Text
@@ -78,6 +83,11 @@ Public Class ActiveUsers
         End If
         info.MA_BAO_TRO = txtMA_BAO_TRO.Text
         info.MA_GOI_DAU_TU = lstGOI_DAU_TU.SelectedIndex + 1
+        If chkCtyHoTro.Checked = True Then
+            info.NV = 99
+        Else
+            info.NV = 0
+        End If
         Singleton(Of MSA_MemberDAO).Inst.Update_KICH_HOAT(info)
         Response.Redirect("AccountTreeView")
     End Sub
@@ -105,6 +115,7 @@ Public Class ActiveUsers
                 lstVITRI.Visible = True
                 lstVITRI.Enabled = False
             Else
+                lstVITRI.Visible = True
                 lstVITRI.Enabled = True
             End If
             lblError.Visible = False

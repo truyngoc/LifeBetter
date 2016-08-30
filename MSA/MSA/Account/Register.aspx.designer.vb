@@ -32,6 +32,15 @@ Partial Public Class Register
     Protected WithEvents lblMessages As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''lblMaKHMOI control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMaKHMOI As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtTEN control.
     '''</summary>
     '''<remarks>

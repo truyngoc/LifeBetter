@@ -6,7 +6,8 @@
         <fieldset class="fdb-scheduler-border">
             <div class="row">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label runat="server" ID="lblMessages" ForeColor="Blue"></asp:Label>
+            <asp:Label runat="server" ID="lblMessages" ForeColor="Blue"></asp:Label> 
+            <asp:Label runat="server" ID="lblMaKHMOI" ForeColor="Red" Font-Size="X-Large" Font-Bold="true"></asp:Label>
             <br />
             <br />
 

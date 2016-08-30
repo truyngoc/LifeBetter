@@ -167,6 +167,15 @@ Partial Public Class ActiveUsers
     Protected WithEvents lstVITRI As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''chkCtyHoTro control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkCtyHoTro As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
     '''btnKichHoat control.
     '''</summary>
     '''<remarks>

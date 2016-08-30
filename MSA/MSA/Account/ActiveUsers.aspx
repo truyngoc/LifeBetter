@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-            <br />  
+            <br />
             <br />
 
             <asp:Panel runat="server" ID="pnDetail">
@@ -55,7 +55,7 @@
                 </div>
                 <br />
 
-                <div class="form-group col-lg-12" >
+                <div class="form-group col-lg-12">
                     <label for="firstname" class="control-label col-lg-2">Mã bảo trợ</label>
                     <div class="col-lg-6">
                         <asp:TextBox runat="server" ID="txtBaoTro" CssClass="form-control" ForeColor="#464646" Font-Bold="True" Visible="True"></asp:TextBox>
@@ -75,7 +75,7 @@
                     </div>
 
                 </div>
-                               
+
                 <br />
                 <div class="form-group col-lg-12">
                     <label for="firstname" class="control-label col-lg-2">Mã người chỉ định</label>
@@ -114,8 +114,12 @@
 
                 <div class="form-group col-lg-12">
 
-                    <div class="col-lg-6">
-                        <asp:Button runat="server" class="btn btn-info" ID="btnKichHoat" Text="KÍCH HOẠT" CausesValidation="false" />
+                    <div class="col-lg-2">
+                        
+                    </div>
+                    <div class="col-lg-4">
+                        <asp:CheckBox runat="server" CssClass="check alert-danger" ID="chkCtyHoTro" Text="Được công ty hỗ trợ" ForeColor="Red"/><br />
+                        <asp:Button runat="server" class="btn btn-info" Style="border: 2px solid #FFF;" ID="btnKichHoat" Text="KÍCH HOẠT" CausesValidation="false" />
                     </div>
                 </div>
                 <br />

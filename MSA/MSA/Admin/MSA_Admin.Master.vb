@@ -41,7 +41,7 @@ Public Class MSA_Admin
                     'truyBN
                     imgAnhDaiDien.ImageUrl = _mInfo.URL
 
-                    If (_mInfo.MA_KH = "admin") Then
+                    If (_mInfo.NV = 1) Then
                         mnuQuantri.Visible = True
                     Else
                         mnuQuantri.Visible = False

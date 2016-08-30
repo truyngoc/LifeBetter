@@ -142,7 +142,6 @@ Public Class MSA_MemberDAO
         dictsqlParam.Remove("TEN_GOI_DAU_TU")
         dictsqlParam.Remove("MA_DANH_HIEU")
         dictsqlParam.Remove("URL")
-        dictsqlParam.Remove("NV")
         dictsqlParam.Remove("NGAY_NANG_CAP")
         Dim parameter = New DynamicParameters()
         parameter = SqlUtilities.GetDynamicParameters(dictsqlParam)

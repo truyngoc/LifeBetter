@@ -237,9 +237,9 @@
                                         <input type="text" value="6" class="form-control" style="width: 100px;">--%>
                             <div class="title" style="color: black">Mã gốc</div>
 
-                            <asp:TextBox runat="server" ID="txtMA_CAY" Text="0" class="form-control" Style="width: 100px;"></asp:TextBox>
-                            <input type="submit" value="Show tree" class="btn btn-primary" />
-                            <asp:Button ID="btnShowSponsor" runat="server" Text="Cây bảo trợ" class="btn btn-primary" OnClientClick="view_Data(); return false;" />
+                            <asp:TextBox runat="server" ID="txtMA_CAY" Text="0" class="form-control" Style="width:100px"></asp:TextBox>
+                            <input type="submit" value="CÂY NHỊ PHÂN" class="btn btn-primary" />
+                            <asp:Button ID="btnShowSponsor" runat="server" Text="CÂY BẢO TRỢ" class="btn btn-primary"  OnClientClick="view_Data(); return false;" />
                         </div>
                         <div class="ghichu">
                             <img src="../images/goi_0.png" height="24" width="24" />

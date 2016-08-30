@@ -33,12 +33,15 @@
                                             </address>
                                         </div>
 
-                                        <div class="span8" style="margin-top: -20px; margin-left:auto">
+                                        <div class="span8" style="margin-top: -20px; margin-left: auto">
                                             <asp:Panel runat="server" ID="pnForm">
                                                 <fieldset class="fdb-scheduler-border">
                                                     <div class="row">
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label runat="server" ID="lblMessages" ForeColor="Blue"></asp:Label>
+                                                        <asp:Label runat="server" ID="lblMessages" ForeColor="Blue"> <br />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </asp:Label>
+                                                        <asp:Label runat="server" ID="lblMaKHMOI" ForeColor="Red" Font-Size="X-Large" Font-Bold="true"></asp:Label>
                                                         <br />
                                                         <br />
 
@@ -61,7 +64,7 @@
                                                             <label class="col-md-3 control-label" for="Email">Email:</label>
                                                             <div class="col-md-5">
                                                                 <asp:TextBox ID="txtDIA_CHI" runat="server" class="form-control" />
-                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Email không hợp lệ" ControlToValidate="txtDIA_CHI" ForeColor="#cc0066" ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" Display="Dynamic" ></asp:RegularExpressionValidator>
+                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Email không hợp lệ" ControlToValidate="txtDIA_CHI" ForeColor="#cc0066" ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" Display="Dynamic"></asp:RegularExpressionValidator>
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -86,7 +89,7 @@
                                                                 <asp:RequiredFieldValidator ErrorMessage="Mật khẩu không được để trống." ControlToValidate="txtMAT_KHAU" runat="server" ForeColor="#cc0066" Text="Mật khẩu không được để trống." Display="Dynamic" />
                                                             </div>
                                                         </div>
-                                                       <br />
+                                                        <br />
                                                         <div class="row">
                                                             <label class="col-md-3 control-label" for="ConfirmPassword">Xác nhận mật khẩu:</label>
                                                             <div class="col-md-5">
@@ -100,7 +103,7 @@
                                                 <br />
                                                 <div class="row">
                                                     <div class="col-md-offset-2 col-md-8">
-                                                        <asp:Button ID="btnSubmit" runat="server" Text="Register member" class="btn btn-info" Style="border: 2px solid #FFF;" />
+                                                        <asp:Button ID="btnSubmit" runat="server" Text="ĐĂNG KÝ" class="btn btn-primary" />
                                                     </div>
                                                 </div>
                                                 <br />

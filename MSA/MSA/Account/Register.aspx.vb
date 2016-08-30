@@ -56,19 +56,21 @@ Public Class Register
                 strBuilder.AppendLine("<b>Mã khách hàng của bạn: " + MA_KH + "</b><br/>")
                 strBuilder.AppendLine("<b>Hãy liên hệ với văn phòng LIFE BETTER để được hướng dẫn cách chọn gói tham gia.</b><br/>")
                 strBuilder.AppendLine("<b>Bạn có thể đăng nhập vào hệ thống LIFE BETTER theo mã khách hàng theo địa chỉ:.</b><br/>")
-                strBuilder.AppendLine("<b><a href='http://lifebetter.org/LoginAccount'>http://lifebetter.org </a></b><br/>")
+                strBuilder.AppendLine("<b><a href='http://lifebetter.com.vn/LoginAccount'>http://lifebetter.com.vn </a></b><br/>")
 
                 strBuilder.AppendLine("<b><br/><br/><br/>Thanks & Best regards!</b><br/>")
                 strBuilder.AppendLine("<b><br/>LIFE BETTER!</b><br/>")
 
                 Dim str = MSA_Helper.SendMail(txtDIA_CHI.Text, "LIFE BETTER", strBuilder.ToString())
 
-                lblMessages.Text = "Chào mừng bạn đến với LIFE BETTER! Thông tin tài khoản vừa tạo:  " + MA_KH + "  sẽ gửi vào email:  " + txtDIA_CHI.Text
+                lblMessages.Text = "CHÚC MỪNG BẠN ĐÃ ĐĂNG KÝ THÀNH CÔNG! MÃ SỐ THÀNH VIÊN NHÁNH DƯỚI CỦA BẠN LÀ :  "
+                lblMaKHMOI.Text = MA_KH
                 ''
                 Me.strLink = Request.Url.Authority & "/Account/RegisterEx?ref=" + Singleton(Of MSACurrentSession).Inst.SessionMember.MA_BAO_TRO.MSA_Encrypt(MSA_Constants.ConstEncriptKey.KeyEncriptRef)
             Catch ex As Exception
                 Throw New Exception(ex.ToString)
                 lblMessages.Text = ""
+                lblMaKHMOI.Text = ""
             End Try
 
 
