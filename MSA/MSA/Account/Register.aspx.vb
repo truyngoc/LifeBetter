@@ -18,9 +18,7 @@ Public Class Register
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
             If Singleton(Of MSACurrentSession).Inst.isLoginUser Then
-                Dim h1 = Request.Url.Host
-                Dim h2 = Request.Url.Authority
-                Me.strLink = h2 & "/Account/RegisterEx?ref=" + Singleton(Of MSACurrentSession).Inst.SessionMember.MA_BAO_TRO.MSA_Encrypt(MSA_Constants.ConstEncriptKey.KeyEncriptRef)
+                Me.strLink = Request.Url.Authority & "/Account/RegisterEx?ref=" + Singleton(Of MSACurrentSession).Inst.SessionMember.MA_BAO_TRO.MSA_Encrypt(MSA_Constants.ConstEncriptKey.KeyEncriptRef)
             Else
                 Response.Redirect("LoginAccount.aspx")
             End If
@@ -67,7 +65,7 @@ Public Class Register
 
                 lblMessages.Text = "Tạo tài khoản thành công!, thông tin tài khoản vừa tạo:  " + MA_KH + "  sẽ gửi vào email:  " + txtDIA_CHI.Text
                 ''
-                Me.strLink = "/RegisterEx?ref=" + Singleton(Of MSACurrentSession).Inst.SessionMember.MA_BAO_TRO.MSA_Encrypt(MSA_Constants.ConstEncriptKey.KeyEncriptRef)
+                Me.strLink = Request.Url.Authority & "/Account/RegisterEx?ref=" + Singleton(Of MSACurrentSession).Inst.SessionMember.MA_BAO_TRO.MSA_Encrypt(MSA_Constants.ConstEncriptKey.KeyEncriptRef)
             Catch ex As Exception
                 Throw New Exception(ex.ToString)
                 lblMessages.Text = ""

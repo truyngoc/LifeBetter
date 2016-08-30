@@ -12,9 +12,9 @@
 
     <div class="validation-summary-valid">
         <ul>
-            <li style="display: block; color: blue">
+            <li>
                 <label style="color: blueviolet">Link affiliate :</label>
-                <a href="<%=strLink%>" style=" background-color: #036299;"><%=strLink%></a>
+                <a href="<%=strLink%>" style="background-color:red"><%=strLink%></a>
             </li>
         </ul>
         <script type="text/javascript">

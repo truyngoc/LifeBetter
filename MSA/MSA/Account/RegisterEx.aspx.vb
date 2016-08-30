@@ -22,9 +22,6 @@ Public Class RegisterEx
                 If Singleton(Of MSA_MemberDAO).Inst.FindByMA_BAO_TRO(MA_BAO_TRO) Is Nothing Then
                     Response.Redirect("/ErrorPages/Oops.aspx")
                 End If
-
-            Else
-                Response.Redirect("/ErrorPages/Oops.aspx")
             End If
         End If
     End Sub
@@ -60,7 +57,7 @@ Public Class RegisterEx
                 strBuilder.AppendLine("<b>Mã khách hàng của bạn: " + MA_KH + "</b><br/>")
                 strBuilder.AppendLine("<b>Hãy liên hệ với văn phòng LIFE BETTER để được hướng dẫn cách chọn gói tham gia.</b><br/>")
                 strBuilder.AppendLine("<b>Bạn có thể đăng nhập vào hệ thống LIFE BETTER theo mã khách hàng theo địa chỉ:.</b><br/>")
-                strBuilder.AppendLine("<b><a href='http://lifebetter.org/LoginAccount'>http://lifebetter.org</a></b><br/>")
+                strBuilder.AppendLine("<b><a href='http://lifebetter.com.vn'>http://lifebetter.com.vn</a></b><br/>")
 
                 strBuilder.AppendLine("<b><br/><br/><br/>Thanks & Best regards!</b><br/>")
                 strBuilder.AppendLine("<b><br/>Adminstrator LIFE BETTER!</b><br/>")
