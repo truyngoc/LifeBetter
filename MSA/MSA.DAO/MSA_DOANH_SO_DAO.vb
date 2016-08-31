@@ -55,6 +55,10 @@ Public Class MSA_DOANH_SO_DAO
                         oHoaHong.QUY_TIEN_MAT = dr("QUY_TIEN_MAT")
                         oHoaHong.QUY_PHONG_CACH = dr("QUY_PHONG_CACH")
                         oHoaHong.QUY_DAO_TAO = dr("QUY_DAO_TAO")
+
+                        oHoaHong.THUONG_THANH_TICH = dr("THUONG_THANH_TICH")
+                        oHoaHong.THUONG_THANH_TICH_DUOC_TINH = dr("THUONG_THANH_TICH_DUOC_TINH")
+
                     End While
                 End Using
                 con.Close()

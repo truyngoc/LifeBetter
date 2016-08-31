@@ -29,6 +29,9 @@
     Public Property TONG_THU_NHAP_CAC_KY As Decimal
     Public Property SO_THANH_VIEN_MOI_BAO_TRO_TRAI As Integer
     Public Property SO_THANH_VIEN_MOI_BAO_TRO_PHAI As Integer
+
+    Public Property THUONG_THANH_TICH As Decimal
+    Public Property THUONG_THANH_TICH_DUOC_TINH As Decimal
 End Class
 
 

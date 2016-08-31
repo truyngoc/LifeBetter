@@ -232,6 +232,18 @@
                                 </td>
                             </tr>
                             <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
+                                <td align="left" class="title">Thưởng thành tích</td>
+                                <td>
+                                    <asp:Label ID="lblTHUONG_THANH_TICH" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
+                                <td align="left" class="title">Thưởng thành tích được tính</td>
+                                <td>
+                                    <asp:Label ID="lblTHUONG_THANH_TICH_DUOC_TINH" runat="server"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
                                 <td align="left" class="title">Quỹ tiền mặt</td>
                                 <td>
                                     <asp:Label ID="lblQUY_TIEN_MAT" runat="server"></asp:Label>

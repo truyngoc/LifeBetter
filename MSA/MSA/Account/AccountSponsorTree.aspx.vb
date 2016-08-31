@@ -28,9 +28,13 @@ Public Class AccountSponsorTree
         Dim query As String = get_Sponsor_Data(ma_cay)
 
         Using con As New SqlConnection(ConfigurationManager.ConnectionStrings("SqlServerConnString").ConnectionString)
-            Using cmd As New SqlCommand(query)
+            'Using cmd As New SqlCommand(query)
+            Using cmd As New SqlCommand("sp_CAY_BAO_TRO")
                 Dim chartData As New List(Of Object)()
-                cmd.CommandType = CommandType.Text
+
+                Dim paramMa_Cay = New SqlParameter("@ma_cay", ma_cay)
+                cmd.Parameters.Add(paramMa_Cay)
+                cmd.CommandType = CommandType.StoredProcedure
                 cmd.Connection = con
                 con.Open()
                 Using sdr As SqlDataReader = cmd.ExecuteReader()
@@ -53,11 +57,15 @@ Public Class AccountSponsorTree
     End Function
 
     Public Shared Function get_Sponsor_Data(ma_cay As String) As String
+        If String.IsNullOrEmpty(ma_cay) Then
+            ma_cay = "0"
+        End If
+
         Dim query As String = ""
         query += "SELECT ID"
         query += ", MA_KH"
         query += ", MA_CAY"
-        query += ", MA_BAO_TRO"
+        query += ", case MA_CAY when '" + ma_cay + "' then null else MA_BAO_TRO end MA_BAO_TRO"
         query += ", TEN"
         query += ", MA_BAO_TRO_TT"
         query += ", MA_CAY_TT"
@@ -67,7 +75,7 @@ Public Class AccountSponsorTree
         query += ", MA_GOI_DAU_TU"
         query += ", MA_DANH_HIEU"
         query += " FROM MEMBERS"
-        query += " WHERE MA_CAY ='" & ma_cay + "' OR MA_CAY_TT like '" & ma_cay + "%'"
+        query += " WHERE MA_CAY ='" & ma_cay + "' OR MA_BAO_TRO_TT LIKE '" & ma_cay + "%'" + " AND TRANG_THAI <> 0 "
         query += " ORDER BY MA_BAO_TRO"
 
         Return query
