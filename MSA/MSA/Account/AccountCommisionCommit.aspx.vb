@@ -84,6 +84,8 @@ Public Class AccountCommisionCommit
         lblQUY_PHONG_CACH.Text = IIf(oTK.TONG_QUY_PHONG_CACH = 0, 0, oTK.TONG_QUY_PHONG_CACH.ToString("#,###"))
         lblQUY_DAO_TAO.Text = IIf(oTK.TONG_QUY_DAO_TAO = 0, 0, oTK.TONG_QUY_DAO_TAO.ToString("#,###"))
         lblTONG_CONG_DOANH_SO_THANG.Text = IIf(oTK.TONG_HOA_HONG = 0, 0, oTK.TONG_HOA_HONG.ToString("#,###"))
+        'lblTHUONG_THANH_TICH.Text = IIf(oTK.TONG_THUONG_THANH_TICH = 0, 0, oTK.TONG_THUONG_THANH_TICH.ToString("#,###"))
+        lblTHUONG_THANH_TICH_DUOC_TINH.Text = IIf(oTK.TONG_THUONG_THANH_TICH_DUOC_TINH = 0, 0, oTK.TONG_THUONG_THANH_TICH_DUOC_TINH.ToString("#,###"))
     End Sub
 
     Public Sub bindDDL_MonthDS()

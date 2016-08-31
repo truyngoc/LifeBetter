@@ -95,6 +95,8 @@ Public Class MSA_DOANH_SO_DAO
                         tk.TONG_QUY_PHONG_CACH = dr("TONG_QUY_PHONG_CACH")
                         tk.TONG_QUY_DAO_TAO = dr("TONG_QUY_DAO_TAO")
                         tk.TONG_HOA_HONG = dr("TONG_HOA_HONG")
+                        tk.TONG_THUONG_THANH_TICH = dr("TONG_THUONG_THANH_TICH")
+                        tk.TONG_THUONG_THANH_TICH_DUOC_TINH = dr("TONG_THUONG_THANH_TICH_DUOC_TINH")
                     End While
                 End Using
                 con.Close()
@@ -167,7 +169,9 @@ Public Class MSA_DOANH_SO_DAO
                                                     Key .QUY_DAO_TAO = _info.QUY_DAO_TAO,
                                                     Key .HOA_HONG_CO_BAN_DUOC_TINH = _info.HOA_HONG_CO_BAN_DUOC_TINH,
                                                     Key .SO_THANH_VIEN_MOI_BAO_TRO_TRAI = _info.SO_THANH_VIEN_MOI_BAO_TRO_TRAI,
-                                                    Key .SO_THANH_VIEN_MOI_BAO_TRO_PHAI = _info.SO_THANH_VIEN_MOI_BAO_TRO_PHAI
+                                                    Key .SO_THANH_VIEN_MOI_BAO_TRO_PHAI = _info.SO_THANH_VIEN_MOI_BAO_TRO_PHAI,
+                                                    Key .THUONG_THANH_TICH = _info.THUONG_THANH_TICH,
+                                                    Key .THUONG_THANH_TICH_DUOC_TINH = _info.THUONG_THANH_TICH_DUOC_TINH
                                                      }, commandType:=CommandType.StoredProcedure)
     End Sub
 

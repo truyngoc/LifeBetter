@@ -78,7 +78,7 @@
     </script>
 
 
-    <div class="container">        
+    <div class="container">
         <div class="row">
             <div class="text-danger"><b>Thực hiện chốt doanh số tháng</b></div>
         </div>
@@ -149,6 +149,18 @@
                         <td align="left" class="title">Tổng Hoa hồng cơ bản được tính</td>
                         <td>
                             <asp:Label ID="lblHOA_HONG_CO_BAN_DUOC_TINH" runat="server"></asp:Label>
+                        </td>
+                    </tr>
+                    <%--<tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
+                        <td align="left" class="title">Thưởng thành tích</td>
+                        <td>
+                            <asp:Label ID="lblTHUONG_THANH_TICH" runat="server"></asp:Label>
+                        </td>
+                    </tr>--%>
+                    <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
+                        <td align="left" class="title">Thưởng thành tích được tính</td>
+                        <td>
+                            <asp:Label ID="lblTHUONG_THANH_TICH_DUOC_TINH" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">

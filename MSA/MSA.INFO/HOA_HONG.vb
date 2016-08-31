@@ -47,6 +47,8 @@ Public Class THONG_KE_HE_THONG
     Public Property TONG_QUY_PHONG_CACH As Decimal
     Public Property TONG_QUY_DAO_TAO As Decimal
     Public Property TONG_HOA_HONG As Decimal
+    Public Property TONG_THUONG_THANH_TICH As Decimal
+    Public Property TONG_THUONG_THANH_TICH_DUOC_TINH As Decimal
 End Class
 
 

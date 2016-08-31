@@ -167,6 +167,24 @@ Partial Public Class AccountCommisionDetail
     Protected WithEvents lblHOA_HONG_CO_BAN_DUOC_TINH As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''lblTHUONG_THANH_TICH control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblTHUONG_THANH_TICH As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblTHUONG_THANH_TICH_DUOC_TINH control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblTHUONG_THANH_TICH_DUOC_TINH As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''lblQUY_TIEN_MAT control.
     '''</summary>
     '''<remarks>
