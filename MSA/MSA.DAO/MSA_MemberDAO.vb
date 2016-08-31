@@ -141,12 +141,11 @@ Public Class MSA_MemberDAO
         dictsqlParam.Remove("URL")
         dictsqlParam.Remove("NGAY_NANG_CAP")
         dictsqlParam.Remove("NV")
-        dictsqlParam.Remove("MA_BAO_TRO")
         dictsqlParam.Remove("MA_BAO_TRO_TT")
         Dim parameter = New DynamicParameters()
         parameter = SqlUtilities.GetDynamicParameters(dictsqlParam)
         'db.Execute("sproc_MEMBERS_Add", New With {Key .MA_KH = mInfo.MA_KH, Key .MAT_KHAU = mInfo.MAT_KHAU, Key .TEN = mInfo.TEN, Key .DIEN_THOAI = mInfo.DIEN_THOAI, Key .DIA_CHI = mInfo.DIA_CHI, Key .MA_BAO_TRO_TT = mInfo.MA_BAO_TRO_TT, Key .URL = mInfo.URL, Key .NV = mInfo.NV}, commandType:=CommandType.StoredProcedure)
-        db.Execute("sproc_MEMBERS_KICH_HOAT", parameter, commandType:=CommandType.StoredProcedure)
+        db.Execute("sproc_MEMBERS_KICH_HOAT_Update", parameter, commandType:=CommandType.StoredProcedure)
     End Sub
 
 

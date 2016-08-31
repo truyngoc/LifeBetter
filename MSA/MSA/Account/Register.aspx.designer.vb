@@ -122,6 +122,15 @@ Partial Public Class Register
     Protected WithEvents CompareValidator1 As Global.System.Web.UI.WebControls.CompareValidator
 
     '''<summary>
+    '''chkNV control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkNV As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
     '''btnSubmit control.
     '''</summary>
     '''<remarks>

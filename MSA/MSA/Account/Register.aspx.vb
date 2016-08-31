@@ -18,6 +18,14 @@ Public Class Register
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
             If Singleton(Of MSACurrentSession).Inst.isLoginUser Then
+                If Singleton(Of MSACurrentSession).Inst.SessionMember.NV = 1 Then
+                    chkNV.Visible = True
+                    chkNV.Checked = True
+                Else
+                    chkNV.Visible = False
+                    chkNV.Checked = False
+                End If
+
                 Me.strLink = Request.Url.Authority & "/Account/RegisterEx?ref=" + Singleton(Of MSACurrentSession).Inst.SessionMember.MA_BAO_TRO.MSA_Encrypt(MSA_Constants.ConstEncriptKey.KeyEncriptRef)
             Else
                 Response.Redirect("LoginAccount.aspx")
@@ -40,7 +48,13 @@ Public Class Register
                 _mInfo.MAT_KHAU = txtMAT_KHAU.Text
                 _mInfo.TRANG_THAI = 0
                 _mInfo.URL = ""
-                _mInfo.NV = 0
+
+                If chkNV.Checked Then
+                    _mInfo.NV = 1
+                Else
+                    _mInfo.NV = 0
+                End If
+
 
                 _mInfo.MA_BAO_TRO_TT = Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY
                 ''Insert vào CSDL:

@@ -71,6 +71,11 @@ Public Class ActiveUsers
             lblError.Visible = True
             Exit Sub
         End If
+        If txtMA_BAO_TRO.Text.Equals("") Then
+            lblError.Text = "Người bảo trợ không tồn tại."
+            lblError.Visible = True
+            Exit Sub
+        End If
         Dim info As New MSA_MemberInfo
         info.MA_KH = txtMa_KH.Text
         info.MA_CAY_TT = txtMA_UPLINE.Text

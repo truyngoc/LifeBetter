@@ -74,6 +74,7 @@
         <br />
         <div class="row">
             <div class="col-md-offset-3 col-md-8">
+                <asp:CheckBox runat="server" CssClass="check alert-danger" ID="chkNV" Text="Nhân viên LIFE BETTER" ForeColor="Red" Visible="false"/><br />
                 <asp:Button ID="btnSubmit" runat="server" Text="Register member" class="btn btn-info" Style="border: 2px solid #FFF;" />
             </div>
         </div>
