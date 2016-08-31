@@ -84,9 +84,9 @@ Public Class ActiveUsers
         info.MA_BAO_TRO = txtMA_BAO_TRO.Text
         info.MA_GOI_DAU_TU = lstGOI_DAU_TU.SelectedIndex + 1
         If chkCtyHoTro.Checked = True Then
-            info.NV = 99
+            info.TRANG_THAI = 2
         Else
-            info.NV = 0
+            info.TRANG_THAI = 1
         End If
         Singleton(Of MSA_MemberDAO).Inst.Update_KICH_HOAT(info)
         Response.Redirect("AccountTreeView")
