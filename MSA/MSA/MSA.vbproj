@@ -485,6 +485,7 @@
     <Content Include="vendors\skycons.js" />
     <Content Include="vendors\validator.js" />
     <None Include="My Project\PublishProfiles\12.pubxml" />
+    <None Include="My Project\PublishProfiles\LIFE BETTER.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Admin\common-scripts.js" />
     <Content Include="Scripts\Admin\easy-pie-chart.js" />
