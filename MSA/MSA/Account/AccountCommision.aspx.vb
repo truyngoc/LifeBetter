@@ -33,11 +33,6 @@ Public Class AccountCommision
             ' gan len form
             Load_Data_To_Form(oHoaHong)
 
-
-            'load doanh so
-            Dim title As String = "<h4 class='text-center'>Thu thập các tháng trước</h4>"
-            lblDOANH_SO_THANG.Text = Server.HtmlDecode(title)
-
             bindDOANH_SO()
         End If
         
@@ -110,15 +105,15 @@ Public Class AccountCommision
             lblTONG_THU_NHAP_CAC_KY.Text = IIf(o.TONG_THU_NHAP_CAC_KY = 0, 0, o.TONG_THU_NHAP_CAC_KY.ToString("#,###"))
             lblHOA_HONG_TRUC_TIEP.Text = IIf(o.HOA_HONG_TRUC_TIEP = 0, 0, o.HOA_HONG_TRUC_TIEP.ToString("#,###"))
             lblHOA_HONG_GIAN_TIEP.Text = IIf(o.HOA_HONG_GIAN_TIEP = 0, 0, o.HOA_HONG_GIAN_TIEP.ToString("#,###"))
-            lblHOA_HONG_CO_BAN.Text = IIf(o.HOA_HONG_CO_BAN = 0, 0, o.HOA_HONG_CO_BAN.ToString("#,###"))
+            'lblHOA_HONG_CO_BAN.Text = IIf(o.HOA_HONG_CO_BAN = 0, 0, o.HOA_HONG_CO_BAN.ToString("#,###"))
             lblHOA_HONG_CO_BAN_DUOC_TINH.Text = IIf(o.HOA_HONG_CO_BAN_DUOC_TINH = 0, 0, o.HOA_HONG_CO_BAN_DUOC_TINH.ToString("#,###"))
             lblQUY_TIEN_MAT.Text = IIf(o.QUY_TIEN_MAT = 0, 0, o.QUY_TIEN_MAT.ToString("#,###"))
             lblQUY_PHONG_CACH.Text = IIf(o.QUY_PHONG_CACH = 0, 0, o.QUY_PHONG_CACH.ToString("#,###"))
             lblQUY_DAO_TAO.Text = IIf(o.QUY_DAO_TAO = 0, 0, o.QUY_DAO_TAO.ToString("#,###"))
-            lblTONG_CONG_DOANH_SO_THANG.Text = IIf(o.TONG_THU_NHAP_THANG = 0, 0, o.TONG_THU_NHAP_THANG.ToString("#,###"))
+            'lblTONG_CONG_DOANH_SO_THANG.Text = IIf(o.TONG_THU_NHAP_THANG = 0, 0, o.TONG_THU_NHAP_THANG.ToString("#,###"))
 
             lblTHUONG_THANH_TICH.Text = IIf(o.THUONG_THANH_TICH = 0, 0, o.THUONG_THANH_TICH.ToString("#,###"))
-            lblTHUONG_THANH_TICH_DUOC_TINH.Text = IIf(o.THUONG_THANH_TICH_DUOC_TINH = 0, 0, o.THUONG_THANH_TICH_DUOC_TINH.ToString("#,###"))
+            'lblTHUONG_THANH_TICH_DUOC_TINH.Text = IIf(o.THUONG_THANH_TICH_DUOC_TINH = 0, 0, o.THUONG_THANH_TICH_DUOC_TINH.ToString("#,###"))
         End If
     End Sub
 
@@ -131,13 +126,9 @@ Public Class AccountCommision
         lstDOANH_SO = daoDOANH_SO.get_by_MA_KH(sMA_KH)
 
         If lstDOANH_SO IsNot Nothing Then
-            lblDOANH_SO_THANG.Visible = True
-
             datagrid.DataSource = lstDOANH_SO
             datagrid.DataBind()
         Else
-            lblDOANH_SO_THANG.Visible = False
-
             datagrid.DataSource = Nothing
             datagrid.DataBind()
         End If

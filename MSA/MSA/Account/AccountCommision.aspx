@@ -8,7 +8,7 @@
 
             .bonus .header {
                 /*background-color: #0B8D35;*/
-                 background-color: #036299;
+                background-color: #036299;
                 color: white;
                 font-size: larger;
                 padding-left: 10px;
@@ -47,7 +47,7 @@
             .hoahong .title {
                 color: White;
                 /*background-color: #0B8D35;*/
-                 background-color: #036299;
+                background-color: #036299;
                 font-size: Small;
                 font-weight: bold;
                 width: 190px;
@@ -79,7 +79,7 @@
             .mydatagrid .header {
                 /*background-color: #646464;*/
                 /*background-color: #ff0c0c;*/
-                background-color: #036299;                
+                background-color: #036299;
                 font-family: Arial;
                 color: White;
                 /*border: none 0px transparent;*/
@@ -102,7 +102,7 @@
         }
 
             .rows:hover {
-                background-color: #ff8000;                
+                background-color: #ff8000;
                 font-family: Arial;
                 color: #fff;
                 text-align: left;
@@ -160,7 +160,7 @@
             var x = screen.width / 2 - w / 2;
             var y = screen.height / 2 - h / 2;
             window.open("AccountCommisionDetail.aspx?ID=" + id, 'Xem chi tiết doanh thu, hoa hồng',
-          'height='+ h + ',width=' + w + ',left=' + x + ',top=' + y);
+          'height=' + h + ',width=' + w + ',left=' + x + ',top=' + y);
 
             return false;
         }
@@ -201,80 +201,114 @@
                 <input type="submit" name="dnn$ctr513$HoaHong$btnExcel" value="Xuất file Excel" id="dnn_ctr513_HoaHong_btnExcel" class="btn btn-warning .btn-lg btnexcel">
             </div>--%>
             <div>
-                <div>
-                    <h4 class="text-center">Thu nhập tháng hiện tại</h4>
+                <div class="row">
+                    <h4 class="text-center" style="color:#cc181e";>HOA HỒNG THÁNG HIỆN TẠI</h4>
                 </div>
-                <div>
-                    <table class="hoahong " cellspacing="0" rules="all" border="1" style="height: 50px; width: 400px; border-collapse: collapse;">
-                        <tbody>
-                            <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
-                                <td align="left" class="title">Hoa hồng Trực tiếp</td>
-                                <td>
-                                    <asp:Label ID="lblHOA_HONG_TRUC_TIEP" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
-                                <td align="left" class="title">Hoa hồng gián tiếp</td>
-                                <td>
-                                    <asp:Label ID="lblHOA_HONG_GIAN_TIEP" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
-                                <td align="left" class="title">Hoa hồng cơ bản</td>
-                                <td>
-                                    <asp:Label ID="lblHOA_HONG_CO_BAN" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
-                                <td align="left" class="title">Hoa hồng cơ bản được tính</td>
-                                <td>
-                                    <asp:Label ID="lblHOA_HONG_CO_BAN_DUOC_TINH" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
-                                <td align="left" class="title">Thưởng thành tích</td>
-                                <td>
-                                    <asp:Label ID="lblTHUONG_THANH_TICH" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
-                                <td align="left" class="title">Thưởng thành tích được tính</td>
-                                <td>
-                                    <asp:Label ID="lblTHUONG_THANH_TICH_DUOC_TINH" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
-                                <td align="left" class="title">Quỹ tiền mặt</td>
-                                <td>
-                                    <asp:Label ID="lblQUY_TIEN_MAT" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
-                                <td align="left" class="title">Quỹ phong cách sống</td>
-                                <td>
-                                    <asp:Label ID="lblQUY_PHONG_CACH" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
-                                <td align="left" class="title">Quỹ đào tạo</td>
-                                <td>
-                                    <asp:Label ID="lblQUY_DAO_TAO" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr align="right" style="background-color: #E6E6E6; font-size: Larger;">
-                                <td align="left" class="title">Tổng cộng</td>
-                                <td style="color: #FE3F00; font-weight: bold;">
-                                    <asp:Label ID="lblTONG_CONG_DOANH_SO_THANG" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <br />
+                <div class="row">
+
+                    <label class="col-md-3 control-label">
+                        <li>Hoa hồng trực tiếp: </li>
+                    </label>
+                    <div class="col-md-8">
+                        <asp:Label ID="lblHOA_HONG_TRUC_TIEP" runat="server" ForeColor="Blue" Font-Bold="true"></asp:Label>
+                    </div>
                 </div>
+                <br />
+                <div class="row">
+
+                    <label class="col-md-3 control-label">
+                        <li>Hoa hồng gián tiếp: </li>
+                    </label>
+                    <div class="col-md-8">
+                        <asp:Label ID="lblHOA_HONG_GIAN_TIEP" runat="server" ForeColor="Blue" Font-Bold="true"></asp:Label>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+
+                    <label class="col-md-3 control-label">
+                        <li>Hoa hồng cơ bản: </li>
+                    </label>
+                    <div class="col-md-8">
+                        <asp:Label ID="lblHOA_HONG_CO_BAN_DUOC_TINH" runat="server" ForeColor="Blue" Font-Bold="true"></asp:Label>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+
+                    <label class="col-md-3 control-label">
+                        <li>Tổng thu nhập: </li>
+                    </label>
+
+                    <div class="col-md-5">
+                        <table class="hoahong" border="1" style="height: 50px; width: 600px; border-collapse: collapse;">
+                            <tr>
+                                <td align="center" style="background-color:  #cc181e;">
+                                    <asp:Label runat="server" ID="Header1" Text="50%" Font-Bold="true" ForeColor="White"> </asp:Label>
+                                </td>
+                                <td align="center" style="background-color:  #cc181e;">
+                                    <asp:Label runat="server" ID="Label1" Text="30%" Font-Bold="true" ForeColor="White"> </asp:Label>
+                                </td>
+                                <td align="center" style="background-color:  #cc181e;">
+                                    <asp:Label runat="server" ID="Label2" Text="20%" Font-Bold="true" ForeColor="White"> </asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <label>Quỹ tiền mặt </label>
+                                </td>
+                                <td align="center">
+                                    <label>Quỹ phong cách sống </label>
+                                </td>
+                                <td align="center">
+                                    <label>Quỹ đào tạo </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" class="bonus">
+                                    <asp:Label ID="lblQUY_TIEN_MAT" runat="server" ForeColor="Blue" Font-Bold="true"></asp:Label>
+                                </td>
+                                <td align="center" class="bonus">
+                                    <asp:Label ID="lblQUY_PHONG_CACH" runat="server" ForeColor="Blue" Font-Bold="true"></asp:Label>
+                                </td>
+                                <td align="center" class="bonus">
+                                    <asp:Label ID="lblQUY_DAO_TAO" runat="server" ForeColor="Blue" Font-Bold="true"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+
+                    <label class="col-md-3 control-label">
+                        <li>Thưởng thành tích: </li>
+                    </label>
+
+                    <div class="col-md-5">
+                        <table class="hoahong" border="1" style="height: 50px; width: 600px; border-collapse: collapse;">
+                            <tr>
+                                <td align="center" style="background-color:  #cc181e;">
+                                    <asp:Label runat="server" ID="Label4" Text="Thưởng" Font-Bold="true" ForeColor="White"> </asp:Label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="center" class="bonus">
+                                    <asp:Label ID="lblTHUONG_THANH_TICH" runat="server" ForeColor="Blue" Font-Bold="true"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
 
 
                 <hr />
                 <div>
-                    <asp:Label ID="lblDOANH_SO_THANG" runat="server" ></asp:Label>
+                    <h4 class="text-center" style="color:#cc181e";>HOA HỒNG CÁC THÁNG TRƯỚC</h4>
                     <%--<h4 class="text-center">Thu nhập tháng hiện tại</h4>--%>
                 </div>
                 <div>
@@ -322,8 +356,7 @@
                                 <ItemTemplate>
                                     <asp:ImageButton ID="cmdView" runat="server" CausesValidation="false" CommandName="cmdView"
                                         CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/view_detail.png" ToolTip="Xem chi tiết"
-                                        OnClientClick='<%# String.Format("return view_Data({0});", Eval("ID"))%>'
-                                         />
+                                        OnClientClick='<%# String.Format("return view_Data({0});", Eval("ID"))%>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

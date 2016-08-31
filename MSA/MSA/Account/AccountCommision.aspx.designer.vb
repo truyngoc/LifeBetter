@@ -23,6 +23,24 @@ Partial Public Class AccountCommision
     Protected WithEvents lblTONG_THU_NHAP_CAC_KY As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''txtThang control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtThang As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''btnShow control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnShow As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''lblHOA_HONG_TRUC_TIEP control.
     '''</summary>
     '''<remarks>
@@ -41,15 +59,6 @@ Partial Public Class AccountCommision
     Protected WithEvents lblHOA_HONG_GIAN_TIEP As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblHOA_HONG_CO_BAN control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblHOA_HONG_CO_BAN As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''lblHOA_HONG_CO_BAN_DUOC_TINH control.
     '''</summary>
     '''<remarks>
@@ -59,22 +68,31 @@ Partial Public Class AccountCommision
     Protected WithEvents lblHOA_HONG_CO_BAN_DUOC_TINH As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTHUONG_THANH_TICH control.
+    '''Header1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTHUONG_THANH_TICH As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents Header1 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTHUONG_THANH_TICH_DUOC_TINH control.
+    '''Label1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTHUONG_THANH_TICH_DUOC_TINH As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Label2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lblQUY_TIEN_MAT control.
@@ -104,13 +122,22 @@ Partial Public Class AccountCommision
     Protected WithEvents lblQUY_DAO_TAO As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTONG_CONG_DOANH_SO_THANG control.
+    '''Label4 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTONG_CONG_DOANH_SO_THANG As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblTHUONG_THANH_TICH control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblTHUONG_THANH_TICH As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lblDOANH_SO_THANG control.
