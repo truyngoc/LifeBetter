@@ -99,7 +99,7 @@
                                         <asp:Label ID="lblSO_THANH_VIEN_MOI_PHAI" runat="server"></asp:Label>
                                     </td>
                                 </tr>
-                                <tr>
+<%--                                <tr>
                                     <td class="col-first">Số Thành viên Mới được bảo trợ</td>
                                     <td class="content">
                                         <asp:Label ID="lblSO_THANH_VIEN_MOI_BAO_TRO_TRAI" runat="server"></asp:Label>
@@ -107,7 +107,7 @@
                                     <td class="content">
                                         <asp:Label ID="lblSO_THANH_VIEN_MOI_BAO_TRO_PHAI" runat="server"></asp:Label>
                                     </td>
-                                </tr>
+                                </tr>--%>
                             </tbody>
                         </table>
 

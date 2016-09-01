@@ -88,7 +88,7 @@ Public Class AccountTreeView
         query += ", MA_DANH_HIEU"
         query += " FROM MEMBERS"
         query += " WHERE ((MA_CAY ='" & ma_cay + "') OR (MA_CAY_TT like '" & ma_cay + "%'))"
-        query += " AND TRANG_THAI =1 and NV=0 and MA_BAO_TRO_TT is not null and MA_BAO_TRO_TT<>''"
+        query += " AND TRANG_THAI =1 and NV=0 and MA_BAO_TRO_TT is not null and MA_BAO_TRO_TT <> ''"
 
 
         query += " UNION "
@@ -190,8 +190,8 @@ Public Class AccountTreeView
             lblTONG_SO_THANH_VIEN_PHAI.Text = IIf(o.TONG_SO_THANH_VIEN_PHAI = 0, 0, o.TONG_SO_THANH_VIEN_PHAI.ToString("#,###"))
             lblSO_THANH_VIEN_MOI_TRAI.Text = IIf(o.SO_THANH_VIEN_MOI_TRAI = 0, 0, o.SO_THANH_VIEN_MOI_TRAI.ToString("#,###"))
             lblSO_THANH_VIEN_MOI_PHAI.Text = IIf(o.SO_THANH_VIEN_MOI_PHAI = 0, 0, o.SO_THANH_VIEN_MOI_PHAI.ToString("#,###"))
-            lblSO_THANH_VIEN_MOI_BAO_TRO_TRAI.Text = IIf(o.SO_THANH_VIEN_MOI_BAO_TRO_TRAI = 0, 0, o.SO_THANH_VIEN_MOI_BAO_TRO_TRAI.ToString("#,###"))
-            lblSO_THANH_VIEN_MOI_BAO_TRO_PHAI.Text = IIf(o.SO_THANH_VIEN_MOI_BAO_TRO_PHAI = 0, 0, o.SO_THANH_VIEN_MOI_BAO_TRO_PHAI.ToString("#,###"))
+            'lblSO_THANH_VIEN_MOI_BAO_TRO_TRAI.Text = IIf(o.SO_THANH_VIEN_MOI_BAO_TRO_TRAI = 0, 0, o.SO_THANH_VIEN_MOI_BAO_TRO_TRAI.ToString("#,###"))
+            'lblSO_THANH_VIEN_MOI_BAO_TRO_PHAI.Text = IIf(o.SO_THANH_VIEN_MOI_BAO_TRO_PHAI = 0, 0, o.SO_THANH_VIEN_MOI_BAO_TRO_PHAI.ToString("#,###"))
         End If
     End Sub
 End Class

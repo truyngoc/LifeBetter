@@ -122,24 +122,6 @@ Partial Public Class AccountTreeView
     Protected WithEvents lblSO_THANH_VIEN_MOI_PHAI As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblSO_THANH_VIEN_MOI_BAO_TRO_TRAI control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblSO_THANH_VIEN_MOI_BAO_TRO_TRAI As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblSO_THANH_VIEN_MOI_BAO_TRO_PHAI control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblSO_THANH_VIEN_MOI_BAO_TRO_PHAI As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''txtMA_CAY control.
     '''</summary>
     '''<remarks>
