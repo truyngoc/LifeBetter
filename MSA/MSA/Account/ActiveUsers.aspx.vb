@@ -28,6 +28,10 @@ Public Class ActiveUsers
             lblError.Text = "Không tìm thấy mã khách hàng"
             lblError.Visible = True
             VisbleForm()
+        ElseIf info.NV = 1 Then
+            lblError.Text = "Tài khoản nhân viên không được kích hoạt"
+            lblError.Visible = True
+            VisbleForm()
         Else
             txtTEN.Text = info.TEN
             txtCMND.Text = info.CMND
@@ -36,8 +40,6 @@ Public Class ActiveUsers
             If String.IsNullOrEmpty(info.MA_BAO_TRO) Then
                 txtBaoTro.Enabled = True
                 btnCheckBaoTro.Enabled = True
-                lblError.Text = "Không tìm thấy mã người bảo trợ"
-                lblError.Visible = True
             Else
                 Dim infoBaoTro As MSA_MemberInfo = Singleton(Of MSA_MemberDAO).Inst.FindByMA_BAO_TRO(info.MA_BAO_TRO)
                 txtTEN_BAO_TRO.Text = infoBaoTro.TEN
