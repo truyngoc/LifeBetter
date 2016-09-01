@@ -245,26 +245,16 @@
                         <table class="hoahong" border="1" style="height: 50px; width: 600px; border-collapse: collapse;">
                             <tr>
                                 <td align="center" style="background-color:  #cc181e;">
-                                    <asp:Label runat="server" ID="Header1" Text="50%" Font-Bold="true" ForeColor="White"> </asp:Label>
+                                    <asp:Label runat="server" ID="Header1" Text="Quỹ tiền mặt" Font-Bold="true" ForeColor="White"> </asp:Label>
                                 </td>
                                 <td align="center" style="background-color:  #cc181e;">
-                                    <asp:Label runat="server" ID="Label1" Text="30%" Font-Bold="true" ForeColor="White"> </asp:Label>
+                                    <asp:Label runat="server" ID="Label1" Text="Quỹ phong cách sống" Font-Bold="true" ForeColor="White"> </asp:Label>
                                 </td>
                                 <td align="center" style="background-color:  #cc181e;">
-                                    <asp:Label runat="server" ID="Label2" Text="20%" Font-Bold="true" ForeColor="White"> </asp:Label>
+                                    <asp:Label runat="server" ID="Label2" Text="Quỹ đào tạo" Font-Bold="true" ForeColor="White"> </asp:Label>
                                 </td>
                             </tr>
-                            <tr>
-                                <td align="center">
-                                    <label>Quỹ tiền mặt </label>
-                                </td>
-                                <td align="center">
-                                    <label>Quỹ phong cách sống </label>
-                                </td>
-                                <td align="center">
-                                    <label>Quỹ đào tạo </label>
-                                </td>
-                            </tr>
+
                             <tr>
                                 <td align="center" class="bonus">
                                     <asp:Label ID="lblQUY_TIEN_MAT" runat="server" ForeColor="Blue" Font-Bold="true"></asp:Label>

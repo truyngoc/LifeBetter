@@ -23,24 +23,6 @@ Partial Public Class AccountCommision
     Protected WithEvents lblTONG_THU_NHAP_CAC_KY As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtThang control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtThang As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''btnShow control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnShow As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
     '''lblHOA_HONG_TRUC_TIEP control.
     '''</summary>
     '''<remarks>
@@ -138,15 +120,6 @@ Partial Public Class AccountCommision
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblTHUONG_THANH_TICH As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblDOANH_SO_THANG control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblDOANH_SO_THANG As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''datagrid control.
