@@ -87,7 +87,8 @@ Public Class AccountTreeView
         query += ", MA_GOI_DAU_TU"
         query += ", MA_DANH_HIEU"
         query += " FROM MEMBERS"
-        query += " WHERE MA_CAY ='" & ma_cay + "' OR MA_CAY_TT like '" & ma_cay + "%'"
+        query += " WHERE ((MA_CAY ='" & ma_cay + "') OR (MA_CAY_TT like '" & ma_cay + "%'))"
+        query += " AND TRANG_THAI =1 and NV=0 and MA_BAO_TRO_TT is not null and MA_BAO_TRO_TT<>''"
 
 
         query += " UNION "
