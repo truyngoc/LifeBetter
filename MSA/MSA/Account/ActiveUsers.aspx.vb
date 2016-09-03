@@ -32,6 +32,10 @@ Public Class ActiveUsers
             lblError.Text = "Tài khoản nhân viên không được kích hoạt"
             lblError.Visible = True
             VisbleForm()
+        ElseIf info.TRANG_THAI = 1 Or info.TRANG_THAI = 2 Then
+            lblError.Text = "Tài khoản đã được kích hoạt"
+            lblError.Visible = True
+            VisbleForm()
         Else
             txtTEN.Text = info.TEN
             txtCMND.Text = info.CMND
@@ -67,6 +71,45 @@ Public Class ActiveUsers
         End If
     End Sub
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <returns>0: Không có, 1: Kim cương, 2: chủ tịch</returns>
+    ''' <remarks></remarks>
+    Private Function checkDanhHieu(ByVal MA_CAY As String) As List(Of String)
+        Dim lstKimCuong As New List(Of String)
+        Dim objMember As MSA_MemberInfo
+        Dim oHoaHong As HOA_HONG
+        While MA_CAY.Length > 2
+            Try
+                MA_CAY = MA_CAY.Substring(0, MA_CAY.Length - 2)
+                oHoaHong = Singleton(Of MSA_DOANH_SO_DAO).Inst.Tinh_Hoa_Hong(MA_CAY, _
+                                                     Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
+                                                     DateTime.Today.Month, DateTime.Today.Year)
+                Dim DOANH_SO_NHANH_YEU As Long = IIf(oHoaHong.DOANH_SO_TICH_LUY_TRAI >= oHoaHong.DOANH_SO_TICH_LUY_PHAI, oHoaHong.DOANH_SO_TICH_LUY_PHAI, oHoaHong.DOANH_SO_TICH_LUY_TRAI)
+                objMember = Singleton(Of MSA_MemberDAO).Inst.FindByMA_CAY(MA_CAY)
+                If DateDiff("d", objMember.NGAY_THAM_GIA, DateTime.Now) <= 60 Then
+                    If DOANH_SO_NHANH_YEU >= 180000000 Then
+                        lstKimCuong.Add(MA_CAY)
+                    End If
+                ElseIf DateDiff("d", objMember.NGAY_THAM_GIA, DateTime.Now) <= 150 Then
+                    If DOANH_SO_NHANH_YEU >= 300000000 Then
+                        lstKimCuong.Add(MA_CAY)
+                    End If
+                Else
+                    If DOANH_SO_NHANH_YEU >= 3000000000 Then
+                        lstKimCuong.Add(MA_CAY)
+                    End If
+                End If
+
+            Catch ex As Exception
+
+            End Try
+        End While
+
+
+        Return lstKimCuong
+    End Function
     Protected Sub btnKICHHOAT_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnKichHoat.Click
         If lstVITRI.Visible = False Then
             lblError.Text = "Người chỉ định đã đủ hai nhánh, hãy chọn người chỉ định khác"
@@ -96,6 +139,28 @@ Public Class ActiveUsers
             info.TRANG_THAI = 1
         End If
         Singleton(Of MSA_MemberDAO).Inst.Update_KICH_HOAT(info)
+
+        Dim lstDanhHieu As List(Of String) = checkDanhHieu(info.MA_CAY)
+        If lstDanhHieu IsNot Nothing AndAlso lstDanhHieu.Count > 0 Then
+            For Each MA_CAY As String In lstDanhHieu
+                Singleton(Of MSA_MemberDAO).Inst.UpdateDanhHieuKimCuong(MA_CAY)
+                'CHECK DANH HIEU CHU TICH
+                Dim objMember As MSA_MemberInfo = Singleton(Of MSA_MemberDAO).Inst.FindBaoTro(MA_CAY)
+                If objMember.MA_DANH_HIEU < 2 Then
+                    'CHECK DOANH SO TICH LUY
+                    Dim oHoaHong As HOA_HONG
+                    Dim daoDOANH_SO As New MSA_DOANH_SO_DAO
+                    oHoaHong = daoDOANH_SO.Tinh_Hoa_Hong(objMember.MA_CAY, _
+                                     Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
+                                     DateTime.Today.Month, DateTime.Today.Year)
+                    Dim DOANH_SO_NHANH_YEU As Long = IIf(oHoaHong.DOANH_SO_TICH_LUY_TRAI >= oHoaHong.DOANH_SO_TICH_LUY_PHAI, oHoaHong.DOANH_SO_TICH_LUY_PHAI, oHoaHong.DOANH_SO_TICH_LUY_TRAI)
+                    If DOANH_SO_NHANH_YEU >= 9000000000 Then
+                        Singleton(Of MSA_MemberDAO).Inst.UpdateDanhHieuChuTich(objMember.MA_CAY)
+                    End If
+                End If
+
+            Next
+        End If
         Response.Redirect("AccountTreeView")
     End Sub
 

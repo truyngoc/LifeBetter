@@ -15,14 +15,14 @@ Public Class LoginAcount
         If (Page.IsValid) Then
             Dim _mInfo As MSA_MemberInfo = Singleton(Of MSA_MemberDAO).Inst.Find(txtMA_KH.Text, txtMAT_KHAU.Text)
             If (_mInfo IsNot Nothing) Then
-                If _mInfo.TRANG_THAI = 2 Then
+                If _mInfo.TRANG_THAI = 3 Then
                     lblMessage.Text = "Mã khách hàng đang bị khóa."
                     lblMessage.Visible = True
 
                 Else
                     Singleton(Of MSACurrentSession).Inst.SessionMember = _mInfo
                     lblMessage.Visible = False
-                    Response.Redirect("AccountTreeView.aspx")
+                    Response.Redirect("../Account/AccountTreeView.aspx")
                     ''Response.Redirect("~/default.aspx")
                 End If
             Else

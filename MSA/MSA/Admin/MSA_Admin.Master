@@ -155,8 +155,8 @@
                             <ul class="dropdown-content">
                                 <li><a href="../Account/AccountTreeView">Doanh số</a></li>
                                 <li><a href="../Account/AccountCommision">Hoa hồng</a></li>
-                                <%--<li><a href="../Account/BusinessReport">Báo cáo kinh doanh</a></li>--%>
-                                <li><a href="#">Báo cáo kinh doanh</a></li>
+                                <li><a href="../Account/BusinessReport">Báo cáo kinh doanh</a></li>
+                                <%--<li><a href="#">Báo cáo kinh doanh</a></li>--%>
                             </ul>
                         </li>
 
@@ -164,7 +164,8 @@
                             <a href="#" class="dropbtn">Quản trị</a>
                             <ul class="dropdown-content">
                                 <li><a href="../Account/ActiveUsers">Kích hoạt tài khoản</a></li>
-                                <li><a href="#">Danh sách thành viên</a></li>
+                                <li><a href="../Account/AccountManager">Quản lý thành viên</a></li>
+                                <li><a href="#">Quản lý đơn hàng</a></li>
                                 <li><a href="../Account/CommisionStatistics">Báo cáo thống kê</a></li>
                                 <li><a href="../Account/AccountCommisionCommit">Chốt hoa hồng hàng tháng</a></li>
                             </ul>
@@ -259,20 +260,30 @@
                                     </div>
 
                                     <div class="infodetail" style="padding-left: 10px;">
+                                        <asp:Label runat="server" ID="lblDanhHieu" CssClass="lblname"></asp:Label>
+                                        <br />
+                                        <div id="divDanhHieu" runat="server">
+                                            <h4>DANH HIỆU KIM CƯƠNG</h4>
+                                            <div class="unit_value" id="Clock1" style="font-size: 35px; line-height: 40px; color: #cc181e">
+                                                <label id="id_days"></label>
+                                                :
+                                                    <label id="id_hours"></label>
+                                                :
+                                                    <label id="id_minutes"></label>
+                                                :
+                                                    <label id="id_seconds"></label>
+                                            </div>
+                                            <div class="unit_value" id="1" style="font-size: 14px; line-height: 25px;">
+                                                <label>NGÀY</label>
+                                                <label>&nbsp;&nbsp;&nbsp;&nbsp;GIỜ </label>
+                                                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PHÚT</label>
+                                                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GIÂY</label>
+                                            </div>
+                                            <br />
 
-                                        <div>
-                                            <span><b>DANH HIỆU KIM CƯƠNG
-                                               
-                                                <br />
-                                                BALI + 3000$ </b></span>
-                                            <br />
-                                            <span>- Trong 60 ngày: tích lũy doanh số 180 triệu nhánh yếu</span>
-                                            <br />
-                                            <span>- Trong 150 ngày: tích lũy doanh số 300 triệu nhánh yếu</span>
-                                            <br />
-                                            <span>- Sau 150 ngày: tích lũy doanh số 3 tỷ nhánh yếu</span>
-                                            <br />
-
+                                            
+                                            <%--                                            <span></span>
+                                            <span></span>
                                             <span><b>DANH HIỆU CHỦ TỊCH:
                                                
                                                 <br />
@@ -280,7 +291,79 @@
                                             <br />
                                             <span>- Giúp 2F1 lên KIM CƯƠNG</span>
                                             <br />
-                                            <span>- Tích lũy doanh số 9 tỷ</span>
+                                            <span>- Tích lũy doanh số 9 tỷ</span>--%>
+                                        </div>
+
+                                        <div>
+                                            <h4>TÁI KÍCH HOẠT</h4>
+                                            <div class="unit_value" id="Clock2" style="font-size: 33px; line-height: 40px; color: #cc181e">
+                                                <label id="id_days2"></label>
+                                                :
+                                                    <label id="id_hours2"></label>
+                                                :
+                                                    <label id="id_minutes2"></label>
+                                                :
+                                                    <label id="id_seconds2"></label>
+                                            </div>
+                                            <div class="unit_value" id="2" style="font-size: 14px; line-height: 25px;">
+                                                <label>NGÀY</label>
+                                                <label>&nbsp;&nbsp;&nbsp;&nbsp;GIỜ </label>
+                                                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PHÚT</label>
+                                                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GIÂY</label>
+                                            </div>
+                                            <br />
+ 
+                                            <script type="text/javascript">
+                                                var leave =<%=seconds %>;
+                                                var leave2 =<%=seconds2 %>;
+                                                CounterTimer();
+                                                var interv=setInterval(CounterTimer,1000);
+                                                function CounterTimer()
+                                                {
+                                                    var day = Math.floor(leave / ( 60 * 60 * 24))
+                                                    var hour = Math.floor(leave / 3600) - (day * 24)
+                                                    var minute = Math.floor(leave / 60) - (day * 24 *60) - (hour * 60)
+                                                    var second = Math.floor(leave) - (day * 24 *60*60) - (hour * 60 * 60) - (minute*60)
+                                                    hour=hour<10 ? "0" + hour : hour;
+                                                    minute=minute<10 ? "0" + minute : minute;
+                                                    second=second<10 ? "0" + second : second;
+                                                    var remain=day + " days   "+hour + ":"+minute+":"+second;
+                                                    leave=leave-1;
+
+                                                    var day2 = Math.floor(leave2 / ( 60 * 60 * 24))
+                                                    var hour2 = Math.floor(leave2 / 3600) - (day2 * 24)
+                                                    var minute2 = Math.floor(leave2 / 60) - (day2 * 24 *60) - (hour2 * 60)
+                                                    var second2 = Math.floor(leave2) - (day2 * 24 *60*60) - (hour2 * 60 * 60) - (minute2*60)
+                                                    hour2=hour2<10 ? "0" + hour2 : hour2;
+                                                    minute2=minute2<10 ? "0" + minute2 : minute2;
+                                                    second2=second2<10 ? "0" + second2 : second2;
+                                                    var remain2=day2 + " days   "+hour2 + ":"+minute2+":"+second2;
+                                                    leave2=leave2-1;
+
+                                                    
+                                                    document.getElementById("id_days2").innerHTML=day2;
+                                                    document.getElementById("id_hours2").innerHTML=hour2;
+                                                    document.getElementById("id_minutes2").innerHTML=minute2;
+                                                    document.getElementById("id_seconds2").innerHTML=second2;
+
+                                                    document.getElementById("id_days").innerHTML=day;
+                                                    document.getElementById("id_hours").innerHTML=hour;
+                                                    document.getElementById("id_minutes").innerHTML=minute;
+                                                    document.getElementById("id_seconds").innerHTML=second;
+
+                                                }
+                                            </script>
+                                            
+                                            <%--                                            <span></span>
+                                            <span></span>
+                                            <span><b>DANH HIỆU CHỦ TỊCH:
+                                               
+                                                <br />
+                                                THƯỞNG XE Ô TÔ:</b> </span>
+                                            <br />
+                                            <span>- Giúp 2F1 lên KIM CƯƠNG</span>
+                                            <br />
+                                            <span>- Tích lũy doanh số 9 tỷ</span>--%>
                                         </div>
                                     </div>
 

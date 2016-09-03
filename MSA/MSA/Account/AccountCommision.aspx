@@ -182,14 +182,13 @@
                 </tbody>
             </table>
             <hr>
-            <%--<div class="month">
-                <span class="title">Tháng</span>
-                <asp:DropDownList ID="dllHOA_HONG_THANG" runat="server" CssClass="form-control"></asp:DropDownList>
+            <div class="month">
 
-                <asp:Button ID="btnExcel" runat="server" Text="Xuất file Excel" CssClass="btn btn-warning .btn-lg btnexcel" />
+                <asp:DropDownList ID="dllHOA_HONG_THANG" runat="server" CssClass="form-control" OnSelectedIndexChanged="dllHOA_HONG_THANG_SelectedIndexChanged"></asp:DropDownList>
+                <br /><br /><br />
 
-                <select name="dnn$ctr513$HoaHong$cmbMonth" onchange="javascript:setTimeout('__doPostBack(\'dnn$ctr513$HoaHong$cmbMonth\',\'\')', 0)" id="dnn_ctr513_HoaHong_cmbMonth" class="combobox form-control">
-                    <option selected="selected" value="45">07 - 2016</option>
+<%--                <select name="dnn$ctr513$HoaHong$cmbMonth" onchange="javascript:setTimeout('__doPostBack(\'dnn$ctr513$HoaHong$cmbMonth\',\'\')', 0)" id="dnn_ctr513_HoaHong_cmbMonth" class="combobox form-control">
+                    <option selected="selected" value="45">09 - 2016</option>
                     <option value="44">06 - 2016</option>
                     <option value="43">05 - 2016</option>
                     <option value="42">04 - 2016</option>
@@ -197,14 +196,14 @@
                     <option value="40">02 - 2016</option>
                     <option value="39">01 - 2016</option>
 
-                </select>
-                <input type="submit" name="dnn$ctr513$HoaHong$btnExcel" value="Xuất file Excel" id="dnn_ctr513_HoaHong_btnExcel" class="btn btn-warning .btn-lg btnexcel">
-            </div>--%>
+                </select>--%>
+                <%--<input type="submit" name="dnn$ctr513$HoaHong$btnExcel" value="Xuất file Excel" id="dnn_ctr513_HoaHong_btnExcel" class="btn btn-warning .btn-lg btnexcel">--%>
+            </div>
             <div>
-                <div class="row">
+<%--                <div class="row">
                     <h4 class="text-center" style="color:#cc181e";>HOA HỒNG THÁNG HIỆN TẠI</h4>
                 </div>
-                <br />
+                <br />--%>
                 <div class="row">
 
                     <label class="col-md-3 control-label">
@@ -297,11 +296,11 @@
 
 
                 <hr />
-                <div>
+<%--                <div>
                     <h4 class="text-center" style="color:#cc181e";>HOA HỒNG CÁC THÁNG TRƯỚC</h4>
                     <%--<h4 class="text-center">Thu nhập tháng hiện tại</h4>--%>
-                </div>
-                <div>
+<%--                </div>--%>
+                <%--<div>
                     <asp:GridView ID="datagrid" runat="server" CssClass="mydatagrid" PagerStyle-CssClass="pager" AutoGenerateColumns="false" PageSize="12"
                         HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" OnPageIndexChanging="datagrid_PageIndexChanging">
                         <Columns>
@@ -351,7 +350,7 @@
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
-                </div>
+                </div>--%>
             </div>
         </div>
     </div>

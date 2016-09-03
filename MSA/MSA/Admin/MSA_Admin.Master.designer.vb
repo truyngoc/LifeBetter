@@ -50,6 +50,24 @@ Partial Public Class MSA_Admin
     Protected WithEvents lblTrangThai As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''lblDanhHieu control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblDanhHieu As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''divDanhHieu control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents divDanhHieu As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''imgAnhDaiDien control.
     '''</summary>
     '''<remarks>

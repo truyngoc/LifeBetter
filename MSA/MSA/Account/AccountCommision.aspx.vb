@@ -5,6 +5,7 @@ Imports System.Data.SqlClient
 Imports MSA.COMMON
 Imports MSA.DAO
 Imports MSA.INFO
+'Imports MSA.
 
 Public Class AccountCommision
     Inherits System.Web.UI.Page
@@ -118,36 +119,50 @@ Public Class AccountCommision
     End Sub
 
     Public Sub bindDOANH_SO()
-        Dim sMA_KH As String
+        Dim lstMonth As List(Of THANG_DOANH_SO)
 
-        sMA_KH = Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH
+        lstMonth = daoDOANH_SO.get_All_Thang_Doanh_so()
 
-        Dim lstDOANH_SO As List(Of HOA_HONG)
-        lstDOANH_SO = daoDOANH_SO.get_by_MA_KH(sMA_KH)
-
-        If lstDOANH_SO IsNot Nothing Then
-            datagrid.DataSource = lstDOANH_SO
-            datagrid.DataBind()
+        If lstMonth IsNot Nothing AndAlso lstMonth.Count > 0 Then
+            dllHOA_HONG_THANG.DataSource = lstMonth
+            dllHOA_HONG_THANG.DataValueField = "DS_Value"
+            dllHOA_HONG_THANG.DataTextField = "DS_Text"
+            dllHOA_HONG_THANG.DataBind()
         Else
-            datagrid.DataSource = Nothing
-            datagrid.DataBind()
+            dllHOA_HONG_THANG.DataSource = Nothing
+            dllHOA_HONG_THANG.DataBind()
         End If
-
-
 
         
     End Sub
 
-    Public Sub datagrid_PageIndexChanging(ByVal sender As Object, ByVal e As GridViewPageEventArgs)
-        datagrid.PageIndex = e.NewPageIndex
-        bindDOANH_SO()
-    End Sub
+    'Public Sub datagrid_PageIndexChanging(ByVal sender As Object, ByVal e As GridViewPageEventArgs)
+    '    datagrid.PageIndex = e.NewPageIndex
+    '    'bindDOANH_SO()
+    'End Sub
 
-    Protected Sub datagrid_RowCommand(ByVal sender As Object, ByVal e As GridViewCommandEventArgs) Handles datagrid.RowCommand
+    'Protected Sub datagrid_RowCommand(ByVal sender As Object, ByVal e As GridViewCommandEventArgs) Handles datagrid.RowCommand
+    '    Try
+    '        If e.CommandName = "cmdView" Then
+    '            'RaiseEvent pEvtSua(e.CommandArgument)
+    '        End If
+    '    Catch ex As Exception
+
+    '    End Try
+    'End Sub
+
+    Protected Sub dllHOA_HONG_THANG_SelectedIndexChanged(sender As Object, e As EventArgs)
         Try
-            If e.CommandName = "cmdView" Then
-                'RaiseEvent pEvtSua(e.CommandArgument)
-            End If
+            Dim thang As Integer = 0
+            Dim nam As Integer = 0
+            thang = dllHOA_HONG_THANG.SelectedItem.Text.Substring(0, 2).Trim
+            nam = dllHOA_HONG_THANG.SelectedItem.Text.Substring(dllHOA_HONG_THANG.SelectedItem.Text.IndexOf(" - "), 2)
+            Dim oHoaHong As HOA_HONG = daoDOANH_SO.Tinh_Hoa_Hong(Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY, _
+                                     Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
+                                     thang, nam)
+
+            ' gan len form
+            Load_Data_To_Form(oHoaHong)
         Catch ex As Exception
 
         End Try

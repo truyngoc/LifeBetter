@@ -10,29 +10,35 @@ Public Class AccountTreeView
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            Dim sMA_CAY As String
-            Dim oHoaHong As HOA_HONG
-            Dim daoDOANH_SO As New MSA_DOANH_SO_DAO
+            Try
 
-            ' tinh hoa hong
-            sMA_CAY = Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY
+                Dim sMA_CAY As String
+                Dim oHoaHong As HOA_HONG
+                Dim daoDOANH_SO As New MSA_DOANH_SO_DAO
 
-            'If HttpContext.Current.Session("MSA_DOANHSO_HOAHONG") IsNot Nothing Then
-            '    oHoaHong = TryCast(HttpContext.Current.Session("MSA_DOANHSO_HOAHONG"), HOA_HONG)
-            'Else
-            '    oHoaHong = Tinh_Hoa_Hong(sMA_CAY)
-            '    HttpContext.Current.Session("MSA_DOANHSO_HOAHONG") = oHoaHong
-            'End If
+                ' tinh hoa hong
+                sMA_CAY = Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY
 
-            oHoaHong = daoDOANH_SO.Tinh_Hoa_Hong(sMA_CAY, _
-                                                 Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
-                                                 DateTime.Today.Month, DateTime.Today.Year)
+                'If HttpContext.Current.Session("MSA_DOANHSO_HOAHONG") IsNot Nothing Then
+                '    oHoaHong = TryCast(HttpContext.Current.Session("MSA_DOANHSO_HOAHONG"), HOA_HONG)
+                'Else
+                '    oHoaHong = Tinh_Hoa_Hong(sMA_CAY)
+                '    HttpContext.Current.Session("MSA_DOANHSO_HOAHONG") = oHoaHong
+                'End If
 
-            ' gan len form
-            Load_DaTa_To_Form(oHoaHong)
+                oHoaHong = daoDOANH_SO.Tinh_Hoa_Hong(sMA_CAY, _
+                                                     Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
+                                                     DateTime.Today.Month, DateTime.Today.Year)
 
-            txtMA_CAY.Text = sMA_CAY
-        End If        
+                ' gan len form
+                Load_DaTa_To_Form(oHoaHong)
+
+                txtMA_CAY.Text = sMA_CAY
+
+            Catch ex As Exception
+
+            End Try
+        End If
     End Sub
 
 
@@ -114,7 +120,7 @@ Public Class AccountTreeView
         query += "("
         query += "select count(*) col_no, ma_cay_tt "
         query += "from MEMBERS "
-        query += "where ma_cay <> '0' "
+        query += "where ma_cay_tt like '" & ma_cay + "%'"
         query += "group by ma_cay_tt "
         query += "having count(*) < 2"
         query += ") a"

@@ -23,6 +23,15 @@ Partial Public Class AccountCommision
     Protected WithEvents lblTONG_THU_NHAP_CAC_KY As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''dllHOA_HONG_THANG control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents dllHOA_HONG_THANG As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''lblHOA_HONG_TRUC_TIEP control.
     '''</summary>
     '''<remarks>
@@ -120,13 +129,4 @@ Partial Public Class AccountCommision
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblTHUONG_THANH_TICH As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''datagrid control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents datagrid As Global.System.Web.UI.WebControls.GridView
 End Class

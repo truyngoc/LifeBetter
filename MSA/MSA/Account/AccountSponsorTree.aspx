@@ -70,6 +70,7 @@
                                     data.addColumn('string', 'ToolTip');
 
                                     for (var i = 0; i < r.d.length; i++) {
+                                        var ma_kh = r.d[i][1].toString();
                                         var ma_cay = r.d[i][2].toString();
                                         var memberName = r.d[i][4];
                                         var ma_bao_tro = r.d[i][3] != null ? r.d[i][3].toString() : '';
@@ -79,7 +80,7 @@
                                             v: ma_cay,
                                             f: memberName
                                                 + '<div>(<span style="color:red">'
-                                                + ma_cay
+                                                + ma_kh
                                                 + '</span>)<div><img src = "../images/goi_' + ma_goi_dau_tu + '.png" "height="31" width="35" /></div>'
                                         }, ma_bao_tro, memberName]]);
                                     }

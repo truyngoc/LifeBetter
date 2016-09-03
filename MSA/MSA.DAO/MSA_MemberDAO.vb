@@ -36,6 +36,21 @@ Public Class MSA_MemberDAO
                                                                     ).SingleOrDefault(), MSA_MemberInfo)
 
     End Function
+
+    Public Function FindByMA_CAY(MA_CAY As String) As MSA_MemberInfo
+
+        Return DirectCast(db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_GetByMA_CAY", New With {Key .MA_CAY = MA_CAY}, commandType:=CommandType.StoredProcedure _
+                                                                    ).SingleOrDefault(), MSA_MemberInfo)
+
+    End Function
+
+    Public Function FindBaoTro(MA_CAY As String) As MSA_MemberInfo
+
+        Return DirectCast(db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_GetBaoTro", New With {Key .MA_CAY = MA_CAY}, commandType:=CommandType.StoredProcedure _
+                                                                    ).SingleOrDefault(), MSA_MemberInfo)
+
+    End Function
+
     Public Function Find(MA_KH As String, ByVal MAT_KHAU As String)
         'Dim multipleresult = db.QueryMultiple("sproc_MEMBERS_GetByUserPass", New With { _
         '                                                                                Key .MA_KH = MA_KH _
@@ -77,10 +92,16 @@ Public Class MSA_MemberDAO
 
     'End Sub
 
+    Public Sub UpdateDanhHieuKimCuong(ByVal MA_CAY As String)
+        db.Execute("sproc_MEMBERS_UpdateDANH_HIEU_KIM_CUONG", New With {Key .MA_CAY = MA_CAY}, commandType:=CommandType.StoredProcedure)
+    End Sub
+
+    Public Sub UpdateDanhHieuChuTich(ByVal MA_CAY As String)
+        db.Execute("sproc_MEMBERS_UpdateDANH_HIEU_CHU_TICH", New With {Key .MA_CAY = MA_CAY}, commandType:=CommandType.StoredProcedure)
+    End Sub
 
     Public Sub UpdateStatus(ByVal CodeId As String, ByVal IsLock As Integer)
         db.Execute("sproc_MEMBERS_UpdateStatus", New With {Key .CodeId = CodeId, Key .IsLock = IsLock}, commandType:=CommandType.StoredProcedure)
-
     End Sub
     'Public Sub Remove(Id As Integer)
 

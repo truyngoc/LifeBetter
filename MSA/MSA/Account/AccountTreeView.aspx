@@ -186,7 +186,7 @@
                                                 + '<div>(<span style="color:red">'
                                                 + ma_kh
                                                 + '</span>)<div><img src = "../images/goi_' + ma_goi_dau_tu + '.png" "height="31" width="35" /></div>'
-                                        }, ma_cay_tt, memberName]]);
+                                        }, ma_cay_tt, ma_kh]]);
                                     }
                                     var chart = new google.visualization.OrgChart($("#chart_div")[0]);
 
