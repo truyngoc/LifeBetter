@@ -171,6 +171,96 @@ Public Class MSA_MemberDAO
 
 
 
+    Public Function SEARCH_ALL() As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_ALL", commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function SEARCH_BY_MA_KH(ByVal MA_KH As String) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_BY_MA_KH", New With {Key .MA_KH = MA_KH}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function SEARCH_BY_TEN(ByVal TEN As String) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_BY_TEN", New With {Key .TEN = TEN}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+
+    Public Function SEARCH_BY_MA_GOI_DAU_TU(ByVal MA_GOI_DAU_TU As Integer) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_BY_MA_GOI_DAU_TU", New With {Key .MA_GOI_DAU_TU = MA_GOI_DAU_TU}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function SEARCH_BY_MA_KH_BAO_TRO_TT(ByVal MA_KH As String) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_BY_MA_KH_BAO_TRO_TT", New With {Key .MA_KH = MA_KH}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function SEARCH_BY_MA_KH_CHI_DINH_TT(ByVal MA_KH As String) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_BY_MA_KH_CHI_DINH_TT", New With {Key .MA_KH = MA_KH}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function SEARCH_BY_TEN_KH_BAO_TRO_TT(ByVal TEN As String) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_BY_TEN_KH_BAO_TRO_TT", New With {Key .TEN = TEN}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function SEARCH_BY_TEN_KH_CHI_DINH_TT(ByVal TEN As String) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_BY_TEN_KH_CHI_DINH_TT", New With {Key .TEN = TEN}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function SEARCH_BY_DIEN_THOAI(ByVal DIEN_THOAI As String) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("[sproc_MEMBERS_SEARCH_BY_DIEN_THOAI]", New With {Key .DIEN_THOAI = DIEN_THOAI}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function SEARCH_BY_DIA_CHI(ByVal DIA_CHI As String) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("[sproc_MEMBERS_SEARCH_BY_DIA_CHI]", New With {Key .DIA_CHI = DIA_CHI}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function SEARCH_BY_STK(ByVal STK As String) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("[sproc_MEMBERS_SEARCH_BY_STK]", New With {Key .STK = STK}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function SEARCH_BY_NGAN_HANG(ByVal STK As String) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("[sproc_MEMBERS_SEARCH_BY_NGAN_HANG]", New With {Key .STK = STK}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function SEARCH_BY_NGAY_THAM_GIA(ByVal NGAY_THAM_GIA As Date) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("[sproc_MEMBERS_SEARCH_BY_NGAY_THAM_GIA]", New With {Key .NGAY_THAM_GIA = NGAY_THAM_GIA}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function SEARCH_BY_NGAY_NANG_CAP(ByVal NGAY_NANG_CAP As Date) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("[sproc_MEMBERS_SEARCH_BY_NGAY_NANG_CAP]", New With {Key .NGAY_NANG_CAP = NGAY_NANG_CAP}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+    Public Function SEARCH_BY_TRANG_THAI(ByVal TRANG_THAI As Integer) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_BY_TRANG_THAI", New With {Key .TRANG_THAI = TRANG_THAI}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
     Public Function get_All() As List(Of MSA_MemberInfo)
 
         Return db.Query(Of MSA_MemberInfo)("sp_MEMBERS_get_All", commandType:=CommandType.StoredProcedure _

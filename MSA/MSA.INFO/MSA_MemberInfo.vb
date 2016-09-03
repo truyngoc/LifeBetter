@@ -4,7 +4,7 @@
     Public Property MAT_KHAU As String
     Public Property MA_CAY As String
     Public Property MA_BAO_TRO As String
-
+    Public Property TEN_BAO_TRO As String
     Public Property TEN As String
     Public Property CMND As String
     Public Property NGAY_SINH As Date?

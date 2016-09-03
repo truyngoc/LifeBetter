@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class AccountManager
 
     '''<summary>
+    '''lblError control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblError As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtSearch control.
     '''</summary>
     '''<remarks>
@@ -39,4 +48,22 @@ Partial Public Class AccountManager
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnSearch As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''dllHOA_HONG_THANG control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents dllHOA_HONG_THANG As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''grdMEMBERS control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents grdMEMBERS As Global.System.Web.UI.WebControls.GridView
 End Class
