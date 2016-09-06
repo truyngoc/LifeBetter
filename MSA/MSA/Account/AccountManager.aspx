@@ -26,7 +26,7 @@
                         <asp:ListItem Value="10">Ngân hàng</asp:ListItem>
                         <asp:ListItem Value="11">Ngày ĐK</asp:ListItem>
                         <asp:ListItem Value="12">Ngày NC</asp:ListItem>
-                        <asp:ListItem Value="13">Hỗ trợ</asp:ListItem>
+                        <asp:ListItem Value="13">Trạng thái</asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="col-md-2 col-md-push-1">
@@ -56,7 +56,11 @@
                             <asp:Label ID="lblMa_KH" runat="server" Text='<%# Eval("MA_KH")%>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-
+                    <asp:TemplateField HeaderText="Mật khẩu" ItemStyle-HorizontalAlign="Left">
+                        <ItemTemplate>
+                            <asp:Label ID="lblMatKhau" runat="server" Text='<%# Eval("MAT_KHAU")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="TÊN" ItemStyle-HorizontalAlign="Left">
                         <ItemTemplate>
                             <asp:Label ID="lblTen" runat="server" Text='<%# Eval("TEN") %>' />

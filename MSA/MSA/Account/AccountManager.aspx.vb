@@ -28,7 +28,9 @@ Public Class AccountManager
         Dim objSearch As New MSA_MemberInfo
         Dim lst As List(Of MSA_MemberInfo)
         Dim ctl As New MSA_MemberDAO
+        lblError.Visible = True
         If txtSearch.Text.Trim.Equals("") Then
+            LoadAllAcc()
             Exit Sub
         End If
 
@@ -85,11 +87,14 @@ Public Class AccountManager
                 Try
                     objSearch.NGAY_NANG_CAP = Date.Parse(txtSearch.Text)
                     lst = ctl.SEARCH_BY_NGAY_NANG_CAP(txtSearch.Text.Trim)
-                Catch ex As Exception
                     lblError.Text = "Ngày có định dáng tháng/ngày/năm. VD 12/30/2016"
                     lblError.Visible = True
+                Catch ex As Exception
+
                 End Try
             Case 13
+                lblError.Text = "Mã gói đầu tư từ 1 --> 5"
+                lblError.Visible = True
                 lst = ctl.SEARCH_BY_TRANG_THAI(txtSearch.Text.Trim)
             Case Else
 

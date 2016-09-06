@@ -33,7 +33,7 @@ Public Class MSA_Helper
 
           
 
-            Dim message As New MailMessage(senderID & "LIFE-BETTER", toAddress, subject, body)
+            Dim message As New MailMessage(senderID & "LIFE BETTER", toAddress, subject, body)
             message.IsBodyHtml = True
             message.BodyEncoding = System.Text.UTF8Encoding.UTF8
 

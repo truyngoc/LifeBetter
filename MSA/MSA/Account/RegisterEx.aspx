@@ -28,7 +28,7 @@
                                                 <ul>
                                                     <li>Số ĐT: +44 20 7156 6217</li>
                                                     <li>FAX: +44 20 7156 6220</li>
-                                                    <li>E-mail: <a href="mailto:support@life-better.vn">support@life-better.vn</a></li>
+                                                    <li>E-mail: <a href="mailto:support@lifebetter.com.vn">support@lifebetter.com.vn</a></li>
                                                 </ul>
                                             </address>
                                         </div>
@@ -37,12 +37,12 @@
                                             <asp:Panel runat="server" ID="pnForm">
                                                 <fieldset class="fdb-scheduler-border">
                                                     <div class="row">
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <asp:Label runat="server" ID="lblMessages" ForeColor="Blue"> <br />
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <asp:Label runat="server" ID="lblMessages" ForeColor="Blue" Font-Bold="true"> <br />    
+                                                        </asp:Label>
+                                                        <br />
+                                                        <asp:Label runat="server" ID="lblMessages2" ForeColor="Blue"  Font-Bold="true"> <br />    
                                                         </asp:Label>
                                                         <asp:Label runat="server" ID="lblMaKHMOI" ForeColor="Red" Font-Size="X-Large" Font-Bold="true"></asp:Label>
-                                                        <br />
                                                         <br />
 
                                                         <div class="row">
@@ -67,7 +67,7 @@
                                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Email không hợp lệ" ControlToValidate="txtDIA_CHI" ForeColor="#cc0066" ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" Display="Dynamic"></asp:RegularExpressionValidator>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
+<%--                                                        <div class="row">
                                                             <label class="col-md-3 control-label">Số tài khoản:</label>
                                                             <div class="col-md-5">
                                                                 <asp:TextBox ID="txtSO_TAI_KHOAN" runat="server" class="form-control" />
@@ -80,7 +80,7 @@
                                                                 <asp:TextBox ID="txtNGAN_HANG" runat="server" class="form-control" />
 
                                                             </div>
-                                                        </div>
+                                                        </div>--%>
 
                                                         <div class="row">
                                                             <label class="col-md-3 control-label">Mật khẩu:</label>
@@ -104,6 +104,7 @@
                                                 <div class="row">
                                                     <div class="col-md-offset-2 col-md-8">
                                                         <asp:Button ID="btnSubmit" runat="server" Text="ĐĂNG KÝ" class="btn btn-primary" />
+                                                                    <asp:Label ID="lblMA_BAO_TRO_TT" runat="server" Visible="false"></asp:Label>
                                                     </div>
                                                 </div>
                                                 <br />

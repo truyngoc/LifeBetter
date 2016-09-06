@@ -312,7 +312,7 @@ html.ie8 .header .logo .logo_tagline {
 	margin:-5px 0 0 7px;
 }
 .header .search-form { float:right; }
-.header .nav__primary { margin:13px 0 16px 63px; }
+.header .nav__primary { margin:13px 0 16px 13px; }
 @media (min-width: 979px) and (max-width: 1200px) {
 	.header .nav__primary { margin:13px 0 16px 6px; }
 }

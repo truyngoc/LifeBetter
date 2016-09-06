@@ -109,7 +109,7 @@
         }
 
         .sf-menu > li > a {
-            font: bold 13px/15px Tahoma Archivo Narrow;
+            font: bold 10px/15px Tahoma Archivo Narrow;
             color: #ffffff;
         }
 

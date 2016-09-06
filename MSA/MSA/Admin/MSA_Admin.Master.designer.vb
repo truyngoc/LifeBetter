@@ -68,6 +68,15 @@ Partial Public Class MSA_Admin
     Protected WithEvents divDanhHieu As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
+    '''divKichHoat control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents divKichHoat As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''imgAnhDaiDien control.
     '''</summary>
     '''<remarks>

@@ -155,7 +155,7 @@
                             <ul class="dropdown-content">
                                 <li><a href="../Account/AccountTreeView">Doanh số</a></li>
                                 <li><a href="../Account/AccountCommision">Hoa hồng</a></li>
-                                <li><a href="../Account/BusinessReport">Báo cáo kinh doanh</a></li>
+<%--                                <li><a href="../Account/BusinessReport">Báo cáo kinh doanh</a></li>--%>
                                 <%--<li><a href="#">Báo cáo kinh doanh</a></li>--%>
                             </ul>
                         </li>
@@ -294,7 +294,7 @@
                                             <span>- Tích lũy doanh số 9 tỷ</span>--%>
                                         </div>
 
-                                        <div>
+                                        <div id="divKichHoat" runat="server">
                                             <h4>TÁI KÍCH HOẠT</h4>
                                             <div class="unit_value" id="Clock2" style="font-size: 33px; line-height: 40px; color: #cc181e">
                                                 <label id="id_days2"></label>

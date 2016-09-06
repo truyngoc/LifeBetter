@@ -32,6 +32,15 @@ Partial Public Class RegisterEx
     Protected WithEvents lblMessages As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''lblMessages2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMessages2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''lblMaKHMOI control.
     '''</summary>
     '''<remarks>
@@ -77,24 +86,6 @@ Partial Public Class RegisterEx
     Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
-    '''txtSO_TAI_KHOAN control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtSO_TAI_KHOAN As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtNGAN_HANG control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtNGAN_HANG As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
     '''txtMAT_KHAU control.
     '''</summary>
     '''<remarks>
@@ -129,4 +120,13 @@ Partial Public Class RegisterEx
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnSubmit As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lblMA_BAO_TRO_TT control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMA_BAO_TRO_TT As Global.System.Web.UI.WebControls.Label
 End Class

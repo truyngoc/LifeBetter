@@ -5,14 +5,14 @@ Imports MSA.DAO
 Public Class Register
     Inherits System.Web.UI.Page
 
-    Protected Property strLink As String
-        Get
-            Return ViewState("strLink")
-        End Get
-        Set(value As String)
-            ViewState("strLink") = value
-        End Set
-    End Property
+    'Protected Property strLink As String
+    '    Get
+    '        Return ViewState("strLink")
+    '    End Get
+    '    Set(value As String)
+    '        ViewState("strLink") = value
+    '    End Set
+    'End Property
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -26,7 +26,12 @@ Public Class Register
                     chkNV.Checked = False
                 End If
 
-                Me.strLink = Request.Url.Authority & "/Account/RegisterEx?ref=" + Singleton(Of MSACurrentSession).Inst.SessionMember.MA_BAO_TRO.MSA_Encrypt(MSA_Constants.ConstEncriptKey.KeyEncriptRef)
+                Try
+                    lblLink.Text = Request.Url.Authority & "/Account/RegisterEx?ref=" + Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY.MSA_Encrypt(MSA_Constants.ConstEncriptKey.KeyEncriptRef)
+                Catch ex As Exception
+
+                End Try
+
             Else
                 Response.Redirect("LoginAccount.aspx")
             End If
@@ -43,8 +48,8 @@ Public Class Register
                 _mInfo.TEN = txtTEN.Text.Trim
                 _mInfo.DIEN_THOAI = txtDIEN_THOAI.Text.Trim
                 _mInfo.DIA_CHI = txtDIA_CHI.Text
-                _mInfo.SO_TAI_KHOAN = txtSO_TAI_KHOAN.Text
-                _mInfo.NGAN_HANG = txtNGAN_HANG.Text
+                _mInfo.SO_TAI_KHOAN = ""
+                _mInfo.NGAN_HANG = ""
                 _mInfo.MAT_KHAU = txtMAT_KHAU.Text
                 _mInfo.TRANG_THAI = 0
                 _mInfo.URL = ""
@@ -77,10 +82,11 @@ Public Class Register
 
                 Dim str = MSA_Helper.SendMail(txtDIA_CHI.Text, "LIFE BETTER", strBuilder.ToString())
 
-                lblMessages.Text = "CHÚC MỪNG BẠN ĐÃ ĐĂNG KÝ THÀNH CÔNG! MÃ SỐ THÀNH VIÊN NHÁNH DƯỚI CỦA BẠN LÀ :  "
+                lblMessages.Text = "Chúc mừng bạn đã đăng ký thành công! "
+                lblMessages2.Text = "Mã số thành viên của bạn là: "
                 lblMaKHMOI.Text = MA_KH
                 ''
-                Me.strLink = Request.Url.Authority & "/Account/RegisterEx?ref=" + Singleton(Of MSACurrentSession).Inst.SessionMember.MA_BAO_TRO.MSA_Encrypt(MSA_Constants.ConstEncriptKey.KeyEncriptRef)
+                'Me.strLink = Request.Url.Authority & "/Account/RegisterEx?ref=" + Singleton(Of MSACurrentSession).Inst.SessionMember.MA_BAO_TRO.MSA_Encrypt(MSA_Constants.ConstEncriptKey.KeyEncriptRef)
             Catch ex As Exception
                 Throw New Exception(ex.ToString)
                 lblMessages.Text = ""
@@ -91,4 +97,8 @@ Public Class Register
         End If
     End Sub
 
+    Protected Sub btnCopy_Click(sender As Object, e As EventArgs)
+        'System.Windows
+
+    End Sub
 End Class

@@ -29,6 +29,10 @@ Public Class MSA_Admin
 
 
                 If _mInfo.MA_DANH_HIEU = 0 Then
+                    If _mInfo.MA_CAY Is Nothing Then
+                        divDanhHieu.Visible = False
+                        divKichHoat.Visible = False
+                    End If
                     If _mInfo.NGAY_NANG_CAP Is Nothing Then
                         If DateDiff("d", _mInfo.NGAY_THAM_GIA, Date.Now) < 60 Then
                             Seconds = DateDiff("s", Date.Now, DateAdd("d", 60, _mInfo.NGAY_THAM_GIA))
@@ -52,9 +56,9 @@ Public Class MSA_Admin
                 End If
 
                 If _mInfo.NGAY_NANG_CAP Is Nothing Then
-                    Seconds2 = DateDiff("s", Date.Now, DateAdd("d", 360, _mInfo.NGAY_THAM_GIA))
+                    Seconds2 = DateDiff("s", Date.Now, DateAdd("d", 365, _mInfo.NGAY_THAM_GIA))
                 Else
-                    Seconds2 = DateDiff("s", Date.Now, DateAdd("d", 360, _mInfo.NGAY_NANG_CAP))
+                    Seconds2 = DateDiff("s", Date.Now, DateAdd("d", 365, _mInfo.NGAY_NANG_CAP))
                 End If
 
                 'phut = DateDiff("n", _mInfo.NGAY_THAM_GIA, Date.Now)
@@ -63,15 +67,20 @@ Public Class MSA_Admin
                 'gio = phut / 60
                 'phut = phut - gio * 60
                 'lblCountDown.Text = ngay & " ngày " & gio & " giờ " & phut & " phút "
-                lblMabaotro.Text = Singleton(Of MSA_MemberDAO).Inst.FindByMA_CAY(_mInfo.MA_BAO_TRO_TT).MA_KH & " - " & _mInfo.TEN_BAO_TRO_TT
+                Try
+                    lblMabaotro.Text = Singleton(Of MSA_MemberDAO).Inst.FindByMA_CAY(_mInfo.MA_BAO_TRO_TT).MA_KH & " - " & _mInfo.TEN_BAO_TRO_TT
+                Catch ex As Exception
+
+                End Try
+
                 If _mInfo.MA_CAY_TT IsNot Nothing Then
                     lblCAY_TT.Text = Singleton(Of MSA_MemberDAO).Inst.FindByMA_CAY(_mInfo.MA_CAY_TT).MA_KH & " - " & _mInfo.TEN_CAY_TT
                 End If
 
 
-                If _mInfo.NHANH_CAY_TT = 0 Then
+                If _mInfo.NHANH_CAY_TT = 1 Then
                     lblNhanh.Text = "TRÁI"
-                Else
+                ElseIf _mInfo.NHANH_CAY_TT = 2 Then
                     lblNhanh.Text = "PHẢI"
                 End If
 

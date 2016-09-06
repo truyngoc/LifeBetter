@@ -96,7 +96,7 @@
                                                 <strong>LIFE BETTER</strong>
                                                 <h3 style="color:white;font-family:Arial">Cuộc sống tốt hơn</h3>
                                                <%-- <p>Hãy tham gia hệ thống để trở thành thành viên !</p>--%>
-                                                <a href="../Account/RegisterEx.aspx">Đăng ký</a>
+                                                <a href="Account/RegisterEx.aspx">Đăng ký</a>
                                             </div>
                                         </div>
                                     </div>

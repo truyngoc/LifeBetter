@@ -59,7 +59,7 @@
                                                         <ul>
                                                             <li>Số ĐT: +44 20 7156 6217</li>
                                                             <li>FAX: +44 20 7156 6220</li>
-                                                            <li>E-mail: <a href="mailto:admin@life-better.com">admin@life-better.com</a></li>
+                                                            <li>E-mail: <a href="mailto:admin@lifebetter.com.vn">admin@lifebetter.com.vn</a></li>
                                                         </ul>
                                                     </address>
                                                 </div>

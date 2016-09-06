@@ -25,7 +25,7 @@ Public Class AccountTreeView
                 '    oHoaHong = Tinh_Hoa_Hong(sMA_CAY)
                 '    HttpContext.Current.Session("MSA_DOANHSO_HOAHONG") = oHoaHong
                 'End If
-
+                txtMA_CAY.Text = sMA_CAY
                 oHoaHong = daoDOANH_SO.Tinh_Hoa_Hong(sMA_CAY, _
                                                      Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
                                                      DateTime.Today.Month, DateTime.Today.Year)
@@ -33,7 +33,7 @@ Public Class AccountTreeView
                 ' gan len form
                 Load_DaTa_To_Form(oHoaHong)
 
-                txtMA_CAY.Text = sMA_CAY
+
 
             Catch ex As Exception
 
@@ -44,13 +44,16 @@ Public Class AccountTreeView
 
     <WebMethod> _
     Public Shared Function GetChartData(ma_cay As String) As List(Of Object)
+        '
         ' ko nhap ma_cay vao textbox thi mac dinh la root
-        If String.IsNullOrEmpty(ma_cay) Then
-            ma_cay = "0"
-        End If
+        'If String.IsNullOrEmpty(ma_cay) Then
+        '    ma_cay = "0"
+        'End If
         ' bo luon luon hien thi root cua ma_cay dang tim kiem
         Dim ma_cay_tt As Object
-
+        If String.IsNullOrEmpty(ma_cay) Then
+            Return Nothing
+        End If
         Dim query As String = get_Chart_Data(ma_cay)
 
         Using con As New SqlConnection(ConfigurationManager.ConnectionStrings("SqlServerConnString").ConnectionString)
@@ -80,6 +83,23 @@ Public Class AccountTreeView
 
     Public Shared Function get_Chart_Data(ma_cay As String) As String
         Dim query As String = "select * from ("
+        If ma_cay = "0" Then
+            query += "SELECT ID"
+            query += ", MA_KH"
+            query += ", MA_CAY"
+            query += ", MA_BAO_TRO"
+            query += ", TEN"
+            query += ", MA_BAO_TRO_TT"
+            query += ", MA_CAY_TT"
+            query += ", NHANH_CAY_TT"
+            query += ", NGAY_THAM_GIA"
+            query += ", TRANG_THAI"
+            query += ", MA_GOI_DAU_TU"
+            query += ", MA_DANH_HIEU"
+            query += " FROM MEMBERS"
+            query += " WHERE ((MA_CAY ='" & ma_cay + "')) "
+            query += " UNION "
+        End If
         query += "SELECT ID"
         query += ", MA_KH"
         query += ", MA_CAY"
@@ -95,7 +115,6 @@ Public Class AccountTreeView
         query += " FROM MEMBERS"
         query += " WHERE ((MA_CAY ='" & ma_cay + "') OR (MA_CAY_TT like '" & ma_cay + "%'))"
         query += " AND TRANG_THAI <> 0 and NV=0 and MA_BAO_TRO_TT is not null and MA_BAO_TRO_TT <> ''"
-
 
         query += " UNION "
 

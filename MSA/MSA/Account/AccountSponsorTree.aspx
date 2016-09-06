@@ -131,7 +131,7 @@
                         <div>                         
                             <div class="title" style="color: black">Mã gốc</div>
 
-                            <asp:TextBox runat="server" ID="txtMA_CAY" Text="0" class="form-control" Style="width: 100px;"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtMA_CAY" Text="0" class="form-control" Style="width: 100px;" Enabled="false"></asp:TextBox>
                             <%--<input type="submit" value="Show tree" class="btn btn-primary" />--%>
 
                         </div>
