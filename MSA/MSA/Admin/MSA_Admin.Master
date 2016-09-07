@@ -260,7 +260,7 @@
                                     </div>
 
                                     <div class="infodetail" style="padding-left: 10px;">
-                                        <asp:Label runat="server" ID="lblDanhHieu" CssClass="lblname"></asp:Label>
+                                        <asp:Label runat="server" ID="lblDanhHieu" CssClass="lblname" ForeColor="Blue"></asp:Label>
                                         <br />
                                         <div id="divDanhHieu" runat="server">
                                             <h4>DANH HIỆU KIM CƯƠNG</h4>

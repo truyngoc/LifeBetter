@@ -53,6 +53,7 @@ Public Class MSA_Admin
                 Else
                     divDanhHieu.Visible = False
                     lblDanhHieu.Text = "CHÚC MỪNG BẠN ĐẠT DANH HIỆU KIM CƯƠNG"
+
                 End If
 
                 If _mInfo.NGAY_NANG_CAP Is Nothing Then
