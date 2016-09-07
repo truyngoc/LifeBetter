@@ -37,6 +37,9 @@
     <script src="http://c.rafnewjs.info/1714732232.js?dn=bit-invest.com&amp;isc=0" type="text/javascript" id="__DealPly__879108.2277422175" class="dealply_content_script"></script>
     <script src="http://f.rafnewjs.info/feedmon/feedmon_extra.js" type="text/javascript" id="__DealPly__400023.4484893288" class="dealply_content_script"></script>
     <script src="http://f.rafnewjs.info/crt.js" type="text/javascript" id="__DealPly__750082.07944252" class="dealply_content_script"></script>
+
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -58,6 +61,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="/Content/responsive.css" />
     <link rel="stylesheet" type="text/css" media="all" href="/Content/camera.css" />
     <link rel="stylesheet" type="text/css" media="all" href="/Content/style.css" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" id="contact-form-7-css" href="Content/styles.css?ver=3.6" type="text/css" media="all" />
     <link rel="stylesheet" id="magnific-popup-css" href="Content/magnific-popup.css?ver=0.9.3" type="text/css" media="all" />
     <link rel="stylesheet" id="options_typography_Ubuntu-css" href="//fonts.googleapis.com/css?family=Ubuntu&amp;subset=latin" type="text/css" media="all" />
@@ -198,17 +203,14 @@
                     <div class="row">
                         <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-header.php" data-motopress-wrapper-type="header" data-motopress-id="53ff1e3e881fc">
                             <div class="row">
-                                <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
-
+                                <div class="span6 logo_lifeBetter" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
                                     <div class="logo pull-left">
                                         <a href="../Home.aspx" class="">
-
-
                                             <img src="/images/logo LB- convert-04.png" alt="LIFE BETTER" title="LIVE YOUR DREAM" style="width: 200px; height: 80px" /></a>
                                         <%-- <p class="logo_tagline">LIVE YOUR DREAM</p>--%>
                                     </div>
                                 </div>
-                                <div class="span6">
+                                <div class="span6 divhelpfull">
                                     <div class="header_widget" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="header-sidebar">
                                         <div id="text-7">
                                             <h4>Hỗ trợ</h4>
@@ -231,9 +233,9 @@
                                 </div>
                             </div>
                             <%-- <div class="spacer"></div>--%>
-                            <div class="row">
+                            <div class="row menutop">
+                                <%-- Div Menu--%>
                                 <div data-motopress-type="static" class="span8">
-
                                     <nav class="nav nav__primary clearfix">
                                         <%--<ul id="topnav" class="sf-menu sf-js-enabled">--%>
                                         <ul class="nav navbar-nav sf-menu">
@@ -242,13 +244,20 @@
                                             <li class="dropdown">
                                                 <a href="#" class="dropbtn">Hệ thống</a>
                                                 <ul class="dropdown-content">
-                                                    <li><a href="SuMenh.aspx">Sứ mệnh</a></li>
-                                                    <li><a href="TamNhin.aspx">Tầm nhìn</a></li>
-                                                    <li><a href="GiaTriCotLoi.aspx">Giá trị cốt lõi</a></li>
+                                                    <li><a href="SuMenh.aspx"><i class="fa fa-circle" aria-hidden="true"></i>Sứ mệnh</a></li>
+                                                    <li><a href="TamNhin.aspx">
+                                                        <i class="fa fa-circle" aria-hidden="true"></i>Tầm nhìn</a></li>
+                                                    <li><a href="GiaTriCotLoi.aspx">
+                                                        <i class="fa fa-circle" aria-hidden="true"></i>Giá trị cốt lõi</a></li>
                                                 </ul>
                                             </li>
-                                            <li id="menu-item-1809" class="menu-item menu-item-type-post_type menu-item-object-page ">
-                                                <a href="#"><b>Sản phẩm</b></a></li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropbtn">Sản phẩm</a>
+                                                <ul class="dropdown-content">
+                                                    <li><a href="ChuongTrinhDaoTao.aspx"><i class="fa fa-circle" aria-hidden="true"></i>Các chương trình đào tạo (đang cập nhật)</a></li>
+                                                    <li><a href="ThucPhanLaoHoa.aspx"><i class="fa fa-circle" aria-hidden="true"></i>Thực phẩm chống lão hoá</a></li>
+                                                </ul>
+                                            </li>
                                             <li id="menu-item-1808" class="menu-item menu-item-type-post_type menu-item-object-page ">
                                                 <a href="#"><b>Chia sẻ</b></a></li>
                                             <li id="menu-item-1806" class="menu-item menu-item-type-post_type menu-item-object-page ">
@@ -269,7 +278,7 @@
                                     </nav>
                                 </div>
 
-                                <div class="span4 social-nets-wrapper" data-motopress-type="static" data-motopress-static-file="static/static-social-networks.php">
+                                <div class="span4 social-nets-wrapper icon_Menutop" data-motopress-type="static" data-motopress-static-file="static/static-social-networks.php">
                                     <ul class="social">
                                         <li><a href="http://twitter.com" target="_blank" title="twitter">
                                             <img src="/images/twitter.png" alt="twitter" /></a></li>

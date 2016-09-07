@@ -191,6 +191,7 @@
     <Content Include="Account\RegisterEx.aspx" />
     <Content Include="Account\SignOut.aspx" />
     <Content Include="Account\ViewAccountDetail.aspx" />
+    <Content Include="ThucPhanLaoHoa.aspx" />
     <Content Include="CommitionDetail.aspx" />
     <Content Include="Commition\Commition.aspx" />
     <Content Include="Commition\CommitionHistory.aspx" />
@@ -368,6 +369,7 @@
     <Content Include="Scripts\loader.js" />
     <Content Include="Scripts\smart.resize.js" />
     <Content Include="Scripts\superfish.js" />
+    <Content Include="ChuongTrinhDaoTao.aspx" />
     <Content Include="SuMenh.aspx" />
     <Content Include="TamNhin.aspx" />
     <Content Include="themeNew2\ace-editable.min.js" />
@@ -710,6 +712,13 @@
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="App_Start\Startup.Auth.vb" />
+    <Compile Include="ThucPhanLaoHoa.aspx.designer.vb">
+      <DependentUpon>ThucPhanLaoHoa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThucPhanLaoHoa.aspx.vb">
+      <DependentUpon>ThucPhanLaoHoa.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="CommitionDetail.aspx.designer.vb">
       <DependentUpon>CommitionDetail.aspx</DependentUpon>
     </Compile>
@@ -826,6 +835,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Startup.vb" />
+    <Compile Include="ChuongTrinhDaoTao.aspx.designer.vb">
+      <DependentUpon>ChuongTrinhDaoTao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChuongTrinhDaoTao.aspx.vb">
+      <DependentUpon>ChuongTrinhDaoTao.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="SuMenh.aspx.designer.vb">
       <DependentUpon>SuMenh.aspx</DependentUpon>
     </Compile>
