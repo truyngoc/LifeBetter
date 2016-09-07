@@ -231,32 +231,44 @@
                             </div>
                             <div class="spacer"></div>
                             <div class="row">
-                                <div class="span8" data-motopress-type="static" data-motopress-static-file="static/static-nav.php">
+                                <div class="span8" data-motopress-type="static">
 
                                     <nav class="nav nav__primary clearfix" >
                                         <ul id="topnav" class="sf-menu sf-js-enabled">
                                             <li id="menu-item-1807" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item">
                                                 <a href="../Home.aspx"><b >Trang chủ</b></a></li>
-                                            <li id="menu-item-1810" class="menu-item menu-item-type-post_type menu-item-object-page ">
-                                                <a href="#"><b >Giới thiệu</b></a></li>
+                                            <li id="menu-item-1810" >
+                                                <a href="GioiThieu.aspx"><b >Giới thiệu</b></a>
+                                                <ul class="sf-menu sf-js-enabled">
+                                                    <li  >
+                                                        Sứ mệnh
+                                                    </li>
+                                                    <li  >
+                                                        Tầm nhìn
+                                                    </li>
+                                                    <li  >
+                                                        Giá trị cốt lõi
+                                                    </li>
+                                                </ul>
+                                            </li>
                                             <li id="menu-item-1809" class="menu-item menu-item-type-post_type menu-item-object-page ">
-                                                <a href="#"><b >Chính sách</b></a></li>
+                                                <a href="#"><b >Sản phẩm</b></a></li>
                                             <li id="menu-item-1808" class="menu-item menu-item-type-post_type menu-item-object-page ">
-                                                <a href="#"><b >FAQ</b></a></li>
+                                                <a href="#"><b >Chia sẻ</b></a></li>
                                             <li id="menu-item-1806" class="menu-item menu-item-type-post_type menu-item-object-page ">
-                                                <a href="../Account/LoginAccount"><b >Đăng nhập</b></a></li>
+                                                <a href="../Account/LoginAccount.aspx"><b >Đăng nhập</b></a></li>
                                             <li id="menu-item-1804" class="menu-item menu-item-type-post_type menu-item-object-page ">
                                                 <a href="#"><b >Liên hệ</b></a></li>
                                         </ul>
                                         <%--<select class="select-menu">--%>
                                         <select class="select-menu">
                                             <option value="#">Chuyển đến...</option>
-                                            <option value="http://bit-invest.com/index.php?a=1&amp;ref=">Trang chủ</option>
+                                            <option value="../Home.aspx">Trang chủ</option>
                                             <option value="http://bit-invest.com/about.php?a=2&amp;ref=">Giới thiệu</option>
-                                            <option value="http://bit-invest.com/tos.php?a=3&amp;ref=">Chính sách</option>
-                                            <option value="http://bit-invest.com/faq.php?a=4&amp;ref=">FAQ</option>
-                                            <option value="http://bit-invest.com/signup.php?a=5&amp;ref=">Đăng nhập</option>
-                                            <option value="http://bit-invest.com/contacts.php?a=7&amp;ref=">Liên hệ</option>
+                                            <option value="http://bit-invest.com/tos.php?a=3&amp;ref=">Sản phẩm</option>
+                                            <option value="http://bit-invest.com/faq.php?a=4&amp;ref=">Chia sẻ</option>
+                                            <option value="../Account/LoginAccount.aspx">Đăng nhập</option>
+                                            <option value="#">Liên hệ</option>
                                         </select>
                                     </nav>
                                 </div>
