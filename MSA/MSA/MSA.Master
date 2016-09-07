@@ -201,11 +201,11 @@
                                 <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
 
                                     <div class="logo pull-left">
-                                        <a href="../Home.aspx"  class="" >
-                                            
-                                           
-                                        <img src="/images/logo LB- convert-04.png" alt="LIFE BETTER" title="LIVE YOUR DREAM" style="width:200px; height:80px"/></a>
-                                       <%-- <p class="logo_tagline">LIVE YOUR DREAM</p>--%>
+                                        <a href="../Home.aspx" class="">
+
+
+                                            <img src="/images/logo LB- convert-04.png" alt="LIFE BETTER" title="LIVE YOUR DREAM" style="width: 200px; height: 80px" /></a>
+                                        <%-- <p class="logo_tagline">LIVE YOUR DREAM</p>--%>
                                     </div>
                                 </div>
                                 <div class="span6">
@@ -215,6 +215,7 @@
                                             <div class="textwidget">
                                                 <i></i>
                                                 +84 974297983
+                                           
                                             </div>
                                         </div>
                                     </div>
@@ -229,36 +230,31 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="spacer"></div>
+                            <%-- <div class="spacer"></div>--%>
                             <div class="row">
-                                <div class="span8" data-motopress-type="static">
+                                <div data-motopress-type="static" class="span8">
 
-                                    <nav class="nav nav__primary clearfix" >
-                                        <ul id="topnav" class="sf-menu sf-js-enabled">
+                                    <nav class="nav nav__primary clearfix">
+                                        <%--<ul id="topnav" class="sf-menu sf-js-enabled">--%>
+                                        <ul class="nav navbar-nav sf-menu">
                                             <li id="menu-item-1807" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item">
-                                                <a href="../Home.aspx"><b >Trang chủ</b></a></li>
-                                            <li id="menu-item-1810" >
-                                                <a href="GioiThieu.aspx"><b >Giới thiệu</b></a>
-                                                <ul class="sf-menu sf-js-enabled">
-                                                    <li  >
-                                                        Sứ mệnh
-                                                    </li>
-                                                    <li  >
-                                                        Tầm nhìn
-                                                    </li>
-                                                    <li  >
-                                                        Giá trị cốt lõi
-                                                    </li>
+                                                <a href="../Home.aspx"><b>Trang chủ</b></a></li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropbtn">Hệ thống</a>
+                                                <ul class="dropdown-content">
+                                                    <li><a href="SuMenh.aspx">Sứ mệnh</a></li>
+                                                    <li><a href="TamNhin.aspx">Tầm nhìn</a></li>
+                                                    <li><a href="GiaTriCotLoi.aspx">Giá trị cốt lõi</a></li>
                                                 </ul>
                                             </li>
                                             <li id="menu-item-1809" class="menu-item menu-item-type-post_type menu-item-object-page ">
-                                                <a href="#"><b >Sản phẩm</b></a></li>
+                                                <a href="#"><b>Sản phẩm</b></a></li>
                                             <li id="menu-item-1808" class="menu-item menu-item-type-post_type menu-item-object-page ">
-                                                <a href="#"><b >Chia sẻ</b></a></li>
+                                                <a href="#"><b>Chia sẻ</b></a></li>
                                             <li id="menu-item-1806" class="menu-item menu-item-type-post_type menu-item-object-page ">
-                                                <a href="../Account/LoginAccount.aspx"><b >Đăng nhập</b></a></li>
+                                                <a href="../Account/LoginAccount.aspx"><b>Đăng nhập</b></a></li>
                                             <li id="menu-item-1804" class="menu-item menu-item-type-post_type menu-item-object-page ">
-                                                <a href="#"><b >Liên hệ</b></a></li>
+                                                <a href="#"><b>Liên hệ</b></a></li>
                                         </ul>
                                         <%--<select class="select-menu">--%>
                                         <select class="select-menu">
@@ -297,17 +293,17 @@
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
 
-         <asp:ContentPlaceHolder ID="MainLoginAccount" runat="server">
+        <asp:ContentPlaceHolder ID="MainLoginAccount" runat="server">
         </asp:ContentPlaceHolder>
 
 
-        <footer class="motopress-wrapper footer">
+        <footer class="footer">
             <div class="container">
                 <div class="row">
                     <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-footer.php" data-motopress-wrapper-type="footer" data-motopress-id="53ff1e3ebb654">
                         <div class="row footer-widgets">
                             <div class="span2" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-1">
-                               <%-- <div id="nav_menu-3">
+                                <%--                                 <div id="nav_menu-3">
                                     <h4>Company</h4>
                                     <div class="menu-company-container">
                                         <ul id="menu-company" class="menu">
@@ -321,7 +317,7 @@
                                 </div>--%>
                             </div>
                             <div class="span2" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-2">
-                               <%-- <div id="nav_menu-4">
+                                <%-- <div id="nav_menu-4">
                                     <h4>Overview</h4>
                                     <div class="menu-overview-container">
                                         <ul id="menu-overview" class="menu">
@@ -346,7 +342,7 @@
                                 </div>--%>
                             </div>
                             <div class="span2" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-4">
-                               <%-- <div id="nav_menu-6">
+                                <%-- <div id="nav_menu-6">
                                     <h4>Navigation</h4><div class="menu-footer-menu-container">
                                         <ul id="menu-footer-menu" class="menu">
                                             <li id="menu-item-1816" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1816"><a href="index.php?a=1&amp;ref=">Home</a></li>
@@ -361,7 +357,7 @@
                             </div>
                             <div class="span4">
                                 <div class="indent_left">
-                                  <%--  <div data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-5">
+                                    <%--  <div data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-5">
                                         <div id="text-8">
                                             <div class="textwidget">
                                                 <i>33 Throgmorton Street, 6th Floor, <br> London, EC2N 2BR, UK</i>
@@ -371,8 +367,8 @@
                                     </div>--%>
 
                                     <div data-motopress-type="static" data-motopress-static-file="static/static-footer-text.php">
-                                        <div id="footer-text" style="text-align:right" class="footer-text" >
-                                            <b><font size="+1" color="B80B07">LIFE</font><font size="+1" color="FFFFFF">BETTER</font></b> � 2016 | <a href="privacy.php?ref=;" title="Privacy Policy">Privacy Policy</a>
+                                        <div id="footer-text" style="text-align: right" class="footer-text">
+                                            <b><font size="+1" color="B80B07">LIFE</font><font size="+1" color="FFFFFF">BETTER</font></b>� 2016 | <a href="privacy.php?ref=;" title="Privacy Policy">Privacy Policy</a>
                                         </div>
                                     </div>
 

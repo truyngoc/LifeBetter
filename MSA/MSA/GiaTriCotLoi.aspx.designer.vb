@@ -12,5 +12,5 @@ Option Explicit On
 
 
 
-Partial Public Class GioiThieu
+Partial Public Class GiaTriCotLoi
 End Class

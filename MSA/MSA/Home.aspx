@@ -9,8 +9,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
-    <div data-motopress-type="static" data-motopress-static-file="static/static-slider.php">
-            <div id="slider-wrapper" class="slider">
+   <div data-motopress-type="static" data-motopress-static-file="static/static-slider.php">
+            <div id="slider-wrapper">
                 <div class="container">
                     <script type="text/javascript">
                         //    jQuery(window).load(function() {
