@@ -177,6 +177,7 @@
     <Content Include="Account\AccountCommision.aspx" />
     <Content Include="Account\AccountCommisionCommit.aspx" />
     <Content Include="Account\AccountCommisionDetail.aspx" />
+    <Content Include="Account\AccountManager.aspx" />
     <Content Include="Account\AccountSponsorTree.aspx" />
     <Content Include="Account\AccountTreeView.aspx" />
     <Content Include="Account\ActiveUsers.aspx" />
@@ -252,6 +253,7 @@
     <Content Include="fonts\slide-2.jpg" />
     <Content Include="fonts\slide-3.jpg" />
     <Content Include="fonts\vision.jpg" />
+    <Content Include="GiaTriCotLoi.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="images\1-170x235.jpg" />
     <Content Include="images\2-170x235.jpg" />
@@ -268,7 +270,9 @@
     <Content Include="images\CAM.png" />
     <Content Include="images\camera_skins.png" />
     <Content Include="images\content.jpg" />
+    <Content Include="images\delete-icon.png" />
     <Content Include="images\DO.png" />
+    <Content Include="images\edit-icon.png" />
     <Content Include="images\ego.jpg" />
     <Content Include="images\facebook.png" />
     <Content Include="images\footer.jpg" />
@@ -299,6 +303,7 @@
     <Content Include="images\jp_load.gif" />
     <Content Include="images\jp_spacer.png" />
     <Content Include="images\jp_sprite.png" />
+    <Content Include="images\key-icon.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\loading_16.gif" />
     <Content Include="images\loading_32.gif" />
@@ -363,6 +368,8 @@
     <Content Include="Scripts\loader.js" />
     <Content Include="Scripts\smart.resize.js" />
     <Content Include="Scripts\superfish.js" />
+    <Content Include="SuMenh.aspx" />
+    <Content Include="TamNhin.aspx" />
     <Content Include="themeNew2\ace-editable.min.js" />
     <Content Include="themeNew2\ace-elements.min.js" />
     <Content Include="themeNew2\ace-extra.min.js" />
@@ -444,6 +451,7 @@
     <Content Include="themeNew\jquery.min.js" />
     <Content Include="themeNew\main.js" />
     <Content Include="themeNew\style.css" />
+    <Content Include="ThucPham.aspx" />
     <Content Include="vendors\bootstrap-progressbar-3.3.4.min.css" />
     <Content Include="vendors\bootstrap-progressbar.js" />
     <Content Include="vendors\bootstrap-progressbar.min.js" />
@@ -592,6 +600,13 @@
     </Compile>
     <Compile Include="Account\AccountCommisionDetail.aspx.vb">
       <DependentUpon>AccountCommisionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Account\AccountManager.aspx.designer.vb">
+      <DependentUpon>AccountManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\AccountManager.aspx.vb">
+      <DependentUpon>AccountManager.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Account\AccountSponsorTree.aspx.designer.vb">
@@ -751,6 +766,13 @@
       <DependentUpon>Oops.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="GiaTriCotLoi.aspx.designer.vb">
+      <DependentUpon>GiaTriCotLoi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GiaTriCotLoi.aspx.vb">
+      <DependentUpon>GiaTriCotLoi.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -804,6 +826,27 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Startup.vb" />
+    <Compile Include="SuMenh.aspx.designer.vb">
+      <DependentUpon>SuMenh.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SuMenh.aspx.vb">
+      <DependentUpon>SuMenh.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="TamNhin.aspx.designer.vb">
+      <DependentUpon>TamNhin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TamNhin.aspx.vb">
+      <DependentUpon>TamNhin.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ThucPham.aspx.designer.vb">
+      <DependentUpon>ThucPham.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThucPham.aspx.vb">
+      <DependentUpon>ThucPham.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.vb">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
