@@ -95,7 +95,7 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <div class="row" style="background-color: #83868a; margin-left: 120px; margin-right: 120px">
+        <div class="row" style="background-color: #E0E0E0; margin-left: 120px; margin-right: 120px">
             <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
 
                 <div class="logo pull-left">
