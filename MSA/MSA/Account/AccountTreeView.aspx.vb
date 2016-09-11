@@ -50,6 +50,7 @@ Public Class AccountTreeView
         '    ma_cay = "0"
         'End If
         ' bo luon luon hien thi root cua ma_cay dang tim kiem
+
         Dim ma_cay_tt As Object
         If String.IsNullOrEmpty(ma_cay) Then
             Return Nothing
@@ -61,20 +62,26 @@ Public Class AccountTreeView
                 Dim chartData As New List(Of Object)()
                 cmd.CommandType = CommandType.Text
                 cmd.Connection = con
-                con.Open()
-                Using sdr As SqlDataReader = cmd.ExecuteReader()
-                    While sdr.Read()
-                        If sdr("MA_CAY").ToString() = ma_cay Then
-                            ma_cay_tt = Nothing
-                        Else
-                            ma_cay_tt = sdr("MA_CAY_TT")
-                        End If
 
-                        chartData.Add(New Object() {sdr("ID"), sdr("MA_KH"), sdr("MA_CAY"), sdr("MA_BAO_TRO"), sdr("TEN"), sdr("MA_BAO_TRO_TT"), _
-                            ma_cay_tt, sdr("NHANH_CAY_TT"), sdr("NGAY_THAM_GIA"), sdr("TRANG_THAI"), sdr("MA_GOI_DAU_TU"), sdr("MA_DANH_HIEU")})
-                    End While
-                End Using
-                con.Close()
+                Try
+                    con.Open()
+                    Using sdr As SqlDataReader = cmd.ExecuteReader()
+                        While sdr.Read()
+                            If sdr("MA_CAY").ToString() = ma_cay Then
+                                ma_cay_tt = Nothing
+                            Else
+                                ma_cay_tt = sdr("MA_CAY_TT")
+                            End If
+
+                            chartData.Add(New Object() {sdr("ID"), sdr("MA_KH"), sdr("MA_CAY"), sdr("MA_BAO_TRO"), sdr("TEN"), sdr("MA_BAO_TRO_TT"), _
+                                ma_cay_tt, sdr("NHANH_CAY_TT"), sdr("NGAY_THAM_GIA"), sdr("TRANG_THAI"), sdr("MA_GOI_DAU_TU"), sdr("MA_DANH_HIEU")})
+                        End While
+                    End Using
+                    con.Close()
+
+                Catch ex As Exception
+
+                End Try
 
                 Return chartData
             End Using
@@ -82,6 +89,9 @@ Public Class AccountTreeView
     End Function
 
     Public Shared Function get_Chart_Data(ma_cay As String) As String
+        If ma_cay = "" Then
+            ma_cay = Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY
+        End If
         Dim query As String = "select * from ("
         If ma_cay = "0" Then
             query += "SELECT ID"
@@ -100,6 +110,7 @@ Public Class AccountTreeView
             query += " WHERE ((MA_CAY ='" & ma_cay + "')) "
             query += " UNION "
         End If
+
         query += "SELECT ID"
         query += ", MA_KH"
         query += ", MA_CAY"

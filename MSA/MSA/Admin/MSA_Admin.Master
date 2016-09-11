@@ -168,6 +168,7 @@
                                 <li><a href="#">Quản lý đơn hàng</a></li>
                                 <li><a href="../Account/CommisionStatistics">Báo cáo thống kê</a></li>
                                 <li><a href="../Account/AccountCommisionCommit">Chốt hoa hồng hàng tháng</a></li>
+                                <li><a href="../Account/BusinessReport">Doanh số hàng tháng</a></li>
                             </ul>
                         </li>
                         <li><a href="../Account/Register">Tạo tài khoản</a></li>

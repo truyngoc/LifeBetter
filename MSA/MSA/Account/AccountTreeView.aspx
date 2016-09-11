@@ -237,9 +237,12 @@
                                         <input type="text" value="6" class="form-control" style="width: 100px;">--%>
                             <div class="title" style="color: black">Mã gốc</div>
 
-                            <asp:TextBox runat="server" ID="txtMA_CAY" Text="0" class="form-control" Style="width:100px" Enabled="false"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtMA_CAY" Text="" class="form-control" Style="width:100px" Enabled="false"></asp:TextBox>
                             <input type="submit" value="CÂY NHỊ PHÂN" class="btn btn-primary" />
                             <asp:Button ID="btnShowSponsor" runat="server" Text="CÂY BẢO TRỢ" class="btn btn-primary"  OnClientClick="view_Data(); return false;" />
+                        </div>
+                        <div>
+                            <asp:Label ID="lblError" runat="server" Visible="false"></asp:Label>
                         </div>
                         <div class="ghichu">
                             <img src="../images/goi_0.png" height="24" width="24" />
