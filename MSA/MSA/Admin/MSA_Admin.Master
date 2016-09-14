@@ -465,7 +465,7 @@
         </div>
 
 
-        <hr />
+        <hr style="border-color: red;" />
         <div id="footer">
             <div class="container">
             </div>

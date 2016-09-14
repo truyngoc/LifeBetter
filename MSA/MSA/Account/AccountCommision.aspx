@@ -181,7 +181,7 @@
                     </tr>
                 </tbody>
             </table>
-            <hr>
+            <hr style="border-color: red;" />
             <div class="month">
 
                 <asp:DropDownList ID="dllHOA_HONG_THANG" runat="server" CssClass="form-control" OnSelectedIndexChanged="dllHOA_HONG_THANG_SelectedIndexChanged"></asp:DropDownList>
