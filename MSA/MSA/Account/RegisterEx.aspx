@@ -22,9 +22,9 @@
 
                                         <div class="span4">
                                             <img src="/images/slide9.jpg" />
-                                            <address>
+                                            <address style="color:black">
                                                 <h5 style="font-family: 'Times New Roman'"><font color="010101">Thông tin liên lạc.</font></h5>
-                                                <strong>Tòa nhà Bitexco 02 Hải Triều, Quận 1, </br>Thành phố Hồ Chí Minh, Việt Nam</strong>
+                                                <strong >Tòa nhà Bitexco 02 Hải Triều, Quận 1, </br>Thành phố Hồ Chí Minh, Việt Nam</strong>
                                                 <ul>
                                                     <li>Số ĐT: +44 20 7156 6217</li>
                                                     <li>FAX: +44 20 7156 6220</li>
@@ -35,7 +35,7 @@
 
                                         <div class="span8" style="margin-top: -20px; margin-left: auto">
                                             <asp:Panel runat="server" ID="pnForm">
-                                                <fieldset class="fdb-scheduler-border">
+                                                <fieldset class="fdb-scheduler-border" style="color:black">
                                                     <div class="row">
                                                         <asp:Label runat="server" ID="lblMessages" ForeColor="Blue" Font-Bold="true"> <br />    
                                                         </asp:Label>

@@ -48,40 +48,4 @@ Partial Public Class LoginAcount
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnLogin As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''txtTransaction control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtTransaction As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''lblID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblID As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''hidden control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents hidden As Global.System.Web.UI.WebControls.HiddenField
-
-    '''<summary>
-    '''btnSaveConfirm control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnSaveConfirm As Global.System.Web.UI.WebControls.Button
 End Class
