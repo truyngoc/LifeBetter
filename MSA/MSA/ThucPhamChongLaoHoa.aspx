@@ -1,17 +1,17 @@
-﻿<%@ Page Title="Thực phẩm lão hóa" Language="vb" AutoEventWireup="false" MasterPageFile="~/MSA.Master" CodeBehind="ThucPhanLaoHoa.aspx.vb" Inherits="MSA.SuMenh" %>
+﻿<%@ Page Title="Thực phẩm lão hóa" Language="vb" AutoEventWireup="false" MasterPageFile="~/MSA.Master" CodeBehind="ThucPhamChongLaoHoa.aspx.vb" Inherits="MSA.SuMenh" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server" style="background-color: #fff">
 
-    <div id="Content" data-motopress-type="loop" class="container">
+    <div id="Content" data-motopress-type="loop" class="container" style="background-color: #fff">
         <div class="col-lg-12">
-            <div class="col-lg-5">
-                <img src="images/Protandim.jpg" width="800px" />
+            <div class="col-lg-5" width="800px" height="600px">
+                <img src="images/PROTANDIM-CAP1.png" />
             </div>
             <div class="col-lg-6">
                 <%--<h2> PROTANDIM </h2>--%>
             </div>
         </div>
-        <div class="txt_content">
+        <div class="txt_content" style="padding-left:20px; padding-right:15px">
             <h3 style="color: #C00000">Protandim là gì? </h3>
             <p align="justify" style="font-size: large">
                 Protandim là dược thảo được sáng chế bởi bác sĩ, tiến sĩ Joe McCord, thuộc trung tâm Y khoa, trường đại học Colorado sau 40 năm nghiên cứu. Bên cạnh đó, dược thảo Protandim cũng được kiểm nghiệm lâm sàng độc lập bởi hơn 20 trường đại học Y khoa của Mỹ, Nhật, Mexico, Cộng hoà Sec, Hàn Quốc… với số tiền hơn 1 triệu đôla cho mỗi trường.
@@ -95,11 +95,12 @@ Và sau các thử nghiệm về oxy hóa, các nhà khoa học không thể ph�
         </div>
         <div class="txt_content">
             <hr style="border-color: red;" />
+            <h3 style="color: #C00000">Thành phần </h3>
             <img src="images/thanh-phan-protandim.jpg" width="100%" />
             <p align="justify" style="margin-left: 35px; font-size: large">
                 •	Milk thistle: (Hoa cúc gai) (Phần hạt): Giúp thận và gan hoạt động khỏe mạnh.
                                                 <br />
-                •	Bacopa: (Hoa đắng biển Ấn Độ) (Phần lộ thiên): Giúp tái tạo thêm chất men enzym trong cơ thể
+                •	Bacopa: (Hoa đắng biển Ấn Độ) (Phần lộ thiên): Giúp tái tạo thêm chất men enzym trong cơ thể.
                                                 <br />
 
                 •	Ashwagandha: (Cây sâm Ấn Độ) (Phần gốc rễ): Ngăn ngừa nhiều bệnh, tăng cường sức khoẻ và giúp ngủ ngon.
@@ -115,15 +116,18 @@ Và sau các thử nghiệm về oxy hóa, các nhà khoa học không thể ph�
             <p align="justify" style="font-size: large">Ngoài năm thành phần chính trên, dược thảo Protandim còn có một số thành phần phụ như calcium, croscarmellose sodium, magnesium stearate, microcrystalline cellulose, modified cellulose, silica, stearic acid.</p>
             <p align="justify" style="font-size: large">Dược thảo Protandim được tinh chế với 100% thảo mộc và hoàn toàn không chứa chất gluten, bột mì, sản phẩm có nguồn gốc từ sữa, chất gelatin và men (yeast). Vì vậy, Bạn có thể an tâm sử dụng và dùng chung với các loại thuốc tây khác.</p>
             <hr style="border-color: red;" />
-             <h3 style="color: #C00000" style="font-size: large">Cách sử dụng</h3>
-            <p align="justify" style="font-size: large"> Dược thảo Protandim được khuyên dùng cho mọi đối tượng trưởng thành từ 20 tuổi trở lên với liều lượng như sau:</p>
-             •	Hỗ trợ phòng ngừa bệnh tật & chống lão hóa: uống đều đặn 01 viên mỗi ngày.
+            <h3 style="color: #C00000" style="font-size: large">Cách sử dụng</h3>
+            <p align="justify" style="font-size: large">Dược thảo Protandim được khuyên dùng cho mọi đối tượng trưởng thành từ 20 tuổi trở lên với liều lượng như sau:</p>
+            <p align="justify" style="margin-left: 35px; font-size: large">
+                •	Hỗ trợ phòng ngừa bệnh tật & chống lão hóa: uống đều đặn 01 viên mỗi ngày.
                                                 <br />
                 •	Hỗ trợ điều trị bệnh: uống tăng cường 02 viên mỗi ngày (buổi sáng & buổi tối).
-                                                <br />
-        <hr style="border-color: red;" />
+            </p>
+            <br />
+            <hr style="border-color: red;" />
             <h3 style="color: #C00000" style="font-size: large">Tham khảo</h3>
-            <p align="justify" style="font-size:large">Thông tin phản biện về nghiên cứu lâm sàng của sản phẩm được đăng trên website của Bộ Y tế Hoa Kỳ: www.pubmed.gov.</p>
+            <p align="justify" style="font-size: large">Thông tin phản biện về nghiên cứu lâm sàng của sản phẩm được đăng trên website của Bộ Y tế Hoa Kỳ: www.pubmed.gov.</p>
+            <h4></h4>
         </div>
     </div>
 

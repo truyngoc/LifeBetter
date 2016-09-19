@@ -193,10 +193,11 @@
     <Content Include="Account\ViewAccountDetail.aspx" />
     <Content Include="ChiaSe.aspx" />
     <Content Include="images\LeoNui.jpg" />
+    <Content Include="images\PROTANDIM-CAP1.png" />
     <Content Include="images\Protandim.jpg" />
     <Content Include="images\TangTruong.jpg" />
     <Content Include="images\thanh-phan-protandim.jpg" />
-    <Content Include="ThucPhanLaoHoa.aspx" />
+    <Content Include="ThucPhamChongLaoHoa.aspx" />
     <Content Include="CommitionDetail.aspx" />
     <Content Include="Commition\Commition.aspx" />
     <Content Include="Commition\CommitionHistory.aspx" />
@@ -724,11 +725,11 @@
       <DependentUpon>ChiaSe.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="ThucPhanLaoHoa.aspx.designer.vb">
-      <DependentUpon>ThucPhanLaoHoa.aspx</DependentUpon>
+    <Compile Include="ThucPhamChongLaoHoa.aspx.designer.vb">
+      <DependentUpon>ThucPhamChongLaoHoa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ThucPhanLaoHoa.aspx.vb">
-      <DependentUpon>ThucPhanLaoHoa.aspx</DependentUpon>
+    <Compile Include="ThucPhamChongLaoHoa.aspx.vb">
+      <DependentUpon>ThucPhamChongLaoHoa.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="CommitionDetail.aspx.designer.vb">
