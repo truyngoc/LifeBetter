@@ -184,7 +184,7 @@
             <hr style="border-color: red;" />
             <div class="month">
 
-                <asp:DropDownList ID="dllHOA_HONG_THANG" runat="server" CssClass="form-control" OnSelectedIndexChanged="dllHOA_HONG_THANG_SelectedIndexChanged"></asp:DropDownList>
+                <asp:DropDownList ID="dllHOA_HONG_THANG" runat="server" CssClass="form-control" OnSelectedIndexChanged="dllHOA_HONG_THANG_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 <br /><br /><br />
 
 <%--                <select name="dnn$ctr513$HoaHong$cmbMonth" onchange="javascript:setTimeout('__doPostBack(\'dnn$ctr513$HoaHong$cmbMonth\',\'\')', 0)" id="dnn_ctr513_HoaHong_cmbMonth" class="combobox form-control">

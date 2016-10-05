@@ -27,6 +27,15 @@ Public Class AccountCommision
             '    HttpContext.Current.Session("MSA_DOANHSO_HOAHONG") = oHoaHong
             'End If
 
+            bindDOANH_SO()
+
+            Dim sThangDoanhSo As String
+            sThangDoanhSo = DateTime.Today.Month.ToString + DateTime.Today.Year.ToString
+            dllHOA_HONG_THANG.SelectedValue = sThangDoanhSo
+
+
+
+            ' load hoa hong
             oHoaHong = daoDOANH_SO.Tinh_Hoa_Hong(sMA_CAY, _
                                                  Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
                                                  DateTime.Today.Month, DateTime.Today.Year)
@@ -34,7 +43,7 @@ Public Class AccountCommision
             ' gan len form
             Load_Data_To_Form(oHoaHong)
 
-            bindDOANH_SO()
+
         End If
         
     End Sub
@@ -155,8 +164,18 @@ Public Class AccountCommision
         Try
             Dim thang As Integer = 0
             Dim nam As Integer = 0
-            thang = dllHOA_HONG_THANG.SelectedItem.Text.Substring(0, 2).Trim
-            nam = dllHOA_HONG_THANG.SelectedItem.Text.Substring(dllHOA_HONG_THANG.SelectedItem.Text.IndexOf(" - "), 2)
+
+            Dim iLen As Integer
+            iLen = dllHOA_HONG_THANG.SelectedValue.ToString.Length
+
+            If iLen = 6 Then
+                thang = dllHOA_HONG_THANG.SelectedValue.ToString.Substring(0, 2).Trim
+                nam = dllHOA_HONG_THANG.SelectedValue.ToString.Substring(2, iLen - 2)
+            Else
+                thang = dllHOA_HONG_THANG.SelectedValue.ToString.Substring(0, 1).Trim
+                nam = dllHOA_HONG_THANG.SelectedValue.ToString.Substring(1, iLen - 1)
+            End If
+            
             Dim oHoaHong As HOA_HONG = daoDOANH_SO.Tinh_Hoa_Hong(Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY, _
                                      Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
                                      thang, nam)
