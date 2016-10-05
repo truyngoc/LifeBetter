@@ -1,6 +1,7 @@
 ﻿Public Class HOA_HONG
     Public Property ID As Integer
     Public Property MA_KH As String
+    Public Property TEN As String
     Public Property MA_DAU_TU As Integer
     Public Property THANG As Integer
     Public Property NAM As Integer

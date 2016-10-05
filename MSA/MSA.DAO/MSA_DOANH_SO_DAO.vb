@@ -185,4 +185,12 @@ Public Class MSA_DOANH_SO_DAO
             Return True
         End If
     End Function
+
+
+    ' 06/10/2016
+    Public Function report(ByVal thangnam As String, ByVal textSearch As String, ByVal type As Integer) As List(Of HOA_HONG)
+
+        Return db.Query(Of HOA_HONG)("sp_DOANH_SO_report", New With {Key .thangnam = thangnam, Key .textSearch = textSearch, Key .type = type}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
 End Class

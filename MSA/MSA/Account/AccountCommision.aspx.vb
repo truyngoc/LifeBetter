@@ -45,7 +45,7 @@ Public Class AccountCommision
 
 
         End If
-        
+
     End Sub
 
 
@@ -142,7 +142,7 @@ Public Class AccountCommision
             dllHOA_HONG_THANG.DataBind()
         End If
 
-        
+
     End Sub
 
     'Public Sub datagrid_PageIndexChanging(ByVal sender As Object, ByVal e As GridViewPageEventArgs)
@@ -175,7 +175,7 @@ Public Class AccountCommision
                 thang = dllHOA_HONG_THANG.SelectedValue.ToString.Substring(0, 1).Trim
                 nam = dllHOA_HONG_THANG.SelectedValue.ToString.Substring(1, iLen - 1)
             End If
-            
+
             Dim oHoaHong As HOA_HONG = daoDOANH_SO.Tinh_Hoa_Hong(Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY, _
                                      Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
                                      thang, nam)

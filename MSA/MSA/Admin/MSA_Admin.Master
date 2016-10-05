@@ -169,6 +169,13 @@
                                 <li><a href="../Account/CommisionStatistics">Báo cáo thống kê</a></li>
                                 <li><a href="../Account/AccountCommisionCommit">Chốt hoa hồng hàng tháng</a></li>
                                 <li><a href="../Account/BusinessReport">Doanh số hàng tháng</a></li>
+
+                                <li><a href="../Admin/CommisionReport">Báo cáo hoa hồng (new)</a></li>
+                                <li><a href="../Admin/SalesReport">Báo cáo doanh số (new)</a></li>
+                                <li><a href="../Admin/TitleReport">Báo cáo danh hiệu (new)</a></li>
+                                <li><a href="../Admin/AccountReport">Báo cáo thành viên (new)</a></li>
+                                <li><a href="../Admin/PackageUpgradeReport">Báo cáo bắn tiền (new)</a></li>
+                                <li><a href="../Account/BusinessReport">Báo cáo kinh doanh (new)</a></li>
                             </ul>
                         </li>
                         <li><a href="../Account/Register">Tạo tài khoản</a></li>

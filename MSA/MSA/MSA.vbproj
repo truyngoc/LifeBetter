@@ -191,6 +191,11 @@
     <Content Include="Account\RegisterEx.aspx" />
     <Content Include="Account\SignOut.aspx" />
     <Content Include="Account\ViewAccountDetail.aspx" />
+    <Content Include="Admin\AccountReport.aspx" />
+    <Content Include="Admin\CommisionReport.aspx" />
+    <Content Include="Admin\PackageUpgradeReport.aspx" />
+    <Content Include="Admin\SalesReport.aspx" />
+    <Content Include="Admin\TitleReport.aspx" />
     <Content Include="ChiaSe.aspx" />
     <Content Include="images\LeoNui.jpg" />
     <Content Include="images\PROTANDIM-CAP1.png" />
@@ -708,12 +713,47 @@
       <DependentUpon>ViewAccountDetail.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Admin\AccountReport.aspx.designer.vb">
+      <DependentUpon>AccountReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AccountReport.aspx.vb">
+      <DependentUpon>AccountReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CommisionReport.aspx.designer.vb">
+      <DependentUpon>CommisionReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CommisionReport.aspx.vb">
+      <DependentUpon>CommisionReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Admin\MSA_Admin.Master.designer.vb">
       <DependentUpon>MSA_Admin.Master</DependentUpon>
     </Compile>
     <Compile Include="Admin\MSA_Admin.Master.vb">
       <DependentUpon>MSA_Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PackageUpgradeReport.aspx.designer.vb">
+      <DependentUpon>PackageUpgradeReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PackageUpgradeReport.aspx.vb">
+      <DependentUpon>PackageUpgradeReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SalesReport.aspx.designer.vb">
+      <DependentUpon>SalesReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SalesReport.aspx.vb">
+      <DependentUpon>SalesReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TitleReport.aspx.designer.vb">
+      <DependentUpon>TitleReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TitleReport.aspx.vb">
+      <DependentUpon>TitleReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
