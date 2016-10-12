@@ -193,6 +193,8 @@
     <Content Include="Account\ViewAccountDetail.aspx" />
     <Content Include="Admin\AccountReport.aspx" />
     <Content Include="Admin\CommisionReport.aspx" />
+    <Content Include="Admin\EditAccount.aspx" />
+    <Content Include="Admin\PackageUpgrade.aspx" />
     <Content Include="Admin\PackageUpgradeReport.aspx" />
     <Content Include="Admin\SalesReport.aspx" />
     <Content Include="Admin\TitleReport.aspx" />
@@ -202,6 +204,7 @@
     <Content Include="images\Protandim.jpg" />
     <Content Include="images\TangTruong.jpg" />
     <Content Include="images\thanh-phan-protandim.jpg" />
+    <Content Include="images\unlock_icon.jpg" />
     <Content Include="ThucPhamChongLaoHoa.aspx" />
     <Content Include="CommitionDetail.aspx" />
     <Content Include="Commition\Commition.aspx" />
@@ -718,7 +721,7 @@
     </Compile>
     <Compile Include="Admin\AccountReport.aspx.vb">
       <DependentUpon>AccountReport.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\CommisionReport.aspx.designer.vb">
       <DependentUpon>CommisionReport.aspx</DependentUpon>
@@ -727,12 +730,26 @@
       <DependentUpon>CommisionReport.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Admin\EditAccount.aspx.designer.vb">
+      <DependentUpon>EditAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditAccount.aspx.vb">
+      <DependentUpon>EditAccount.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Admin\MSA_Admin.Master.designer.vb">
       <DependentUpon>MSA_Admin.Master</DependentUpon>
     </Compile>
     <Compile Include="Admin\MSA_Admin.Master.vb">
       <DependentUpon>MSA_Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PackageUpgrade.aspx.designer.vb">
+      <DependentUpon>PackageUpgrade.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PackageUpgrade.aspx.vb">
+      <DependentUpon>PackageUpgrade.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Admin\PackageUpgradeReport.aspx.designer.vb">
       <DependentUpon>PackageUpgradeReport.aspx</DependentUpon>

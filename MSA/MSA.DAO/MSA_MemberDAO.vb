@@ -166,10 +166,55 @@ Public Class MSA_MemberDAO
         Dim parameter = New DynamicParameters()
         parameter = SqlUtilities.GetDynamicParameters(dictsqlParam)
         'db.Execute("sproc_MEMBERS_Add", New With {Key .MA_KH = mInfo.MA_KH, Key .MAT_KHAU = mInfo.MAT_KHAU, Key .TEN = mInfo.TEN, Key .DIEN_THOAI = mInfo.DIEN_THOAI, Key .DIA_CHI = mInfo.DIA_CHI, Key .MA_BAO_TRO_TT = mInfo.MA_BAO_TRO_TT, Key .URL = mInfo.URL, Key .NV = mInfo.NV}, commandType:=CommandType.StoredProcedure)
-        db.Execute("sproc_MEMBERS_KICH_HOAT_Update", parameter, commandType:=CommandType.StoredProcedure)
+        db.Execute("sproc_MEMBERS_Admin_Update", parameter, commandType:=CommandType.StoredProcedure)
     End Sub
 
 
+    Sub Admin_Update(mInfo As MSA_MemberInfo)
+        Dim dictsqlParam As Dictionary(Of String, SqlParameter) = SqlUtilities.GetParameters("MEMBERS", mInfo)
+        dictsqlParam.Remove("ID")
+        dictsqlParam.Remove("MAT_KHAU")
+        dictsqlParam.Remove("NGAY_SINH")
+        dictsqlParam.Remove("MST")
+        dictsqlParam.Remove("NGAY_THAM_GIA")
+        dictsqlParam.Remove("MA_GOI_DAU_TU")
+        dictsqlParam.Remove("TEN_GOI_DAU_TU")
+        dictsqlParam.Remove("MA_DANH_HIEU")
+        dictsqlParam.Remove("URL")
+        dictsqlParam.Remove("NV")
+        dictsqlParam.Remove("NGAY_NANG_CAP")
+        dictsqlParam.Remove("MA_BAO_TRO_TT")
+        dictsqlParam.Remove("TRANG_THAI")
+        dictsqlParam.Remove("MA_CAY_TT")
+        dictsqlParam.Remove("NHANH_CAY_TT")
+        dictsqlParam.Remove("MA_CAY")
+        Dim parameter = New DynamicParameters()
+        parameter = SqlUtilities.GetDynamicParameters(dictsqlParam)
+
+        db.Execute("sproc_MEMBERS_Admin_Update", parameter, commandType:=CommandType.StoredProcedure)
+    End Sub
+
+
+    '-------------
+    Public Function SEARCH_NEW(ByVal SearchText As String, ByVal Type As Integer, ByVal ThangNam As String, ByVal TrangThai As Integer) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_NEW", New With {Key .SearchText = SearchText, Key .Type = Type, Key .ThangNam = ThangNam, Key .TrangThai = TrangThai}, _
+                                           commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+
+    Public Sub DELETE(ByVal ID As Integer)
+        db.Execute("sproc_MEMBERS_Delete", New With {Key .ID = ID
+                                                    }, commandType:=CommandType.StoredProcedure)
+    End Sub
+
+    Public Sub LOCK_AND_UNLOCK(ByVal ID As Integer, ByVal TRANG_THAI As Integer)
+        db.Execute("sproc_MEMBERS_Lock_Unlock", New With {Key .ID = ID, Key .TRANG_THAI = TRANG_THAI
+                                                    }, commandType:=CommandType.StoredProcedure)
+    End Sub
+
+    '-------------
 
     Public Function SEARCH_ALL() As List(Of MSA_MemberInfo)
 

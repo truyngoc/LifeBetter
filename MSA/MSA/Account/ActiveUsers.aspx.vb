@@ -140,27 +140,27 @@ Public Class ActiveUsers
         End If
         Singleton(Of MSA_MemberDAO).Inst.Update_KICH_HOAT(info)
 
-        Dim lstDanhHieu As List(Of String) = checkDanhHieu(info.MA_CAY)
-        If lstDanhHieu IsNot Nothing AndAlso lstDanhHieu.Count > 0 Then
-            For Each MA_CAY As String In lstDanhHieu
-                Singleton(Of MSA_MemberDAO).Inst.UpdateDanhHieuKimCuong(MA_CAY)
-                'CHECK DANH HIEU CHU TICH
-                Dim objMember As MSA_MemberInfo = Singleton(Of MSA_MemberDAO).Inst.FindBaoTro(MA_CAY)
-                If objMember.MA_DANH_HIEU < 2 Then
-                    'CHECK DOANH SO TICH LUY
-                    Dim oHoaHong As HOA_HONG
-                    Dim daoDOANH_SO As New MSA_DOANH_SO_DAO
-                    oHoaHong = daoDOANH_SO.Tinh_Hoa_Hong(objMember.MA_CAY, _
-                                     Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
-                                     DateTime.Today.Month, DateTime.Today.Year)
-                    Dim DOANH_SO_NHANH_YEU As Long = IIf(oHoaHong.DOANH_SO_TICH_LUY_TRAI >= oHoaHong.DOANH_SO_TICH_LUY_PHAI, oHoaHong.DOANH_SO_TICH_LUY_PHAI, oHoaHong.DOANH_SO_TICH_LUY_TRAI)
-                    If DOANH_SO_NHANH_YEU >= 9000000000 Then
-                        Singleton(Of MSA_MemberDAO).Inst.UpdateDanhHieuChuTich(objMember.MA_CAY)
-                    End If
-                End If
+        'Dim lstDanhHieu As List(Of String) = checkDanhHieu(info.MA_CAY)
+        'If lstDanhHieu IsNot Nothing AndAlso lstDanhHieu.Count > 0 Then
+        '    For Each MA_CAY As String In lstDanhHieu
+        '        Singleton(Of MSA_MemberDAO).Inst.UpdateDanhHieuKimCuong(MA_CAY)
+        '        'CHECK DANH HIEU CHU TICH
+        '        Dim objMember As MSA_MemberInfo = Singleton(Of MSA_MemberDAO).Inst.FindBaoTro(MA_CAY)
+        '        If objMember.MA_DANH_HIEU < 2 Then
+        '            'CHECK DOANH SO TICH LUY
+        '            Dim oHoaHong As HOA_HONG
+        '            Dim daoDOANH_SO As New MSA_DOANH_SO_DAO
+        '            oHoaHong = daoDOANH_SO.Tinh_Hoa_Hong(objMember.MA_CAY, _
+        '                             Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
+        '                             DateTime.Today.Month, DateTime.Today.Year)
+        '            Dim DOANH_SO_NHANH_YEU As Long = IIf(oHoaHong.DOANH_SO_TICH_LUY_TRAI >= oHoaHong.DOANH_SO_TICH_LUY_PHAI, oHoaHong.DOANH_SO_TICH_LUY_PHAI, oHoaHong.DOANH_SO_TICH_LUY_TRAI)
+        '            If DOANH_SO_NHANH_YEU >= 9000000000 Then
+        '                Singleton(Of MSA_MemberDAO).Inst.UpdateDanhHieuChuTich(objMember.MA_CAY)
+        '            End If
+        '        End If
 
-            Next
-        End If
+        '    Next
+        'End If
         Response.Redirect("AccountTreeView")
     End Sub
 
