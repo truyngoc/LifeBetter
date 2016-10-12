@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="MSA_Caching_DAO.vb" />
     <Compile Include="MSA_DOANH_SO_DAO.vb" />
+    <Compile Include="MSA_GOI_DAU_TU_HIS_DAO.vb" />
     <Compile Include="SqlUtils\SqlUtilities.vb" />
     <Compile Include="IContactRepository.vb" />
     <Compile Include="MSA_MemberDAO.vb" />
