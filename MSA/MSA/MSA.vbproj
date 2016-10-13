@@ -508,6 +508,7 @@
     <Content Include="vendors\nprogress.js" />
     <Content Include="vendors\skycons.js" />
     <Content Include="vendors\validator.js" />
+    <Content Include="Admin\NEW_ADMIN.Master" />
     <None Include="My Project\PublishProfiles\12.pubxml" />
     <None Include="My Project\PublishProfiles\LIFE BETTER.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -742,6 +743,13 @@
     </Compile>
     <Compile Include="Admin\MSA_Admin.Master.vb">
       <DependentUpon>MSA_Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\NEW_ADMIN.Master.designer.vb">
+      <DependentUpon>NEW_ADMIN.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\NEW_ADMIN.Master.vb">
+      <DependentUpon>NEW_ADMIN.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\PackageUpgrade.aspx.designer.vb">

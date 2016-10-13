@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Admin/MSA_Admin.Master" CodeBehind="EditAccount.aspx.vb" Inherits="MSA.EditAccount" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Admin/NEW_ADMIN.Master" CodeBehind="EditAccount.aspx.vb" Inherits="MSA.EditAccount" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel-body">

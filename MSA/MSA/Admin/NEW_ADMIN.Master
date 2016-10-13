@@ -1,0 +1,203 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="NEW_ADMIN.master.vb" Inherits="MSA.NEW_ADMIN" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> LIFE BETTER Group</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap.min_t.js"></script>
+
+    <link rel="stylesheet" href="~/Content/bootstrap_t.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min_t.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/MSA_style_truybn.css" type="text/css" />
+
+
+
+    <style type="text/css">
+        .contentdisplay3 {
+            border: 1px solid #ECF4FF;
+            background-color: #fbfbff;
+            text-align: left;
+            color: #4b4b4b;
+            font-size: 11px;
+            font-weight: normal;
+            font-family: verdana, arial, helvetica, sans-serif;
+            text-decoration: none;
+            width: 650px;
+        }
+
+
+
+        table {
+            border-collapse: inherit;
+            border-spacing: 0;
+        }
+
+
+        .blf-orgchart-node {
+            text-align: center;
+            vertical-align: middle;
+            font-family: arial,helvetica;
+            cursor: default;
+        }
+
+        .navbar-fixed-top, .navbar-fixed-bottom {
+            position: relative;
+            right: 0;
+            left: 0;
+            border-width: 0 0 1px;
+            margin-left: 120px;
+            margin-right: 120px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="row" style="background-color: #E0E0E0; margin-left: 120px; margin-right: 120px">
+            <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
+
+                <div class="logo pull-left">
+                    <a href="../Home.aspx" class="">
+                        <img src="/images/logo LB- convert-04.png" alt="LIFE BETTER" title="LIVE YOUR DREAM" style="width: 190px; height: 80px" /></a>                   
+                </div>
+            </div>
+            <div class="span6">
+                <div class="header_widget" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="header-sidebar">
+                    <div id="text-7" class="text-right" style="color: white">
+                        <h4>Hỗ trợ</h4>
+                        <div class="textwidget" style="color: white">
+                            <i></i>
+                            +84 974297983
+                       
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden-phone" data-motopress-type="static" data-motopress-static-file="static/static-search.php">
+
+                    <div align="right">
+                        <font size="2px" color="010101" style="color: white">   
+                                            <%=Date.Now.ToString("dd/MM/yyyy hh:mm:ss")%>
+                                        </font>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>                    
+                </div>
+                <div class="navbar-collapse collapse nav__primary">
+                    <ul class="nav navbar-nav sf-menu">
+                        <li><a runat="server" href="../Home">Trang chủ</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn">Hệ thống</a>
+                            <ul class="dropdown-content">
+                                <li><a href="../Account/AccountTreeView">Doanh số</a></li>
+                                <li><a href="../Account/AccountCommision">Hoa hồng</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown" runat="server" id="mnuQuantri">
+                            <a href="#" class="dropbtn">Quản trị</a>
+                            <ul class="dropdown-content">
+                                <li><a href="../Account/ActiveUsers">Kích hoạt tài khoản</a></li>
+                                <li><a href="../Account/CommisionStatistics">Báo cáo thống kê</a></li>
+                                <li><a href="../Account/AccountCommisionCommit">Chốt hoa hồng hàng tháng</a></li>
+                                <%--<li><a href="../Account/BusinessReport">Doanh số hàng tháng</a></li>--%>
+
+                                
+                                <li><a href="../Admin/AccountReport">Báo cáo thành viên (new)</a></li>
+                                <li><a href="../Admin/PackageUpgrade">Nâng cấp gói (new)</a></li>
+                                <li><a href="../Admin/TitleReport">Báo cáo danh hiệu (new)</a></li>
+                                <li><a href="../Admin/PackageUpgradeReport">Báo cáo bắn tiền (new)</a></li>
+                                <li><a href="../Admin/CommisionReport">Báo cáo hoa hồng (new)</a></li>
+                                <li><a href="../Admin/SalesReport">Báo cáo doanh số (new)</a></li>                                
+                                <li><a href="../Account/BusinessReport">Báo cáo kinh doanh (new)</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../Account/Register">Tạo tài khoản</a></li>
+                        <li><a runat="server" href="../Account/SignOut.aspx">Thoát</a></li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="container body-content">
+            <div id="contentWrapper1">
+                <div class="container">
+                    <div class="col-md-12">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <hr />
+        <div id="footer">
+            <div class="container">
+            </div>
+            <div class="container">
+                <hr class="col-md-12" style="margin-left: 0px;" />
+            </div>
+            <div id="copyright" class="container">
+                <div class="pull-right">
+                    <a href="#">Terms Of Use</a> |
+				
+                    <a href="#">Privacy Statement</a>
+                </div>
+                <span class="pull-left">Copyright 2016 by LIFE BETTER Group;</span>
+
+            </div>
+            <!--/copyright-->
+        </div>
+        <!--/footer-->
+        <%-- </div>--%>
+    </form>
+</body>
+</html>
+
