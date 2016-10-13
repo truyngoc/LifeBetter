@@ -85,6 +85,7 @@
         <br />
         <div class="row">
             <div class="col-md-5">
+                <asp:DropDownList ID="ddlMonth" runat="server" CssClass="form-control" AutoPostBack="true"></asp:DropDownList>
                 <!-- Your Button -->
                 <asp:Button ID="btnChotHoaHong" runat="server" OnClientClick="DisplayLoadingImage();" Text="Chốt doanh số - hoa hồng tháng" CssClass="btn btn-info" />
             </div>
