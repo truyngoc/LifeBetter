@@ -66,6 +66,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GOI_DAU_TU_HIS_Info.vb" />
     <Compile Include="HOA_HONG.vb" />
     <Compile Include="MSA_MemberInfo.vb" />
     <Compile Include="MSA_SYNCDATA\MSA_SYNCDATA_PAYMENTInfo.vb" />

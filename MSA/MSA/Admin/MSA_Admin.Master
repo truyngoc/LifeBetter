@@ -170,6 +170,7 @@
                                 <li><a href="../Account/AccountCommisionCommit">Chốt hoa hồng hàng tháng</a></li>
                                 <li><a href="../Account/BusinessReport">Doanh số hàng tháng</a></li>
 
+                                <li><a href="../Admin/PackageUpgrade">Nâng cấp gói (new)</a></li>
                                 <li><a href="../Admin/CommisionReport">Báo cáo hoa hồng (new)</a></li>
                                 <li><a href="../Admin/SalesReport">Báo cáo doanh số (new)</a></li>
                                 <li><a href="../Admin/TitleReport">Báo cáo danh hiệu (new)</a></li>
