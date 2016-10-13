@@ -13,3 +13,9 @@
     Public Property NGUOI_CAP_NHAT As String
     Public Property GHI_CHU As String
 End Class
+
+Public Class GOI_DAU_TU_Info
+    Public Property MA_DAU_TU As Integer
+    Public Property TEN As String
+    Public Property TRI_GIA As Decimal
+End Class

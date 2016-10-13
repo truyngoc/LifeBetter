@@ -52,4 +52,14 @@ Public Class MSA_GOI_DAU_TU_HIS_DAO
         Return ds
     End Function
 
+
+
+
+
+    Public Function GOI_DAU_TU_GetAll() As List(Of GOI_DAU_TU_Info)
+
+        Return db.Query(Of GOI_DAU_TU_Info)("sproc_GOI_DAU_TU_GetAll", commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+
+    End Function
 End Class

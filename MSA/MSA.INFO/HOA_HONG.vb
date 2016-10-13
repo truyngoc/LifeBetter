@@ -57,3 +57,15 @@ Public Class THANG_DOANH_SO
     Public Property DS_Value As String
     Public Property DS_Text As String
 End Class
+
+Public Class BUSINESS_REPORT
+    Public Property MA_KH As String
+    Public Property TEN_KH As String
+
+    Public Property MA_DAU_TU As Integer
+    Public Property TEN_GOI_DAU_TU As String
+    Public Property DOANH_SO_TRAI As Decimal
+    Public Property DOANH_SO_PHAI As Decimal
+    Public Property DOANH_SO_TICH_LUY_TRAI As Decimal
+    Public Property DOANH_SO_TICH_LUY_PHAI As Decimal
+End Class

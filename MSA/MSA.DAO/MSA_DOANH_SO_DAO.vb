@@ -226,4 +226,139 @@ Public Class MSA_DOANH_SO_DAO
 
         Return ds
     End Function
+
+
+
+    'business report
+    Public Function business_report_DANH_HIEU(ByVal thangnam As String, ByVal textSearch As String, ByVal type As Integer) As DataSet
+
+        Dim ds As New DataSet
+
+        Dim param = New SqlParameter("@thangnam", SqlDbType.VarChar, 50)
+        param.Value = thangnam
+
+        Dim param1 = New SqlParameter("@textSearch", SqlDbType.NVarChar, 255)
+        param1.Value = textSearch
+
+        Dim param2 = New SqlParameter("@type", SqlDbType.Int)
+        param2.Value = type
+
+        Using con As New SqlConnection(ConfigurationManager.ConnectionStrings("SqlServerConnString").ConnectionString)
+            Using cmd As New SqlCommand("sp_DOANH_SO_report_commision")
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.Add(param)
+                cmd.Parameters.Add(param1)
+                cmd.Parameters.Add(param2)
+
+                cmd.Connection = con
+
+                Dim da As New SqlDataAdapter(cmd)
+
+
+                da.Fill(ds)
+
+            End Using
+        End Using
+
+        Return ds
+    End Function
+
+    Public Function business_report_DOANH_SO(ByVal thangnam As String, ByVal textSearch As String, ByVal type As Integer) As DataSet
+
+        Dim ds As New DataSet
+
+        Dim param = New SqlParameter("@thangnam", SqlDbType.VarChar, 50)
+        param.Value = thangnam
+
+        Dim param1 = New SqlParameter("@textSearch", SqlDbType.NVarChar, 255)
+        param1.Value = textSearch
+
+        Dim param2 = New SqlParameter("@type", SqlDbType.Int)
+        param2.Value = type
+
+        Using con As New SqlConnection(ConfigurationManager.ConnectionStrings("SqlServerConnString").ConnectionString)
+            Using cmd As New SqlCommand("sp_DOANH_SO_report_commision")
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.Add(param)
+                cmd.Parameters.Add(param1)
+                cmd.Parameters.Add(param2)
+
+                cmd.Connection = con
+
+                Dim da As New SqlDataAdapter(cmd)
+
+
+                da.Fill(ds)
+
+            End Using
+        End Using
+
+        Return ds
+    End Function
+
+    Public Function business_report_NGAY_THAM_GIA(ByVal thangnam As String, ByVal textSearch As String, ByVal type As Integer) As DataSet
+
+        Dim ds As New DataSet
+
+        Dim param = New SqlParameter("@thangnam", SqlDbType.VarChar, 50)
+        param.Value = thangnam
+
+        Dim param1 = New SqlParameter("@textSearch", SqlDbType.NVarChar, 255)
+        param1.Value = textSearch
+
+        Dim param2 = New SqlParameter("@type", SqlDbType.Int)
+        param2.Value = type
+
+        Using con As New SqlConnection(ConfigurationManager.ConnectionStrings("SqlServerConnString").ConnectionString)
+            Using cmd As New SqlCommand("sp_DOANH_SO_report_commision")
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.Add(param)
+                cmd.Parameters.Add(param1)
+                cmd.Parameters.Add(param2)
+
+                cmd.Connection = con
+
+                Dim da As New SqlDataAdapter(cmd)
+
+
+                da.Fill(ds)
+
+            End Using
+        End Using
+
+        Return ds
+    End Function
+
+    Public Function business_report_MA_THANH_VIEN(ByVal thangnam As String, ByVal textSearch As String, ByVal type As Integer) As DataSet
+
+        Dim ds As New DataSet
+
+        Dim param = New SqlParameter("@thangnam", SqlDbType.VarChar, 50)
+        param.Value = thangnam
+
+        Dim param1 = New SqlParameter("@textSearch", SqlDbType.NVarChar, 255)
+        param1.Value = textSearch
+
+        Dim param2 = New SqlParameter("@type", SqlDbType.Int)
+        param2.Value = type
+
+        Using con As New SqlConnection(ConfigurationManager.ConnectionStrings("SqlServerConnString").ConnectionString)
+            Using cmd As New SqlCommand("sp_DOANH_SO_report_commision")
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.Add(param)
+                cmd.Parameters.Add(param1)
+                cmd.Parameters.Add(param2)
+
+                cmd.Connection = con
+
+                Dim da As New SqlDataAdapter(cmd)
+
+
+                da.Fill(ds)
+
+            End Using
+        End Using
+
+        Return ds
+    End Function
 End Class
