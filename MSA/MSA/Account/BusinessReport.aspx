@@ -1,5 +1,5 @@
-﻿<%@ Page Language="vb" MasterPageFile="~/Admin/NEW_ADMIN.Master" AutoEventWireup="false" CodeBehind="BusinessReport.aspx.vb" Inherits="MSA.BusinessReport" %>
-
+﻿<%@ Page Language="vb" MasterPageFile="~/Admin/NEW_ADMIN.Master" AutoEventWireup="false" CodeBehind="BusinessReport.aspx.vb" Inherits="MSA.BusinessReport"
+     EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
@@ -13,6 +13,43 @@
         });
     </script>
 
+    <script type="text/javascript">
+        function ChangeCheckBoxState(id, checkState) {
+            var cb = document.getElementById(id);
+            if (cb != null)
+                cb.checked = checkState;
+        }
+
+        function ChangeAllCheckBoxStates(checkState) {
+            // Toggles through all of the checkboxes defined in the CheckBoxIDs array
+            // and updates their value to the checkState input parameter
+            if (CheckBoxIDs != null) {
+                for (var i = 0; i < CheckBoxIDs.length; i++)
+                    ChangeCheckBoxState(CheckBoxIDs[i], checkState);
+            }
+        }
+
+        function ChangeHeaderAsNeeded() {
+            // Whenever a checkbox in the GridView is toggled, we need to
+            // check the Header checkbox if ALL of the GridView checkboxes are
+            // checked, and uncheck it otherwise
+            if (CheckBoxIDs != null) {
+                // check to see if all other checkboxes are checked
+                for (var i = 1; i < CheckBoxIDs.length; i++) {
+                    var cb = document.getElementById(CheckBoxIDs[i]);
+                    if (!cb.checked) {
+                        // Whoops, there is an unchecked checkbox, make sure
+                        // that the header checkbox is unchecked
+                        ChangeCheckBoxState(CheckBoxIDs[0], false);
+                        return;
+                    }
+                }
+
+                // If we reach here, ALL GridView checkboxes are checked
+                ChangeCheckBoxState(CheckBoxIDs[0], true);
+            }
+        }
+    </script>
 
     <style>
         .mydatagrid {
@@ -150,7 +187,7 @@
                 <legend class="fdb-scheduler-border">DOANH SỐ</legend>
                 <div class="form-group">
                     <label class="col-md-2 control-label">Trái</label>
-                    <div class="col-md-1" style="padding-right: 0; width: 80px">
+                    <div class="col-md-1" style="padding-right: 8px; width: 80px">
                         <asp:DropDownList ID="ddlToanTuTrai" runat="server" CssClass="form-control">
                             <asp:ListItem Value=">" Text=">"></asp:ListItem>
                             <asp:ListItem Value="<"><</asp:ListItem>
@@ -166,7 +203,7 @@
 
                 <div class="form-group">
                     <label class="col-md-2 control-label">Phải</label>
-                    <div class="col-md-1" style="padding-right: 0; width: 80px">
+                    <div class="col-md-1" style="padding-right: 8px; width: 80px">
                         <asp:DropDownList ID="ddlToanTuPhai" runat="server" CssClass="form-control">
                             <asp:ListItem Value=">" Text=">"></asp:ListItem>
                             <asp:ListItem Value="<"><</asp:ListItem>
@@ -215,9 +252,8 @@
                     <div class="col-md-3">
                         <asp:TextBox ID="txtMA_THANH_VIEN" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
-                    
+
                     <div class="col-md-3">
-                        
                     </div>
                     <div class="col-md-1">
                         <asp:Button ID="btnSearch_MA_THANH_VIEN" runat="server" Text="TÌM" CssClass="btn-danger form-control" />
@@ -226,11 +262,31 @@
             </fieldset>
         </div>
 
-        <div>
-            <asp:Label ID="lblNotify" runat="server" ForeColor="Blue">Không có kết quả thỏa mãn điều kiện tìm kiếm</asp:Label>
-            <asp:GridView ID="datagrid" runat="server" CssClass="mydatagrid" PagerStyle-CssClass="pager" AutoGenerateColumns="false" PageSize="12"
+        <div class="row" style="margin-bottom:5px;">
+            <div class="col-md-6">
+                <asp:Label ID="lblNotify" runat="server" ForeColor="Blue">Không có kết quả thỏa mãn điều kiện tìm kiếm</asp:Label>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <asp:Button ID="btnExportExcel" runat="server" Text="Export Excel" CssClass="btn btn-info" />
+            </div>                        
+        </div>
+        <div class="row">
+            <%--<input type="button" value="Check All" onclick="ChangeAllCheckBoxStates(true);" />&nbsp;
+            <input type="button" value="Uncheck All" onclick="ChangeAllCheckBoxStates(false);" />--%>
+            
+            <asp:GridView ID="datagrid" runat="server" CssClass="mydatagrid" PagerStyle-CssClass="pager" AutoGenerateColumns="false" PageSize="30"
                 HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" OnPageIndexChanging="datagrid_PageIndexChanging">
                 <Columns>
+                    <asp:TemplateField>
+                        <HeaderTemplate>
+                            <asp:CheckBox runat="server" ID="HeaderLevelCheckBox" />
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <asp:CheckBox runat="server" ID="RowLevelCheckBox" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
                             <%# Container.DataItemIndex + 1 %>
@@ -244,7 +300,7 @@
                         <ItemStyle HorizontalAlign="Left" />
                     </asp:BoundField>
 
-                    <asp:BoundField DataField="GOI_DAU_TU" HeaderText="Danh hiệu">
+                    <asp:BoundField DataField="TEN_GOI_DAU_TU" HeaderText="Danh hiệu">
                         <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
                     <asp:BoundField DataField="DOANH_SO_TRAI" HeaderText="Nhánh trái" DataFormatString="{0:N0}">
@@ -263,15 +319,21 @@
                         <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
 
+                    <asp:BoundField DataField="THANG_NAM" HeaderText="Tháng-Năm">
+                        <ItemStyle HorizontalAlign="Right" />
+                    </asp:BoundField>
+
                     <asp:TemplateField HeaderText="Ngày tham gia" ItemStyle-HorizontalAlign="Center">
                         <ItemTemplate>
-                            <asp:Label ID="lblUpdateDate" runat="server" Text='<%# Eval("NGAY", "{0:dd/MM/yyyy}")%>' />
+                            <asp:Label ID="lblUpdateDate" runat="server" Text='<%# Eval("NGAY_THAM_GIA", "{0:dd/MM/yyyy}")%>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
-
                 </Columns>
             </asp:GridView>
+                        
+            <asp:Literal ID="CheckBoxIDsArray" runat="server"></asp:Literal>
+
         </div>
     </div>
 

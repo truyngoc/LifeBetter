@@ -158,6 +158,15 @@ Partial Public Class BusinessReport
     Protected WithEvents lblNotify As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''btnExportExcel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnExportExcel As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''datagrid control.
     '''</summary>
     '''<remarks>
@@ -165,4 +174,13 @@ Partial Public Class BusinessReport
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents datagrid As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''CheckBoxIDsArray control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CheckBoxIDsArray As Global.System.Web.UI.WebControls.Literal
 End Class

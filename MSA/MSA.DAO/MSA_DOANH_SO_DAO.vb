@@ -230,25 +230,21 @@ Public Class MSA_DOANH_SO_DAO
 
 
     'business report
-    Public Function business_report_DANH_HIEU(ByVal thangnam As String, ByVal textSearch As String, ByVal type As Integer) As DataSet
+    Public Function business_report_DANH_HIEU(ByVal thangnam As String, ByVal goidautu As Integer) As DataSet
 
         Dim ds As New DataSet
 
-        Dim param = New SqlParameter("@thangnam", SqlDbType.VarChar, 50)
-        param.Value = thangnam
+        Dim param = New SqlParameter("@GOI_DAU_TU", SqlDbType.Int, 50)
+        param.Value = goidautu
 
-        Dim param1 = New SqlParameter("@textSearch", SqlDbType.NVarChar, 255)
-        param1.Value = textSearch
-
-        Dim param2 = New SqlParameter("@type", SqlDbType.Int)
-        param2.Value = type
+        Dim param1 = New SqlParameter("@ThangNam", SqlDbType.VarChar, 255)
+        param1.Value = thangnam
 
         Using con As New SqlConnection(ConfigurationManager.ConnectionStrings("SqlServerConnString").ConnectionString)
-            Using cmd As New SqlCommand("sp_DOANH_SO_report_commision")
+            Using cmd As New SqlCommand("sp_BAO_CAO_KINH_DOANH_danh_hieu")
                 cmd.CommandType = CommandType.StoredProcedure
                 cmd.Parameters.Add(param)
                 cmd.Parameters.Add(param1)
-                cmd.Parameters.Add(param2)
 
                 cmd.Connection = con
 
@@ -263,25 +259,22 @@ Public Class MSA_DOANH_SO_DAO
         Return ds
     End Function
 
-    Public Function business_report_DOANH_SO(ByVal thangnam As String, ByVal textSearch As String, ByVal type As Integer) As DataSet
+    Public Function business_report_DOANH_SO(ByVal textSearch As String, ByVal thangnam As String) As DataSet
 
         Dim ds As New DataSet
 
-        Dim param = New SqlParameter("@thangnam", SqlDbType.VarChar, 50)
-        param.Value = thangnam
+        Dim param = New SqlParameter("@SearchText", SqlDbType.NVarChar, 2000)
+        param.Value = textSearch
 
-        Dim param1 = New SqlParameter("@textSearch", SqlDbType.NVarChar, 255)
-        param1.Value = textSearch
+        Dim param1 = New SqlParameter("@ThangNam", SqlDbType.VarChar, 50)
+        param1.Value = thangnam
 
-        Dim param2 = New SqlParameter("@type", SqlDbType.Int)
-        param2.Value = type
-
+        
         Using con As New SqlConnection(ConfigurationManager.ConnectionStrings("SqlServerConnString").ConnectionString)
-            Using cmd As New SqlCommand("sp_DOANH_SO_report_commision")
+            Using cmd As New SqlCommand("sp_BAO_CAO_KINH_DOANH_doanh_so")
                 cmd.CommandType = CommandType.StoredProcedure
                 cmd.Parameters.Add(param)
                 cmd.Parameters.Add(param1)
-                cmd.Parameters.Add(param2)
 
                 cmd.Connection = con
 
@@ -296,25 +289,30 @@ Public Class MSA_DOANH_SO_DAO
         Return ds
     End Function
 
-    Public Function business_report_NGAY_THAM_GIA(ByVal thangnam As String, ByVal textSearch As String, ByVal type As Integer) As DataSet
+    Public Function business_report_NGAY_THAM_GIA(ByVal tu_ngay As String, ByVal den_ngay As String) As DataSet
 
         Dim ds As New DataSet
 
-        Dim param = New SqlParameter("@thangnam", SqlDbType.VarChar, 50)
-        param.Value = thangnam
+        Dim param = New SqlParameter("@TU_NGAY", SqlDbType.Date)
+        If String.IsNullOrEmpty(tu_ngay) Then
+            param.Value = DBNull.Value
+        Else
+            param.Value = Convert.ToDateTime(tu_ngay)
+        End If
 
-        Dim param1 = New SqlParameter("@textSearch", SqlDbType.NVarChar, 255)
-        param1.Value = textSearch
 
-        Dim param2 = New SqlParameter("@type", SqlDbType.Int)
-        param2.Value = type
+        Dim param1 = New SqlParameter("@DEN_NGAY", SqlDbType.Date)
+        If String.IsNullOrEmpty(den_ngay) Then
+            param1.Value = DBNull.Value
+        Else
+            param1.Value = Convert.ToDateTime(den_ngay)
+        End If
 
         Using con As New SqlConnection(ConfigurationManager.ConnectionStrings("SqlServerConnString").ConnectionString)
-            Using cmd As New SqlCommand("sp_DOANH_SO_report_commision")
+            Using cmd As New SqlCommand("sp_BAO_CAO_KINH_DOANH_ngay_tham_gia")
                 cmd.CommandType = CommandType.StoredProcedure
                 cmd.Parameters.Add(param)
                 cmd.Parameters.Add(param1)
-                cmd.Parameters.Add(param2)
 
                 cmd.Connection = con
 
@@ -329,25 +327,18 @@ Public Class MSA_DOANH_SO_DAO
         Return ds
     End Function
 
-    Public Function business_report_MA_THANH_VIEN(ByVal thangnam As String, ByVal textSearch As String, ByVal type As Integer) As DataSet
+    Public Function business_report_MA_THANH_VIEN(ByVal ma_kh As String) As DataSet
 
         Dim ds As New DataSet
 
-        Dim param = New SqlParameter("@thangnam", SqlDbType.VarChar, 50)
-        param.Value = thangnam
+        Dim param = New SqlParameter("@MA_KH", SqlDbType.NVarChar, 250)
+        param.Value = ma_kh
 
-        Dim param1 = New SqlParameter("@textSearch", SqlDbType.NVarChar, 255)
-        param1.Value = textSearch
-
-        Dim param2 = New SqlParameter("@type", SqlDbType.Int)
-        param2.Value = type
 
         Using con As New SqlConnection(ConfigurationManager.ConnectionStrings("SqlServerConnString").ConnectionString)
-            Using cmd As New SqlCommand("sp_DOANH_SO_report_commision")
+            Using cmd As New SqlCommand("sp_BAO_CAO_KINH_DOANH_ma_thanh_vien")
                 cmd.CommandType = CommandType.StoredProcedure
                 cmd.Parameters.Add(param)
-                cmd.Parameters.Add(param1)
-                cmd.Parameters.Add(param2)
 
                 cmd.Connection = con
 
