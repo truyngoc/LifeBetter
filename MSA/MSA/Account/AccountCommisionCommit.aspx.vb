@@ -63,7 +63,6 @@ Public Class AccountCommisionCommit
                     oThanhKhoan.QUY_TIEN_MAT = ds.QUY_TIEN_MAT
                     oThanhKhoan.QUY_PHONG_CACH = ds.QUY_PHONG_CACH
                     oThanhKhoan.QUY_DAO_TAO = ds.QUY_DAO_TAO
-                    oThanhKhoan.QUY_PHONG_CACH_TK = 0
                     oThanhKhoan.QUY_DAO_TAO_TK = 0
                     oThanhKhoan.isTK_QUY_PHONG_CACH = 0
                     oThanhKhoan.isTK_QUY_DAO_TAO = 0
@@ -71,18 +70,33 @@ Public Class AccountCommisionCommit
                         oThanhKhoan.QUY_TIEN_MAT_TK = ds.QUY_TIEN_MAT
                         ds.QUY_TIEN_MAT = 0
                         oThanhKhoan.isTK_QUY_TIEN_MAT = 1
-                        daoThanhKhoan.Insert(oThanhKhoan)
                         'Else
                         '    oThanhKhoan.QUY_TIEN_MAT_TK = 0
                         '    oThanhKhoan.isTK_QUY_TIEN_MAT = 0
                     End If
+
+                    'KIEM TRA TINH TRANG THANH KHOAN
+                    Dim i As Integer = daoThanhKhoan.Get_So_Thang_TK_PHONG_CACH_SONG(ds.MA_KH)
+                    If i = 0 Then   'CHUA THANH KHOAN
+                        If ds.QUY_PHONG_CACH >= 300000000 Then
+                            oThanhKhoan.QUY_PHONG_CACH_TK = 10000000
+                            oThanhKhoan.isTK_QUY_PHONG_CACH = 1
+                            ds.QUY_PHONG_CACH = ds.QUY_PHONG_CACH - oThanhKhoan.QUY_PHONG_CACH_TK
+                        End If
+                    ElseIf i <= 12 Then 'THANH KHOAN 10TR/THANG
+                        oThanhKhoan.QUY_PHONG_CACH_TK = 10000000
+                        oThanhKhoan.isTK_QUY_PHONG_CACH = 1
+                        ds.QUY_PHONG_CACH = ds.QUY_PHONG_CACH - oThanhKhoan.QUY_PHONG_CACH_TK
+                    Else    'THANH KHOAN 20TR/THANG
+                        oThanhKhoan.QUY_PHONG_CACH_TK = 20000000
+                        oThanhKhoan.isTK_QUY_PHONG_CACH = 1
+                        ds.QUY_PHONG_CACH = ds.QUY_PHONG_CACH - oThanhKhoan.QUY_PHONG_CACH_TK
+                    End If
+
+                    daoThanhKhoan.Insert(oThanhKhoan)
+
                     daoDOANH_SO.Insert(ds)
                 Next
-
-                ' cap nhat vao db
-                'For Each d As HOA_HONG In lstDS
-
-                'Next
 
                 lblResult.ForeColor = Drawing.Color.Blue
                 lblResult.Text = String.Format("Chốt DOANH SỐ - HOA HỒNG cho tháng {0} - {1} thành công", DateTime.Today.Month, DateTime.Today.Year)
