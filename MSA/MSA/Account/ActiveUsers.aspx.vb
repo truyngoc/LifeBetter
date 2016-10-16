@@ -68,6 +68,7 @@ Public Class ActiveUsers
         Else
             txtTEN_BAO_TRO.Text = info.TEN
             txtMA_BAO_TRO.Text = info.MA_CAY
+            txtMA_KH_BAO_TRO.Text = info.MA_KH
         End If
     End Sub
 
@@ -111,6 +112,7 @@ Public Class ActiveUsers
         Return lstKimCuong
     End Function
     Protected Sub btnKICHHOAT_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnKichHoat.Click
+
         If lstVITRI.Visible = False Then
             lblError.Text = "Người chỉ định đã đủ hai nhánh, hãy chọn người chỉ định khác"
             lblError.Visible = True
@@ -121,6 +123,13 @@ Public Class ActiveUsers
             lblError.Visible = True
             Exit Sub
         End If
+        Dim oThanhKhoan As THANH_KHOAN_Info = TKQuyDaoTao()
+        If oThanhKhoan Is Nothing And chkDungQuyDaoTao.Checked Then
+            Exit Sub
+        Else
+            Singleton(Of THANH_KHOAN_DAO).Inst.Insert(oThanhKhoan)
+        End If
+
         Dim info As New MSA_MemberInfo
         info.MA_KH = txtMa_KH.Text
         info.MA_CAY_TT = txtMA_UPLINE.Text
@@ -141,7 +150,9 @@ Public Class ActiveUsers
         Singleton(Of MSA_MemberDAO).Inst.Update_KICH_HOAT(info)
 
         'Lưu vào GÓI ĐẦU TƯ HIS
-        Singleton(Of MSA_GOI_DAU_TU_HIS_DAO).Inst.Insert(info.MA_KH, info.TEN, info.MA_GOI_DAU_TU, DateTime.Now, 1, info.MA_CAY, 0, info.TEN_GOI_DAU_TU, "", 0, Singleton(Of MSACurrentSession).Inst.SessionMember.TEN, "Kích hoạt mã số")
+        If ((info.NV = 0) And (info.TRANG_THAI = 1)) Then
+            Singleton(Of MSA_GOI_DAU_TU_HIS_DAO).Inst.Insert(info.MA_KH, info.TEN, info.MA_GOI_DAU_TU, DateTime.Now, 1, info.MA_CAY, 0, info.TEN_GOI_DAU_TU, "", 0, Singleton(Of MSACurrentSession).Inst.SessionMember.TEN, "Kích hoạt mã số")
+        End If
 
         Dim lstDanhHieu As List(Of String) = checkDanhHieu(info.MA_CAY)
         If lstDanhHieu IsNot Nothing AndAlso lstDanhHieu.Count > 0 Then
@@ -194,6 +205,93 @@ Public Class ActiveUsers
                 lstVITRI.Enabled = True
             End If
             lblError.Visible = False
+        End If
+    End Sub
+
+    Private Function TKQuyDaoTao() As THANH_KHOAN_Info
+        Dim rtn As Boolean = True
+        Dim TK As Decimal
+        Dim oThanhKhoan As New THANH_KHOAN_Info
+        Dim o As HOA_HONG
+        If chkDungQuyDaoTao.Checked Then
+            If txtMA_BAO_TRO.Text.Trim.Equals("") Then
+                lblError.Text = "Người bảo trợ không tồn tại."
+                rtn = False
+            End If
+            o = Singleton(Of MSA_DOANH_SO_DAO).Inst.Tinh_Hoa_Hong(txtMA_BAO_TRO.Text, _
+                                                 txtMA_KH_BAO_TRO.Text, _
+                                                 DateTime.Today.Month, DateTime.Today.Year)
+            If Not o Is Nothing Then
+                o.MA_KH = txtMA_KH_BAO_TRO.Text
+                Select Case (lstGOI_DAU_TU.SelectedIndex + 1)
+                    Case 1
+                        lblError.Text = "Chỉ được sử dụng quỹ đào tạo kích hoạt các gói CHUYÊN NGHIỆP, KIM CƯƠNG, CHỦ TỊCH"
+                        rtn = False
+                    Case 2
+                        lblError.Text = "Chỉ được sử dụng quỹ đào tạo kích hoạt các gói CHUYÊN NGHIỆP, KIM CƯƠNG, CHỦ TỊCH"
+                        rtn = False
+                    Case 3
+                        If o.QUY_DAO_TAO < 12300000 Then
+                            lblError.Text = "Quỹ đào tạo của người bảo trợ đang có " & o.QUY_DAO_TAO.ToString("") & " không đủ kích hoạt gói CHUYÊN NGHIỆP"
+                            rtn = False
+                        Else
+                            TK = 12300000
+                        End If
+                    Case 4
+                        If o.QUY_DAO_TAO < 24300000 Then
+                            lblError.Text = "Quỹ đào tạo của người bảo trợ đang có " & o.QUY_DAO_TAO.ToString("") & " không đủ kích hoạt gói KIM CƯƠNG"
+                            rtn = False
+                        Else
+                            TK = 24300000
+                        End If
+                    Case 5
+                        If o.QUY_DAO_TAO < 36300000 Then
+                            lblError.Text = "Quỹ đào tạo của người bảo trợ đang có " & o.QUY_DAO_TAO.ToString("") & " không đủ kích hoạt gói CHỦ TỊCH"
+                            rtn = False
+                        Else
+                            TK = 36300000
+                        End If
+                End Select
+            End If
+        Else
+            lblError.Text = "Người bảo trợ không tồn tại."
+            rtn = False
+        End If
+        If rtn Then
+            lblError.Visible = False
+            'TUNGND THANH KHOẢN QUỸ TIỀN MẶT
+            oThanhKhoan.ID = 0
+            oThanhKhoan.MA_KH = o.MA_KH
+            oThanhKhoan.MA_CAY = o.MA_KH
+            oThanhKhoan.MA_DAU_TU = o.MA_DAU_TU
+            oThanhKhoan.NGAY_RUT = DateTime.Now
+            oThanhKhoan.TEN_KH = o.TEN
+            oThanhKhoan.QUY_TIEN_MAT = o.QUY_TIEN_MAT
+            oThanhKhoan.QUY_PHONG_CACH = o.QUY_PHONG_CACH
+            oThanhKhoan.QUY_DAO_TAO = o.QUY_DAO_TAO
+            oThanhKhoan.QUY_TIEN_MAT_TK = 0
+            oThanhKhoan.QUY_PHONG_CACH_TK = 0
+            oThanhKhoan.QUY_DAO_TAO_TK = TK
+            oThanhKhoan.isTK_QUY_TIEN_MAT = 0
+            oThanhKhoan.isTK_QUY_PHONG_CACH = 0
+            oThanhKhoan.isTK_QUY_DAO_TAO = 1
+
+            Return oThanhKhoan
+        Else
+            lblError.Visible = True
+            Return Nothing
+        End If
+
+    End Function
+    Protected Sub chkDungQuyDaoTao_CheckedChanged(sender As Object, e As EventArgs)
+        If chkDungQuyDaoTao.Checked Then
+            chkCtyHoTro.Checked = False
+        End If
+    End Sub
+
+    Protected Sub chkCtyHoTro_CheckedChanged(sender As Object, e As EventArgs)
+        If chkCtyHoTro.Checked Then
+            chkDungQuyDaoTao.Checked = False
         End If
     End Sub
 End Class

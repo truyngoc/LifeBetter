@@ -95,6 +95,15 @@ Partial Public Class ActiveUsers
     Protected WithEvents txtBaoTro As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''txtMA_BAO_TRO control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMA_BAO_TRO As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''btnCheckBaoTro control.
     '''</summary>
     '''<remarks>
@@ -113,13 +122,13 @@ Partial Public Class ActiveUsers
     Protected WithEvents txtTEN_BAO_TRO As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtMA_BAO_TRO control.
+    '''txtMA_KH_BAO_TRO control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtMA_BAO_TRO As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtMA_KH_BAO_TRO As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''txtUPLINE control.
@@ -174,6 +183,15 @@ Partial Public Class ActiveUsers
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkCtyHoTro As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''chkDungQuyDaoTao control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkDungQuyDaoTao As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
     '''btnKichHoat control.

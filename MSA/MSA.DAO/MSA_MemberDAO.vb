@@ -145,28 +145,8 @@ Public Class MSA_MemberDAO
     End Function
 
     Sub Update_KICH_HOAT(mInfo As MSA_MemberInfo)
-        Dim dictsqlParam As Dictionary(Of String, SqlParameter) = SqlUtilities.GetParameters("MEMBERS", mInfo)
-        dictsqlParam.Remove("ID")
-        dictsqlParam.Remove("MAT_KHAU")
-        dictsqlParam.Remove("TEN")
-        dictsqlParam.Remove("CMND")
-        dictsqlParam.Remove("NGAY_SINH")
-        dictsqlParam.Remove("DIEN_THOAI")
-        dictsqlParam.Remove("DIA_CHI")
-        dictsqlParam.Remove("SO_TAI_KHOAN")
-        dictsqlParam.Remove("NGAN_HANG")
-        dictsqlParam.Remove("MST")
-        dictsqlParam.Remove("NGAY_THAM_GIA")
-        dictsqlParam.Remove("TEN_GOI_DAU_TU")
-        dictsqlParam.Remove("MA_DANH_HIEU")
-        dictsqlParam.Remove("URL")
-        dictsqlParam.Remove("NGAY_NANG_CAP")
-        dictsqlParam.Remove("NV")
-        dictsqlParam.Remove("MA_BAO_TRO_TT")
-        Dim parameter = New DynamicParameters()
-        parameter = SqlUtilities.GetDynamicParameters(dictsqlParam)
-        'db.Execute("sproc_MEMBERS_Add", New With {Key .MA_KH = mInfo.MA_KH, Key .MAT_KHAU = mInfo.MAT_KHAU, Key .TEN = mInfo.TEN, Key .DIEN_THOAI = mInfo.DIEN_THOAI, Key .DIA_CHI = mInfo.DIA_CHI, Key .MA_BAO_TRO_TT = mInfo.MA_BAO_TRO_TT, Key .URL = mInfo.URL, Key .NV = mInfo.NV}, commandType:=CommandType.StoredProcedure)
-        db.Execute("sproc_MEMBERS_Admin_Update", parameter, commandType:=CommandType.StoredProcedure)
+        db.Execute("sproc_MEMBERS_Admin_KichHoat", New With {Key .MA_KH = mInfo.MA_KH, Key .MA_CAY = mInfo.MA_CAY, Key .MA_CAY_TT = mInfo.MA_CAY_TT, Key .NHANH_CAY_TT = mInfo.NHANH_CAY_TT, Key .MA_BAO_TRO = mInfo.MA_BAO_TRO, Key .MA_GOI_DAU_TU = mInfo.MA_GOI_DAU_TU, Key .TRANG_THAI = mInfo.TRANG_THAI}, commandType:=CommandType.StoredProcedure)
+        'db.Execute("sproc_MEMBERS_Admin_KichHoat", parameter, commandType:=CommandType.StoredProcedure)
     End Sub
 
 
@@ -227,7 +207,11 @@ Public Class MSA_MemberDAO
         Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_BY_MA_KH", New With {Key .MA_KH = MA_KH}, commandType:=CommandType.StoredProcedure _
                                                                     ).ToList
     End Function
+    Public Function SEARCH_BY_MA_KH_DOWNLINE(ByVal MA_KH As String, ByVal MA_SPONSOR As String) As MSA_MemberInfo
 
+        Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_BY_MA_KH_DOWNLINE", New With {Key .MA_KH = MA_KH, Key .MA_SPONSOR = MA_SPONSOR}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList.FirstOrDefault
+    End Function
     Public Function SEARCH_BY_TEN(ByVal TEN As String) As List(Of MSA_MemberInfo)
 
         Return db.Query(Of MSA_MemberInfo)("sproc_MEMBERS_SEARCH_BY_TEN", New With {Key .TEN = TEN}, commandType:=CommandType.StoredProcedure _

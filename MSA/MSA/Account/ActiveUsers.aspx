@@ -59,6 +59,7 @@
                     <label for="firstname" class="control-label col-lg-2">Mã bảo trợ</label>
                     <div class="col-lg-6">
                         <asp:TextBox runat="server" ID="txtBaoTro" CssClass="form-control" ForeColor="#464646" Font-Bold="True" Visible="True"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtMA_BAO_TRO" Visible="false"></asp:TextBox>
                     </div>
                     <div class="col-lg-4">
                         <asp:Button runat="server" class="btn btn-info" ID="btnCheckBaoTro" Text="KIỂM TRA" CausesValidation="false" Visible="True" />
@@ -71,7 +72,7 @@
                     <label for="firstname" class="control-label col-lg-2"></label>
                     <div class="col-lg-6">
                         <asp:TextBox runat="server" ID="txtTEN_BAO_TRO" CssClass="form-control" ForeColor="#464646" Font-Bold="True" ReadOnly="True"></asp:TextBox>
-                        <asp:TextBox runat="server" ID="txtMA_BAO_TRO" CssClass="form-control" ForeColor="#464646" Font-Bold="True" Visible="false"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtMA_KH_BAO_TRO" CssClass="form-control" ForeColor="#464646" Font-Bold="True" Visible="false"></asp:TextBox>
                     </div>
 
                 </div>
@@ -118,7 +119,8 @@
                         
                     </div>
                     <div class="col-lg-4">
-                        <asp:CheckBox runat="server" CssClass="check alert-danger" ID="chkCtyHoTro" Text="Được công ty hỗ trợ" ForeColor="Red"/><br />
+                        <asp:CheckBox runat="server" CssClass="check alert-danger" ID="chkCtyHoTro" AutoPostBack="true" Text="Được công ty hỗ trợ" ForeColor="Red" OnCheckedChanged="chkCtyHoTro_CheckedChanged"/><br />
+                        <asp:CheckBox runat="server" CssClass="check alert-danger" ID="chkDungQuyDaoTao" AutoPostBack="true" Text="Sử dụng quỹ đào tạo" ForeColor="Red" OnCheckedChanged="chkDungQuyDaoTao_CheckedChanged"/><br />
                         <asp:Button runat="server" class="btn btn-info" Style="border: 2px solid #FFF;" ID="btnKichHoat" Text="KÍCH HOẠT" CausesValidation="false" />
                     </div>
                 </div>
