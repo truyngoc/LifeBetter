@@ -27,7 +27,7 @@ Public Class AccountCommisionCommit
 
     Public Sub Chot_Doanh_So(ByVal thang As Integer, ByVal nam As Integer)
         Try
-
+            thang = 9
             Dim daoMem As New MSA_MemberDAO
             Dim daoThanhKhoan As New THANH_KHOAN_DAO
 
