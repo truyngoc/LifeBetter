@@ -50,6 +50,8 @@ Public Class AccountTreeView
         '    ma_cay = "0"
         'End If
         ' bo luon luon hien thi root cua ma_cay dang tim kiem
+        'Đổi tên thành mã
+
 
         Dim ma_cay_tt As Object
         If String.IsNullOrEmpty(ma_cay) Then
@@ -228,6 +230,21 @@ Public Class AccountTreeView
             lblSO_THANH_VIEN_MOI_PHAI.Text = IIf(o.SO_THANH_VIEN_MOI_PHAI = 0, 0, o.SO_THANH_VIEN_MOI_PHAI.ToString("#,###"))
             'lblSO_THANH_VIEN_MOI_BAO_TRO_TRAI.Text = IIf(o.SO_THANH_VIEN_MOI_BAO_TRO_TRAI = 0, 0, o.SO_THANH_VIEN_MOI_BAO_TRO_TRAI.ToString("#,###"))
             'lblSO_THANH_VIEN_MOI_BAO_TRO_PHAI.Text = IIf(o.SO_THANH_VIEN_MOI_BAO_TRO_PHAI = 0, 0, o.SO_THANH_VIEN_MOI_BAO_TRO_PHAI.ToString("#,###"))
+        End If
+    End Sub
+
+    Protected Sub SearchTree_Click(sender As Object, e As EventArgs)
+        If txtMa_KH.Text.Trim.Equals("") Then
+            txtMA_CAY.Text = Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY
+        Else
+            Dim obj As MSA_MemberInfo = Singleton(Of MSA_MemberDAO).Inst.SEARCH_BY_MA_KH_DOWNLINE(txtMa_KH.Text, Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY)
+            If obj Is Nothing Then
+                txtMA_CAY.Text = Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY
+                txtMa_KH.Text = ""
+            Else
+                txtMA_CAY.Text = obj.MA_CAY
+                txtMa_KH.Text = ""
+            End If
         End If
     End Sub
 End Class

@@ -238,7 +238,9 @@
                             <div class="title" style="color: black">Mã gốc</div>
 
                             <asp:TextBox runat="server" ID="txtMA_CAY" Text="" class="form-control" Style="width:100px" Enabled="false"></asp:TextBox>
-                            <input type="submit" value="CÂY NHỊ PHÂN" class="btn btn-primary" />
+                            <asp:TextBox runat="server" ID="txtMa_KH" Text="" class="form-control" Style="width:100px" placeholder="Mã khách hàng"></asp:TextBox>
+                           <%-- <input type="submit" value="CÂY NHỊ PHÂN" class="btn btn-primary" />--%>
+                            <asp:Button ID="SearchTree" runat="server" Text="CÂY NHỊ PHÂN" CssClass="btn btn-primary" OnClick="SearchTree_Click" />
                             <asp:Button ID="btnShowSponsor" runat="server" Text="CÂY BẢO TRỢ" class="btn btn-primary"  OnClientClick="view_Data(); return false;" />
                         </div>
                         <div>
