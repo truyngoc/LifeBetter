@@ -184,7 +184,9 @@
                     <asp:BoundField DataField="THANG_NAM" HeaderText="Tháng - năm">
                         <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
-
+                    <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú">
+                        <ItemStyle HorizontalAlign="Right" />
+                    </asp:BoundField>
                 </Columns>
             </asp:GridView>
         </div>
