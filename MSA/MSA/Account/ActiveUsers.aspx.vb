@@ -123,11 +123,14 @@ Public Class ActiveUsers
             lblError.Visible = True
             Exit Sub
         End If
-        Dim oThanhKhoan As THANH_KHOAN_Info = TKQuyDaoTao()
-        If oThanhKhoan Is Nothing And chkDungQuyDaoTao.Checked Then
-            Exit Sub
-        Else
-            Singleton(Of THANH_KHOAN_DAO).Inst.Insert(oThanhKhoan)
+
+        If chkDungQuyDaoTao.Checked Then
+            Dim oThanhKhoan As THANH_KHOAN_Info = TKQuyDaoTao()
+            If oThanhKhoan Is Nothing Then
+                Exit Sub
+            Else
+                Singleton(Of THANH_KHOAN_DAO).Inst.Insert(oThanhKhoan)
+            End If
         End If
 
         Dim info As New MSA_MemberInfo
@@ -257,6 +260,7 @@ Public Class ActiveUsers
             lblError.Text = "Người bảo trợ không tồn tại."
             rtn = False
         End If
+
         If rtn Then
             lblError.Visible = False
             'TUNGND THANH KHOẢN QUỸ TIỀN MẶT
@@ -265,7 +269,7 @@ Public Class ActiveUsers
             oThanhKhoan.MA_CAY = o.MA_KH
             oThanhKhoan.MA_DAU_TU = o.MA_DAU_TU
             oThanhKhoan.NGAY_RUT = DateTime.Now
-            oThanhKhoan.TEN_KH = o.TEN
+            oThanhKhoan.TEN_KH = txtTEN.Text 'Luu ten nguoi duoc nang cap bang tien quy dao tao trong bang thanh khoan
             oThanhKhoan.QUY_TIEN_MAT = o.QUY_TIEN_MAT
             oThanhKhoan.QUY_PHONG_CACH = o.QUY_PHONG_CACH
             oThanhKhoan.QUY_DAO_TAO = o.QUY_DAO_TAO
