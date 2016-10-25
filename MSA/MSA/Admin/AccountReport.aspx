@@ -123,6 +123,8 @@
                         <asp:ListItem Value="3">Gói tham gia</asp:ListItem>
                         <asp:ListItem Value="4">Mã bảo trợ</asp:ListItem>
                         <asp:ListItem Value="5">Số CMND</asp:ListItem>
+                        <asp:ListItem Value="6">Mã khách hàng -> F1</asp:ListItem> 
+                        <asp:ListItem Value="7">Mã khách hàng -> F2-F9</asp:ListItem> 
                     </asp:DropDownList>
                 </div>
                 <div class="col-md-2 col-md-push-1">
@@ -139,10 +141,11 @@
                 <div class="col-md-3">
                     <asp:DropDownList ID="ddlTrangThai" runat="server" CssClass="form-control">
                         <asp:ListItem Value="5" Text="">Tất cả</asp:ListItem>
-                        <asp:ListItem Value="1">Kích hoạt</asp:ListItem>
+                        <asp:ListItem Value="1">Kích hoạt + Công ty hỗ trợ</asp:ListItem>
                         <asp:ListItem Value="0">Chưa kích hoạt</asp:ListItem>
                         <asp:ListItem Value="3">Hủy mã số</asp:ListItem>
-                        <asp:ListItem Value="2">Được công ty hỗ trợ</asp:ListItem>                        
+                        <asp:ListItem Value="2">Được công ty hỗ trợ</asp:ListItem>
+                      
                     </asp:DropDownList>
                 </div>
             </div>

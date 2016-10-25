@@ -34,7 +34,7 @@ Public Class AccountReport
             grdMEMBERS.DataSource = lst
             grdMEMBERS.DataBind()
         Catch ex As Exception
-            lblError.Text = "Kiểm tra dữ liệu tìm kiếm (Mã gói đầu tư từ 1 --> 5, Ngày có định dạng tháng/ngày/năm. VD 12/30/2016)"
+            lblError.Text = "Kiểm tra dữ liệu tìm kiếm (Mã gói đầu tư từ 1 --> 5.)"
             lblError.Visible = True
         End Try
 
