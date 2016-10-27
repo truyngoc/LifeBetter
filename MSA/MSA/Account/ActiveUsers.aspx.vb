@@ -157,6 +157,29 @@ Public Class ActiveUsers
             Singleton(Of MSA_GOI_DAU_TU_HIS_DAO).Inst.Insert(info.MA_KH, info.TEN, info.MA_GOI_DAU_TU, DateTime.Now, 1, info.MA_CAY, 0, info.TEN_GOI_DAU_TU, "", 0, Singleton(Of MSACurrentSession).Inst.SessionMember.TEN, "Kích hoạt mã số")
         End If
 
+        Dim objPackage As New GOI_DAU_TU_HIS_Info
+
+        objPackage.MA_KH = info.MA_KH
+        objPackage.TEN = info.TEN
+        objPackage.MA_CAY = info.MA_CAY
+        objPackage.MA_DAU_TU_HIS = Nothing
+        objPackage.GOI_DAU_TU_HIS = Nothing
+        objPackage.MA_DAU_TU = info.MA_GOI_DAU_TU
+        objPackage.GOI_DAU_TU = info.TEN_GOI_DAU_TU
+        objPackage.NGUOI_CAP_NHAT = Singleton(Of MSACurrentSession).Inst.SessionMember.TEN
+        objPackage.NGAY = DateTime.Now
+        objPackage.GHI_CHU = "ĐĂNG KÝ MỚI"
+        objPackage.MOI_NHAT = 0
+
+        Dim hoahongDAO As New MSA_DOANH_SO_DAO
+        Dim packageDAO As New MSA_GOI_DAU_TU_HIS_DAO
+
+        Dim objHoaHong As HOA_HONG = hoahongDAO.Tinh_Hoa_Hong(objPackage.MA_CAY, objPackage.MA_KH, DateTime.Today.Month, DateTime.Today.Year)
+        objPackage.THUONG_THANH_TICH = objHoaHong.THUONG_THANH_TICH
+
+        packageDAO.Insert(objPackage.MA_KH, objPackage.TEN, objPackage.MA_DAU_TU, objPackage.NGAY, objPackage.MOI_NHAT, objPackage.MA_CAY, objPackage.THUONG_THANH_TICH, objPackage.GOI_DAU_TU, objPackage.GOI_DAU_TU_HIS, objPackage.MA_DAU_TU_HIS, objPackage.NGUOI_CAP_NHAT, objPackage.GHI_CHU)
+
+
         Dim lstDanhHieu As List(Of String) = checkDanhHieu(info.MA_CAY)
         If lstDanhHieu IsNot Nothing AndAlso lstDanhHieu.Count > 0 Then
             For Each MA_CAY As String In lstDanhHieu
