@@ -105,7 +105,7 @@
             font-weight: bold;
         }
     </style>
-    
+
     <div class="form-horizontal">
         <br />
         <fieldset class="fdb-scheduler-border">
@@ -123,8 +123,8 @@
                         <asp:ListItem Value="3">Gói tham gia</asp:ListItem>
                         <asp:ListItem Value="4">Mã bảo trợ</asp:ListItem>
                         <asp:ListItem Value="5">Số CMND</asp:ListItem>
-                        <asp:ListItem Value="6">Mã khách hàng -> F1</asp:ListItem> 
-                        <asp:ListItem Value="7">Mã khách hàng -> F2-F9</asp:ListItem> 
+                        <asp:ListItem Value="6">Mã khách hàng -> F1</asp:ListItem>
+                        <asp:ListItem Value="7">Mã khách hàng -> F2-F9</asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="col-md-2 col-md-push-1">
@@ -145,7 +145,7 @@
                         <asp:ListItem Value="0">Chưa kích hoạt</asp:ListItem>
                         <asp:ListItem Value="3">Hủy mã số</asp:ListItem>
                         <asp:ListItem Value="2">Được công ty hỗ trợ</asp:ListItem>
-                      
+
                     </asp:DropDownList>
                 </div>
             </div>
@@ -173,6 +173,12 @@
                         <asp:TemplateField HeaderText="TÊN" ItemStyle-HorizontalAlign="Left">
                             <ItemTemplate>
                                 <asp:Label ID="lblTen" runat="server" Text='<%# Eval("TEN") %>' />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Mật khẩu" ItemStyle-HorizontalAlign="Left">
+                            <ItemTemplate>
+                                <asp:Label ID="lblTen" runat="server" Text='<%# Eval("MAT_KHAU")%>' />
                             </ItemTemplate>
                         </asp:TemplateField>
 
