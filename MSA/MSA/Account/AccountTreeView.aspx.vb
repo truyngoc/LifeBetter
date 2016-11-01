@@ -216,6 +216,21 @@ Public Class AccountTreeView
         End If
     End Sub
 
+    Public Sub Reset_Data_OnForm()
+        lblDOANH_SO_CA_NHAN_THANG.Text = "0"
+        lblDOANH_SO_CA_NHAN_TICH_LUY.Text = "0"
+        lblDOANH_SO_TRAI.Text = "0"
+        lblDOANH_SO_PHAI.Text = "0"
+        lblDOANH_SO_KET_CHUYEN_TRAI.Text = "0"
+        lblDOANH_SO_KET_CHUYEN_PHAI.Text = "0"
+        lblDOANH_SO_TICH_LUY_TRAI.Text = "0"
+        lblDOANH_SO_TICH_LUY_PHAI.Text = "0"
+        lblTONG_SO_THANH_VIEN_TRAI.Text = "0"
+        lblTONG_SO_THANH_VIEN_PHAI.Text = "0"
+        lblSO_THANH_VIEN_MOI_TRAI.Text = "0"
+        lblSO_THANH_VIEN_MOI_PHAI.Text = "0"
+    End Sub
+
     Protected Sub SearchTree_Click(sender As Object, e As EventArgs)
         If txtMa_KH.Text.Trim.Equals("") Then
             txtMA_CAY.Text = Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY
@@ -271,7 +286,12 @@ Public Class AccountTreeView
 
 
         ' gan len form
-        Load_DaTa_To_Form(oHoaHong)
+        If oHoaHong IsNot Nothing Then
+            Load_DaTa_To_Form(oHoaHong)
+        Else
+            Reset_Data_OnForm()
+        End If
+
     End Sub
 
     Public Sub bind_THANG_DOANH_SO()

@@ -15,7 +15,6 @@ Public Class AccountCommision
 
         If Not Page.IsPostBack Then
             Dim sMA_CAY As String
-            Dim oHoaHong As HOA_HONG
 
             ' tinh hoa hong
             sMA_CAY = Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY
@@ -130,6 +129,17 @@ Public Class AccountCommision
         End If
     End Sub
 
+    Public Sub Reset_Data_OnForm()
+        lblTONG_THU_NHAP_CAC_KY.Text = "0"
+        lblHOA_HONG_TRUC_TIEP.Text = "0"
+        lblHOA_HONG_GIAN_TIEP.Text = "0"
+        lblHOA_HONG_CO_BAN_DUOC_TINH.Text = "0"
+        lblQUY_TIEN_MAT.Text = "0"
+        lblQUY_PHONG_CACH.Text = "0"
+        lblQUY_DAO_TAO.Text = "0"
+        lblTHUONG_THANH_TICH.Text = "0"
+    End Sub
+
     Public Sub bindDOANH_SO()
         Dim lstMonth As List(Of THANG_DOANH_SO)
 
@@ -194,7 +204,12 @@ Public Class AccountCommision
             End If
 
             ' gan len form
-            Load_Data_To_Form(oHoaHong)
+            If oHoaHong IsNot Nothing Then
+                Load_Data_To_Form(oHoaHong)
+            Else
+                Reset_Data_OnForm()
+            End If
+
         Catch ex As Exception
 
         End Try
