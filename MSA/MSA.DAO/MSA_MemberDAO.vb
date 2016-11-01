@@ -296,6 +296,12 @@ Public Class MSA_MemberDAO
                                                                     ).ToList
     End Function
 
+
+    Public Function get_All(ByVal Month As Integer) As List(Of MSA_MemberInfo)
+
+        Return db.Query(Of MSA_MemberInfo)("sp_MEMBERS_get_All_By_Month", New With {Key .Month = Month}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
     Public Function Check_OldPassword(ByVal MA_KH As String, ByVal OldPassword As String) As Boolean
         Dim ret As Object
         ret = db.ExecuteScalar("sp_MEMBERS_Check_OldPassword", New With {Key .MA_KH = MA_KH, Key .OldPassword = OldPassword}, commandType:=CommandType.StoredProcedure)

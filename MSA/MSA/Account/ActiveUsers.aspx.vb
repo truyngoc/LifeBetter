@@ -293,11 +293,11 @@ Public Class ActiveUsers
             oThanhKhoan.MA_DAU_TU = o.MA_DAU_TU
             oThanhKhoan.NGAY_RUT = DateTime.Now
             oThanhKhoan.TEN_KH = txtTEN.Text 'Luu ten nguoi duoc nang cap bang tien quy dao tao trong bang thanh khoan
-            oThanhKhoan.QUY_TIEN_MAT = o.QUY_TIEN_MAT
-            oThanhKhoan.QUY_PHONG_CACH = o.QUY_PHONG_CACH
-            oThanhKhoan.QUY_DAO_TAO = o.QUY_DAO_TAO
-            oThanhKhoan.QUY_TIEN_MAT_TK = 0
-            oThanhKhoan.QUY_PHONG_CACH_TK = 0
+            oThanhKhoan.QUY_TIEN_MAT = Nothing
+            oThanhKhoan.QUY_PHONG_CACH = Nothing
+            oThanhKhoan.QUY_DAO_TAO = Nothing
+            oThanhKhoan.QUY_TIEN_MAT_TK = Nothing
+            oThanhKhoan.QUY_PHONG_CACH_TK = Nothing
             oThanhKhoan.QUY_DAO_TAO_TK = TK
             oThanhKhoan.isTK_QUY_TIEN_MAT = 0
             oThanhKhoan.isTK_QUY_PHONG_CACH = 0
