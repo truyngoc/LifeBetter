@@ -41,6 +41,33 @@ Partial Public Class AccountCommisionCommit
     Protected WithEvents lblResult As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''ddlMonth_Chot_Lai_DS control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlMonth_Chot_Lai_DS As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''btnChotLaiHoaHong control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnChotLaiHoaHong As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lblNotify control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblNotify As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''ddlMonthDS control.
     '''</summary>
     '''<remarks>

@@ -29,19 +29,22 @@ Public Class AccountCommision
 
             bindDOANH_SO()
 
-            Dim sThangDoanhSo As String
-            sThangDoanhSo = DateTime.Today.Month.ToString + DateTime.Today.Year.ToString
-            dllHOA_HONG_THANG.SelectedValue = sThangDoanhSo
+
+            Load_HOA_HONG_By_THANG_NAM()
+
+            'Dim sThangDoanhSo As String
+            'sThangDoanhSo = DateTime.Today.Month.ToString + DateTime.Today.Year.ToString
+            'dllHOA_HONG_THANG.SelectedValue = sThangDoanhSo
 
 
 
-            ' load hoa hong
-            oHoaHong = daoDOANH_SO.Tinh_Hoa_Hong(sMA_CAY, _
-                                                 Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
-                                                 DateTime.Today.Month, DateTime.Today.Year)
+            '' load hoa hong
+            'oHoaHong = daoDOANH_SO.Tinh_Hoa_Hong_Recalculate(sMA_CAY, _
+            '                                     Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
+            '                                     DateTime.Today.Month, DateTime.Today.Year)
 
-            ' gan len form
-            Load_Data_To_Form(oHoaHong)
+            '' gan len form
+            'Load_Data_To_Form(oHoaHong)
 
 
         End If
@@ -160,7 +163,7 @@ Public Class AccountCommision
     '    End Try
     'End Sub
 
-    Protected Sub dllHOA_HONG_THANG_SelectedIndexChanged(sender As Object, e As EventArgs)
+    Public Sub Load_HOA_HONG_By_THANG_NAM()
         Try
             Dim thang As Integer = 0
             Dim nam As Integer = 0
@@ -176,15 +179,28 @@ Public Class AccountCommision
                 nam = dllHOA_HONG_THANG.SelectedValue.ToString.Substring(1, iLen - 1)
             End If
 
-            Dim oHoaHong As HOA_HONG = daoDOANH_SO.Tinh_Hoa_Hong(Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY, _
+            Dim oHoaHong As HOA_HONG
+            Dim check As Boolean
+            check = Singleton(Of MSA_DOANH_SO_DAO).Inst.Check_Exist(thang, nam)
+
+            If check Then
+                ' load trong db               
+                oHoaHong = Singleton(Of MSA_DOANH_SO_DAO).Inst.get_Item(Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, thang, nam)
+            Else
+                oHoaHong = daoDOANH_SO.Tinh_Hoa_Hong(Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY, _
                                      Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
                                      thang, nam)
+
+            End If
 
             ' gan len form
             Load_Data_To_Form(oHoaHong)
         Catch ex As Exception
 
         End Try
+    End Sub
+    Protected Sub dllHOA_HONG_THANG_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Load_HOA_HONG_By_THANG_NAM()
     End Sub
 End Class
 

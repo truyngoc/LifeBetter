@@ -14,6 +14,27 @@ Public Class THANH_KHOAN_DAO
         Return ""
     End Function
 
+    Function Insert_Recalculate(_info As THANH_KHOAN_Info, ByVal Thang As Integer, ByVal Nam As Integer) As String
+        db.Execute("sproc_THANH_KHOAN_Add_Recalculate", New With {Key .MA_CAY = _info.MA_CAY,
+                                                        Key .MA_KH = _info.MA_KH,
+                                                        Key .MA_DAU_TU = _info.MA_DAU_TU,
+                                                        Key .NGAY_RUT = _info.NGAY_RUT,
+                                                        Key .TEN_KH = _info.TEN_KH,
+                                                        Key .QUY_TIEN_MAT = _info.QUY_TIEN_MAT,
+                                                        Key .QUY_PHONG_CACH = _info.QUY_PHONG_CACH,
+                                                        Key .QUY_DAO_TAO = _info.QUY_DAO_TAO,
+                                                        Key .QUY_TIEN_MAT_TK = _info.QUY_TIEN_MAT_TK,
+                                                        Key .QUY_PHONG_CACH_TK = _info.QUY_PHONG_CACH_TK,
+                                                        Key .QUY_DAO_TAO_TK = _info.QUY_DAO_TAO_TK,
+                                                        Key .isTK_QUY_TIEN_MAT = _info.isTK_QUY_TIEN_MAT,
+                                                        Key .isTK_QUY_PHONG_CACH = _info.isTK_QUY_PHONG_CACH,
+                                                        Key .isTK_QUY_DAO_TAO = _info.isTK_QUY_DAO_TAO,
+                                                        Key .Thang = Thang,
+                                                        Key .Nam = Nam
+                                                     }, commandType:=CommandType.StoredProcedure)
+    End Function
+
+
     Public Function SEARCH_ALL() As List(Of THANH_KHOAN_Info)
 
         Return db.Query(Of THANH_KHOAN_Info)("sproc_THANH_KHOAN_Get", commandType:=CommandType.StoredProcedure _
@@ -39,5 +60,17 @@ Public Class THANH_KHOAN_DAO
     End Function
     Public Function Get_So_Thang_TK_PHONG_CACH_SONG(ByVal MA_KH As String) As Integer
         Return SEARCH_BY_MA_TK_PHONG_CACH(MA_KH).Count
+    End Function
+
+
+    'tbn
+    Public Function SEARCH_BY_MA_TK_PHONG_CACH_CHOT_LAI_HH(ByVal MA_KH As String, ByVal Thang As Integer, ByVal Nam As Integer) As List(Of THANH_KHOAN_Info)
+
+        Return db.Query(Of THANH_KHOAN_Info)("sproc_THANH_KHOAN_GetByTK_PHONG_CACH_CHOT_LAI_HH", New With {Key .MA_KH = MA_KH, Key .Thang = Thang, Key .Nam = Nam}, commandType:=CommandType.StoredProcedure _
+                                                                    ).ToList
+    End Function
+
+    Public Function Get_So_Thang_TK_PHONG_CACH_SONG_CHOT_LAI_HH(ByVal MA_KH As String, ByVal Thang As Integer, ByVal Nam As Integer) As Integer
+        Return SEARCH_BY_MA_TK_PHONG_CACH_CHOT_LAI_HH(MA_KH, Thang, Nam).Count
     End Function
 End Class

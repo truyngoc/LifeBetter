@@ -75,6 +75,10 @@
         function DisplayLoadingImage() {
             document.getElementById("HiddenLoadingImage").style.display = "block";
         }
+
+        function DisplayLoadingImage1() {
+            document.getElementById("HiddenLoadingImage1").style.display = "block";
+        }
     </script>
 
 
@@ -100,6 +104,32 @@
             <asp:Label ID="lblResult" runat="server" ForeColor="Blue"></asp:Label>
         </div>
 
+    </div>
+
+    <br />
+    <hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="text-danger"><b>Thực hiện chốt lại doanh số tháng</b></div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-5">
+                <asp:DropDownList ID="ddlMonth_Chot_Lai_DS" runat="server" CssClass="form-control"></asp:DropDownList>
+                <!-- Your Button -->
+                <asp:Button ID="btnChotLaiHoaHong" runat="server" OnClientClick="DisplayLoadingImage1();" Text="Chốt lại doanh số - hoa hồng tháng" CssClass="btn btn-info" />
+            </div>
+
+            <div class="col-md-4">
+                <!-- Your initially hidden loading image -->
+                <img id='HiddenLoadingImage1' src='/images/loading.gif' style='display: none;' />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <asp:Label ID="lblNotify" runat="server" ForeColor="Blue"></asp:Label>
+        </div>
     </div>
 
     <br />

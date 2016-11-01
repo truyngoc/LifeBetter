@@ -10,10 +10,101 @@ Public Class AccountCommisionCommit
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
             bindDDL_MonthDS()
+            bindDDL_Month_Chot_Lai_DS()
             bindDDL_Month()
             ThongKeHeThong()
         End If
     End Sub
+
+#Region "Chot lai hoa hong thang"
+    Private Sub btnChotLaiHoaHong_Click(sender As Object, e As EventArgs) Handles btnChotLaiHoaHong.Click
+        Dim SelectedValue As String = ddlMonth_Chot_Lai_DS.SelectedValue
+        Dim thang As Integer = Integer.Parse(SelectedValue.Substring(0, SelectedValue.Length - 4))
+        Dim nam As Integer = Integer.Parse(SelectedValue.Substring(thang.ToString.Length, 4))
+        Chot_Lai_Doanh_So(thang, nam)
+
+        ThongKeHeThong()
+    End Sub
+
+    Public Sub Chot_Lai_Doanh_So(ByVal thang As Integer, ByVal nam As Integer)
+        Try
+            Dim daoMem As New MSA_MemberDAO
+            Dim daoThanhKhoan As New THANH_KHOAN_DAO
+
+            Dim lstMem As List(Of MSA_MemberInfo)
+            Dim lstDS As New List(Of HOA_HONG)
+
+
+            ' lay tat ca thanh vien
+            lstMem = daoMem.get_All()
+
+            ' tinh doanh so - hoa hong        
+            For Each o As MSA_MemberInfo In lstMem
+                Dim ds As HOA_HONG
+                ds = daoDOANH_SO.Tinh_Hoa_Hong_Recalculate(o.MA_CAY, o.MA_KH, thang, nam)
+
+                ds.MA_KH = o.MA_KH
+                ds.MA_DAU_TU = o.MA_GOI_DAU_TU
+                ds.NAM = nam
+                ds.THANG = thang
+
+                Dim oThanhKhoan As New THANH_KHOAN_Info
+                'TUNGND THANH KHOẢN QUỸ TIỀN MẶT
+                oThanhKhoan.ID = 0
+                oThanhKhoan.MA_KH = ds.MA_KH
+                oThanhKhoan.MA_CAY = ds.MA_KH
+                oThanhKhoan.MA_DAU_TU = ds.MA_DAU_TU
+                oThanhKhoan.NGAY_RUT = DateTime.Now
+                oThanhKhoan.TEN_KH = ds.TEN
+                oThanhKhoan.QUY_TIEN_MAT = ds.QUY_TIEN_MAT
+                oThanhKhoan.QUY_PHONG_CACH = ds.QUY_PHONG_CACH
+                oThanhKhoan.QUY_DAO_TAO = ds.QUY_DAO_TAO
+                oThanhKhoan.QUY_DAO_TAO_TK = 0
+                oThanhKhoan.isTK_QUY_PHONG_CACH = 0
+                oThanhKhoan.isTK_QUY_DAO_TAO = 0
+                If ds.QUY_TIEN_MAT >= 3000000 Then   'Thanh khoản 100%
+                    oThanhKhoan.QUY_TIEN_MAT_TK = ds.QUY_TIEN_MAT
+                    ds.QUY_TIEN_MAT = 0
+                    oThanhKhoan.isTK_QUY_TIEN_MAT = 1
+                    'Else
+                    '    oThanhKhoan.QUY_TIEN_MAT_TK = 0
+                    '    oThanhKhoan.isTK_QUY_TIEN_MAT = 0
+                End If
+
+                'KIEM TRA TINH TRANG THANH KHOAN
+                Dim i As Integer = daoThanhKhoan.Get_So_Thang_TK_PHONG_CACH_SONG_CHOT_LAI_HH(ds.MA_KH, ds.THANG, ds.NAM)
+                If i = 0 Then   'CHUA THANH KHOAN
+                    If ds.QUY_PHONG_CACH >= 300000000 Then
+                        oThanhKhoan.QUY_PHONG_CACH_TK = 10000000
+                        oThanhKhoan.isTK_QUY_PHONG_CACH = 1
+                        ds.QUY_PHONG_CACH = ds.QUY_PHONG_CACH - oThanhKhoan.QUY_PHONG_CACH_TK
+                    End If
+                ElseIf i <= 12 Then 'THANH KHOAN 10TR/THANG
+                    oThanhKhoan.QUY_PHONG_CACH_TK = 10000000
+                    oThanhKhoan.isTK_QUY_PHONG_CACH = 1
+                    ds.QUY_PHONG_CACH = ds.QUY_PHONG_CACH - oThanhKhoan.QUY_PHONG_CACH_TK
+                Else    'THANH KHOAN 20TR/THANG
+                    oThanhKhoan.QUY_PHONG_CACH_TK = 20000000
+                    oThanhKhoan.isTK_QUY_PHONG_CACH = 1
+                    ds.QUY_PHONG_CACH = ds.QUY_PHONG_CACH - oThanhKhoan.QUY_PHONG_CACH_TK
+                End If
+
+                daoThanhKhoan.Insert_Recalculate(oThanhKhoan, ds.THANG, ds.NAM)
+
+                daoDOANH_SO.Insert_Recalculate(ds)
+            Next
+
+            lblNotify.ForeColor = Drawing.Color.Blue
+            lblNotify.Text = String.Format("Chốt lại DOANH SỐ - HOA HỒNG cho {0} thành công", ddlMonth_Chot_Lai_DS.SelectedItem.Text)
+
+
+
+        Catch ex As Exception
+            lblNotify.ForeColor = Drawing.Color.Red
+            lblNotify.Text = String.Format("Đã có lỗi khi thực hiện")
+        End Try
+    End Sub
+#End Region
 
     Private Sub btnChotHoaHong_Click(sender As Object, e As EventArgs) Handles btnChotHoaHong.Click
         Dim SelectedValue As String = ddlMonth.SelectedValue
@@ -24,10 +115,10 @@ Public Class AccountCommisionCommit
         ThongKeHeThong()
     End Sub
 
-
     Public Sub Chot_Doanh_So(ByVal thang As Integer, ByVal nam As Integer)
         Try
-            'thang = 9
+            'thang = 9  fix code vl
+
             Dim daoMem As New MSA_MemberDAO
             Dim daoThanhKhoan As New THANH_KHOAN_DAO
 
@@ -143,6 +234,22 @@ Public Class AccountCommisionCommit
         Else
             ddlMonthDS.DataSource = Nothing
             ddlMonthDS.DataBind()
+        End If
+    End Sub
+
+    Public Sub bindDDL_Month_Chot_Lai_DS()
+        Dim lstMonth As List(Of THANG_DOANH_SO)
+
+        lstMonth = daoDOANH_SO.get_All_Thang_Chot_Lai_Doanh_so()
+
+        If lstMonth IsNot Nothing AndAlso lstMonth.Count > 0 Then
+            ddlMonth_Chot_Lai_DS.DataSource = lstMonth
+            ddlMonth_Chot_Lai_DS.DataValueField = "DS_Value"
+            ddlMonth_Chot_Lai_DS.DataTextField = "DS_Text"
+            ddlMonth_Chot_Lai_DS.DataBind()
+        Else
+            ddlMonth_Chot_Lai_DS.DataSource = Nothing
+            ddlMonth_Chot_Lai_DS.DataBind()
         End If
     End Sub
 
