@@ -42,7 +42,7 @@ Public Class AccountReport
     End Sub
 
     Protected Sub btnSearch_Click(sender As Object, e As EventArgs)
-        LoadAllAcc
+        LoadAllAcc()
     End Sub
 
     Protected Sub grdMEMBERS_RowCommand(sender As Object, e As GridViewCommandEventArgs)

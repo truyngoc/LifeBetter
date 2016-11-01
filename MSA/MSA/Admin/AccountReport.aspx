@@ -120,6 +120,7 @@
                     <asp:DropDownList ID="ddlDieuKien" runat="server" CssClass="form-control">
                         <asp:ListItem Value="1" Text="">Mã khách hàng</asp:ListItem>
                         <asp:ListItem Value="2">Tên khách hàng</asp:ListItem>
+                        <asp:ListItem Value="8">Số điện thoại</asp:ListItem>
                         <asp:ListItem Value="3">Gói tham gia</asp:ListItem>
                         <asp:ListItem Value="4">Mã bảo trợ</asp:ListItem>
                         <asp:ListItem Value="5">Số CMND</asp:ListItem>
@@ -178,7 +179,7 @@
 
                         <asp:TemplateField HeaderText="Mật khẩu" ItemStyle-HorizontalAlign="Left">
                             <ItemTemplate>
-                                <asp:Label ID="lblTen" runat="server" Text='<%# Eval("MAT_KHAU")%>' />
+                                <asp:Label ID="lblMAT_KHAU" runat="server" Text='<%# Eval("MAT_KHAU")%>' />
                             </ItemTemplate>
                         </asp:TemplateField>
 

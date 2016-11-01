@@ -153,9 +153,9 @@ Public Class ActiveUsers
         Singleton(Of MSA_MemberDAO).Inst.Update_KICH_HOAT(info)
 
         'Lưu vào GÓI ĐẦU TƯ HIS
-        If ((info.NV = 0) And (info.TRANG_THAI = 1)) Then
-            Singleton(Of MSA_GOI_DAU_TU_HIS_DAO).Inst.Insert(info.MA_KH, info.TEN, info.MA_GOI_DAU_TU, DateTime.Now, 1, info.MA_CAY, 0, info.TEN_GOI_DAU_TU, "", 0, Singleton(Of MSACurrentSession).Inst.SessionMember.TEN, "Kích hoạt mã số")
-        End If
+        'If ((info.NV = 0) And (info.TRANG_THAI = 1)) Then
+        'Singleton(Of MSA_GOI_DAU_TU_HIS_DAO).Inst.Insert(info.MA_KH, info.TEN, info.MA_GOI_DAU_TU, DateTime.Now, 1, info.MA_CAY, 0, info.TEN_GOI_DAU_TU, "", 0, Singleton(Of MSACurrentSession).Inst.SessionMember.TEN, "Kích hoạt mã số")
+        'End If
 
         Dim objPackage As New GOI_DAU_TU_HIS_Info
 
@@ -169,7 +169,7 @@ Public Class ActiveUsers
         objPackage.NGUOI_CAP_NHAT = Singleton(Of MSACurrentSession).Inst.SessionMember.TEN
         objPackage.NGAY = DateTime.Now
         objPackage.GHI_CHU = "ĐĂNG KÝ MỚI"
-        objPackage.MOI_NHAT = 0
+        objPackage.MOI_NHAT = 1
 
         Dim hoahongDAO As New MSA_DOANH_SO_DAO
         Dim packageDAO As New MSA_GOI_DAU_TU_HIS_DAO
