@@ -12,27 +12,10 @@ Public Class AccountTreeView
         If Not IsPostBack Then
             Try
 
-                Dim sMA_CAY As String
-                Dim oHoaHong As HOA_HONG
-                Dim daoDOANH_SO As New MSA_DOANH_SO_DAO
+                bind_THANG_DOANH_SO()
 
-                ' tinh hoa hong
-                sMA_CAY = Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY
-
-                'If HttpContext.Current.Session("MSA_DOANHSO_HOAHONG") IsNot Nothing Then
-                '    oHoaHong = TryCast(HttpContext.Current.Session("MSA_DOANHSO_HOAHONG"), HOA_HONG)
-                'Else
-                '    oHoaHong = Tinh_Hoa_Hong(sMA_CAY)
-                '    HttpContext.Current.Session("MSA_DOANHSO_HOAHONG") = oHoaHong
-                'End If
-                txtMA_CAY.Text = sMA_CAY
-                oHoaHong = daoDOANH_SO.Tinh_Hoa_Hong(sMA_CAY, _
-                                                     Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
-                                                     DateTime.Today.Month, DateTime.Today.Year)
-
-                ' gan len form
-                Load_DaTa_To_Form(oHoaHong)
-
+                
+                THONG_KE_DOANH_SO()
 
 
             Catch ex As Exception
@@ -246,5 +229,70 @@ Public Class AccountTreeView
                 txtMa_KH.Text = ""
             End If
         End If
+    End Sub
+
+
+
+    Public Sub THONG_KE_DOANH_SO()
+        Dim sMA_CAY As String
+        Dim oHoaHong As HOA_HONG
+        Dim daoDOANH_SO As New MSA_DOANH_SO_DAO
+
+        Dim thang As Integer = 0
+        Dim nam As Integer = 0
+
+        Dim iLen As Integer
+        iLen = dllDOANH_SO_THANG.SelectedValue.ToString.Length
+
+        If iLen = 6 Then
+            thang = dllDOANH_SO_THANG.SelectedValue.ToString.Substring(0, 2).Trim
+            nam = dllDOANH_SO_THANG.SelectedValue.ToString.Substring(2, iLen - 2)
+        Else
+            thang = dllDOANH_SO_THANG.SelectedValue.ToString.Substring(0, 1).Trim
+            nam = dllDOANH_SO_THANG.SelectedValue.ToString.Substring(1, iLen - 1)
+        End If
+
+
+        ' tinh hoa hong
+        sMA_CAY = Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY
+        txtMA_CAY.Text = sMA_CAY
+
+        Dim check As Boolean
+        check = Singleton(Of MSA_DOANH_SO_DAO).Inst.Check_Exist(thang, nam)
+        If check Then
+            ' load trong db               
+            oHoaHong = Singleton(Of MSA_DOANH_SO_DAO).Inst.get_Item(Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, thang, nam)
+        Else
+            oHoaHong = daoDOANH_SO.Tinh_Hoa_Hong(Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY, _
+                                 Singleton(Of MSACurrentSession).Inst.SessionMember.MA_KH, _
+                                 thang, nam)
+
+        End If
+
+
+        ' gan len form
+        Load_DaTa_To_Form(oHoaHong)
+    End Sub
+
+    Public Sub bind_THANG_DOANH_SO()
+        Dim lstMonth As List(Of THANG_DOANH_SO)
+
+        lstMonth = Singleton(Of MSA_DOANH_SO_DAO).Inst.get_All_Thang_Doanh_so()
+
+        If lstMonth IsNot Nothing AndAlso lstMonth.Count > 0 Then
+            dllDOANH_SO_THANG.DataSource = lstMonth
+            dllDOANH_SO_THANG.DataValueField = "DS_Value"
+            dllDOANH_SO_THANG.DataTextField = "DS_Text"
+            dllDOANH_SO_THANG.DataBind()
+        Else
+            dllDOANH_SO_THANG.DataSource = Nothing
+            dllDOANH_SO_THANG.DataBind()
+        End If
+
+
+    End Sub
+
+    Protected Sub dllDOANH_SO_THANG_SelectedIndexChanged(sender As Object, e As EventArgs)
+        THONG_KE_DOANH_SO()
     End Sub
 End Class

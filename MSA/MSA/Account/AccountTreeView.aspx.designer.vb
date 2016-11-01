@@ -158,6 +158,15 @@ Partial Public Class AccountTreeView
     Protected WithEvents btnShowSponsor As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''dllDOANH_SO_THANG control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents dllDOANH_SO_THANG As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''lblError control.
     '''</summary>
     '''<remarks>

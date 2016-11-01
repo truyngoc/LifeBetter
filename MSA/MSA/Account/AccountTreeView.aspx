@@ -242,6 +242,8 @@
                            <%-- <input type="submit" value="CÂY NHỊ PHÂN" class="btn btn-primary" />--%>
                             <asp:Button ID="SearchTree" runat="server" Text="CÂY NHỊ PHÂN" CssClass="btn btn-primary" OnClick="SearchTree_Click" />
                             <asp:Button ID="btnShowSponsor" runat="server" Text="CÂY BẢO TRỢ" class="btn btn-primary"  OnClientClick="view_Data(); return false;" />
+
+                            <asp:DropDownList ID="dllDOANH_SO_THANG" runat="server" CssClass="form-control" Style="width:150px; float:right;" OnSelectedIndexChanged="dllDOANH_SO_THANG_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                         </div>
                         <div>
                             <asp:Label ID="lblError" runat="server" Visible="false"></asp:Label>
