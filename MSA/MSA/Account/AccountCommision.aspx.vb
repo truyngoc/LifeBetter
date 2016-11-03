@@ -124,7 +124,7 @@ Public Class AccountCommision
             lblQUY_DAO_TAO.Text = IIf(o.QUY_DAO_TAO = 0, 0, o.QUY_DAO_TAO.ToString("#,###"))
             'lblTONG_CONG_DOANH_SO_THANG.Text = IIf(o.TONG_THU_NHAP_THANG = 0, 0, o.TONG_THU_NHAP_THANG.ToString("#,###"))
 
-            lblTHUONG_THANH_TICH.Text = IIf(o.THUONG_THANH_TICH = 0, 0, o.THUONG_THANH_TICH.ToString("#,###"))
+            lblTHUONG_THANH_TICH.Text = IIf(o.THUONG_THANH_TICH_DUOC_TINH = 0, 0, o.THUONG_THANH_TICH_DUOC_TINH.ToString("#,###"))
             'lblTHUONG_THANH_TICH_DUOC_TINH.Text = IIf(o.THUONG_THANH_TICH_DUOC_TINH = 0, 0, o.THUONG_THANH_TICH_DUOC_TINH.ToString("#,###"))
         End If
     End Sub

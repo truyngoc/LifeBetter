@@ -123,7 +123,7 @@
                         <asp:DropDownList ID="ddlDieuKien" runat="server" CssClass="form-control">
                             <asp:ListItem Value="1" Text="">Mã khách hàng</asp:ListItem>
                             <asp:ListItem Value="2">Tên khách hàng</asp:ListItem>
-                            <asp:ListItem Value="3">Tên nhân viên</asp:ListItem>
+                            <asp:ListItem Value="3">Tên người kích hoạt</asp:ListItem>
                             <asp:ListItem Value="4">Gói nâng cấp</asp:ListItem>
                         </asp:DropDownList>
                     </div>
@@ -177,7 +177,7 @@
                     </asp:TemplateField>
 
 
-                    <asp:BoundField DataField="NGUOI_CAP_NHAT" HeaderText="Nhân viên">
+                    <asp:BoundField DataField="NGUOI_CAP_NHAT" HeaderText="Người kích hoạt">
                         <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
 
