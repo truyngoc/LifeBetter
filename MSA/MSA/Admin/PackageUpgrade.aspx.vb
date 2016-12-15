@@ -37,7 +37,7 @@ Public Class PackageUpgrade
                     Dim objHoaHong As HOA_HONG = hoahongDAO.Tinh_Hoa_Hong(objPackage.MA_CAY, objPackage.MA_KH, DateTime.Today.Month, DateTime.Today.Year)
                     objPackage.THUONG_THANH_TICH = objHoaHong.THUONG_THANH_TICH
 
-                    packageDAO.Insert(objPackage.MA_KH, objPackage.TEN, objPackage.MA_DAU_TU, objPackage.NGAY, objPackage.MOI_NHAT, objPackage.MA_CAY, objPackage.THUONG_THANH_TICH, objPackage.GOI_DAU_TU, objPackage.GOI_DAU_TU_HIS, objPackage.MA_DAU_TU_HIS, objPackage.NGUOI_CAP_NHAT, objPackage.GHI_CHU)
+                    packageDAO.Insert_Upgrade(objPackage.MA_KH, objPackage.TEN, objPackage.MA_DAU_TU, objPackage.NGAY, objPackage.MOI_NHAT, objPackage.MA_CAY, objPackage.THUONG_THANH_TICH, objPackage.GOI_DAU_TU, objPackage.GOI_DAU_TU_HIS, objPackage.MA_DAU_TU_HIS, objPackage.NGUOI_CAP_NHAT, objPackage.GHI_CHU)
 
                     Response.Redirect("PackageUpgradeReport.aspx")
                 Catch ex As Exception

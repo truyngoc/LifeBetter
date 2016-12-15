@@ -87,9 +87,9 @@
                                     var chart = new google.visualization.OrgChart($("#chart_div")[0]);
 
 
-                                    //$(window).smartresize(function () {
-                                    //    chart.draw(data, { allowHtml: true, nodeClass: 'blf-orgchart-node', allowCollapse: true });
-                                    //});
+                                    $(window).smartresize(function () {
+                                        chart.draw(data, { allowHtml: true, nodeClass: 'blf-orgchart-node', allowCollapse: true });
+                                    });
 
 
                                     var options = {
@@ -106,9 +106,9 @@
 
                                     // chinh zoom cua cayf
                                     var cur_zoom;
-                                    var w = $("#chart_div").width();
-                                    var w_chart = $("table.google-visualization-orgchart-table").width();
-                                    cur_zoom = w / w_chart;
+                                    //var w = $("#chart_div").width();
+                                    //var w_chart = $("table.google-visualization-orgchart-table").width();
+                                    //cur_zoom = w / w_chart;
 
                                     if (cur_zoom > 1) cur_zoom = 1;
                                     currZoom = cur_zoom;

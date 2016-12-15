@@ -183,7 +183,6 @@ Public Class MSA_MemberDAO
                                                                     ).ToList
     End Function
 
-
     Public Sub DELETE(ByVal ID As Integer)
         db.Execute("sproc_MEMBERS_Delete", New With {Key .ID = ID
                                                     }, commandType:=CommandType.StoredProcedure)

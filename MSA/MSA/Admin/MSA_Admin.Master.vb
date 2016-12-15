@@ -36,16 +36,16 @@ Public Class MSA_Admin
                     If _mInfo.NGAY_NANG_CAP Is Nothing Then
                         If DateDiff("d", _mInfo.NGAY_THAM_GIA, Date.Now) < 60 Then
                             Seconds = DateDiff("s", Date.Now, DateAdd("d", 60, _mInfo.NGAY_THAM_GIA))
-                        ElseIf DateDiff("d", _mInfo.NGAY_THAM_GIA, Date.Now) < 90 Then
-                            Seconds = DateDiff("s", Date.Now, DateAdd("d", 90, _mInfo.NGAY_THAM_GIA))
+                        ElseIf DateDiff("d", _mInfo.NGAY_THAM_GIA, Date.Now) < 150 Then
+                            Seconds = DateDiff("s", Date.Now, DateAdd("d", 150, _mInfo.NGAY_THAM_GIA))
                         Else
                             Seconds = 0
                         End If
                     Else
                         If DateDiff("d", _mInfo.NGAY_NANG_CAP, Date.Now) < 60 Then
                             Seconds = DateDiff("s", Date.Now, DateAdd("d", 60, _mInfo.NGAY_NANG_CAP))
-                        ElseIf DateDiff("d", _mInfo.NGAY_NANG_CAP, Date.Now) < 90 Then
-                            Seconds = DateDiff("s", Date.Now, DateAdd("d", 90, _mInfo.NGAY_NANG_CAP))
+                        ElseIf DateDiff("d", _mInfo.NGAY_NANG_CAP, Date.Now) < 150 Then
+                            Seconds = DateDiff("s", Date.Now, DateAdd("d", 150, _mInfo.NGAY_NANG_CAP))
                         Else
                             Seconds = 0
                         End If

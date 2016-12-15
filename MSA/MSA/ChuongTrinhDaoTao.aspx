@@ -6,7 +6,7 @@
     <div id="Content" data-motopress-type="loop" class="container">
         <div class="span12" data-motopress-wrapper-file="page-faq.php" data-motopress-wrapper-type="content">
             <div class="txt_content" align="center">
-                <h4 style="color: #FFF; font-family: Tahoma">Đang cập nhật</h4>
+                <iframe width="854" height="480" src="https://www.youtube.com/embed/BpUimtpg1rI" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>

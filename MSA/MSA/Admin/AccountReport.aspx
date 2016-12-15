@@ -151,161 +151,162 @@
                 </div>
             </div>
         </fieldset>
+>
+            <fieldset class="fdb-scheduler-border">
+                <div class="row">
+                    <asp:Label ID="lblMsgInfo" runat="server" ForeColor="Blue" Font-Bold="true"></asp:Label>
+                    <asp:GridView ID="grdMEMBERS" runat="server" CssClass="mydatagrid" PagerStyle-CssClass="pager"
+                        HeaderStyle-CssClass="header" RowStyle-CssClass="rows"
+                        AutoGenerateColumns="false" AllowPaging="true" PageSize="50"
+                        OnPageIndexChanging="grdMEMBERS_PageIndexChanging" OnRowCommand="grdMEMBERS_RowCommand">
+                        <Columns>
+                            <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
+                                <ItemTemplate>
+                                    <%# Container.DataItemIndex + 1 %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-        <fieldset class="fdb-scheduler-border">
-            <div class="row">
-                <asp:Label ID="lblMsgInfo" runat="server" ForeColor="Blue" Font-Bold="true"></asp:Label>
-                <asp:GridView ID="grdMEMBERS" runat="server" CssClass="mydatagrid" PagerStyle-CssClass="pager"
-                    HeaderStyle-CssClass="header" RowStyle-CssClass="rows"
-                    AutoGenerateColumns="false" AllowPaging="true" PageSize="50"
-                    OnPageIndexChanging="grdMEMBERS_PageIndexChanging" OnRowCommand="grdMEMBERS_RowCommand">
-                    <Columns>
-                        <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
-                            <ItemTemplate>
-                                <%# Container.DataItemIndex + 1 %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="MÃ KH" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblMa_KH" runat="server" Text='<%# Eval("MA_KH")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="TÊN" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblTen" runat="server" Text='<%# Eval("TEN") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="MÃ KH" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblMa_KH" runat="server" Text='<%# Eval("MA_KH")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="TÊN" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblTen" runat="server" Text='<%# Eval("TEN") %>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Mật khẩu" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblMAT_KHAU" runat="server" Text='<%# Eval("MAT_KHAU")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Mật khẩu" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblMAT_KHAU" runat="server" Text='<%# Eval("MAT_KHAU")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="GÓI" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblGoi" runat="server" Text='<%# LoadGoiDauTu(Eval("MA_GOI_DAU_TU"))%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="GÓI" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblGoi" runat="server" Text='<%# LoadGoiDauTu(Eval("MA_GOI_DAU_TU"))%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Danh hiệu" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblDanhHieu" runat="server" Text='<%# LoadDanhHieu(Eval("MA_DANH_HIEU"))%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Danh hiệu" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblDanhHieu" runat="server" Text='<%# LoadDanhHieu(Eval("MA_DANH_HIEU"))%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Mã BT" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblBT" runat="server" Text='<%# Eval("MA_BAO_TRO")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Mã BT" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblBT" runat="server" Text='<%# Eval("MA_BAO_TRO")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Tên BT" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblTBT" runat="server" Text='<%# Eval("TEN_BAO_TRO")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Tên BT" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblTBT" runat="server" Text='<%# Eval("TEN_BAO_TRO")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Mã tuyến trên" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblCD" runat="server" Text='<%# Eval("MA_CAY_TT")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Mã tuyến trên" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblCD" runat="server" Text='<%# Eval("MA_CAY_TT")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Tên tuyến trên" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblTCD" runat="server" Text='<%# Eval("TEN_CAY_TT")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Tên tuyến trên" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblTCD" runat="server" Text='<%# Eval("TEN_CAY_TT")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="CMND" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblCMND" runat="server" Text='<%# Eval("CMND")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="CMND" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblCMND" runat="server" Text='<%# Eval("CMND")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Ngày sinh" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblNGAY_SINH" runat="server" Text='<%# Eval("NGAY_SINH")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Ngày sinh" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblNGAY_SINH" runat="server" Text='<%# Eval("NGAY_SINH")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Điện thoại" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblPhone" runat="server" Text='<%# Eval("DIEN_THOAI")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Điện thoại" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblPhone" runat="server" Text='<%# Eval("DIEN_THOAI")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Email" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("DIA_CHI")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Email" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("DIA_CHI")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Mã số thuế" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblMST" runat="server" Text='<%# Eval("MST")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Mã số thuế" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblMST" runat="server" Text='<%# Eval("MST")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Số tài khoản" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblSTK" runat="server" Text='<%# Eval("SO_TAI_KHOAN")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Số tài khoản" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblSTK" runat="server" Text='<%# Eval("SO_TAI_KHOAN")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Ngân hàng" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblNganHang" runat="server" Text='<%# Eval("NGAN_HANG") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Ngân hàng" ItemStyle-HorizontalAlign="Left">
-                            <ItemTemplate>
-                                <asp:Label ID="lblNganHang" runat="server" Text='<%# Eval("NGAN_HANG") %>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Ngày tham gia" ItemStyle-HorizontalAlign="Center">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblCreateDate" runat="server" Text='<%# Eval("NGAY_THAM_GIA", "{0:dd/MM/yyyy HH:mm:ss}")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Ngày tham gia" ItemStyle-HorizontalAlign="Center">
-                            <ItemTemplate>
-                                <asp:Label ID="lblCreateDate" runat="server" Text='<%# Eval("NGAY_THAM_GIA", "{0:dd/MM/yyyy HH:mm:ss}")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Ngày nâng cấp" ItemStyle-HorizontalAlign="Center">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblUpdateDate" runat="server" Text='<%# Eval("NGAY_NANG_CAP" , "{0:dd/MM/yyyy HH:mm:ss}") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Ngày nâng cấp" ItemStyle-HorizontalAlign="Center">
-                            <ItemTemplate>
-                                <asp:Label ID="lblUpdateDate" runat="server" Text='<%# Eval("NGAY_NANG_CAP" , "{0:dd/MM/yyyy HH:mm:ss}") %>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:ImageButton ID="imgbtnEdit" runat="server" CausesValidation="false" CommandName="cmdEdit"
+                                        CommandArgument='<%# Eval("MA_KH")%>' ImageUrl="/Images/edit-icon.png" ToolTip="Edit" Width="16" Height="16" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:ImageButton ID="imgbtnEdit" runat="server" CausesValidation="false" CommandName="cmdEdit"
-                                    CommandArgument='<%# Eval("MA_KH")%>' ImageUrl="/Images/edit-icon.png" ToolTip="Edit" Width="16" Height="16" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:ImageButton ID="imgbtnDelete" runat="server" CausesValidation="false" CommandName="cmdDelete"
+                                        CommandArgument='<%# Eval("ID")%>' ImageUrl="/Images/delete-icon.png" ToolTip="Delete" Width="16" Height="16"
+                                        OnClientClick="return confirm('Are you sure you want delete ?');" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:ImageButton ID="imgbtnDelete" runat="server" CausesValidation="false" CommandName="cmdDelete"
-                                    CommandArgument='<%# Eval("ID")%>' ImageUrl="/Images/delete-icon.png" ToolTip="Delete" Width="16" Height="16"
-                                    OnClientClick="return confirm('Are you sure you want delete ?');" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:ImageButton ID="imgbtnLock" runat="server" CausesValidation="false" CommandName="cmdLock"
+                                        CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/key-icon.png" ToolTip="Lock account" Width="16" Height="16"
+                                        OnClientClick="return confirm('Are you sure you want lock account ?');" Visible='<%# VisibleByStatus(Eval("TRANG_THAI"),1)%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:ImageButton ID="imgbtnLock" runat="server" CausesValidation="false" CommandName="cmdLock"
-                                    CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/key-icon.png" ToolTip="Lock account" Width="16" Height="16"
-                                    OnClientClick="return confirm('Are you sure you want lock account ?');" Visible='<%# VisibleByStatus(Eval("TRANG_THAI"),1)%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:ImageButton ID="imgbtnUnLock" runat="server" CausesValidation="false" CommandName="cmdUnLock"
+                                        CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/unlock_icon.jpg" ToolTip="UnLock account" Width="16" Height="16"
+                                        OnClientClick="return confirm('Are you sure you want unlock account ?');" Visible='<%# VisibleByStatus(Eval("TRANG_THAI"),2)%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
 
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:ImageButton ID="imgbtnUnLock" runat="server" CausesValidation="false" CommandName="cmdUnLock"
-                                    CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/unlock_icon.jpg" ToolTip="UnLock account" Width="16" Height="16"
-                                    OnClientClick="return confirm('Are you sure you want unlock account ?');" Visible='<%# VisibleByStatus(Eval("TRANG_THAI"),2)%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
-            </div>
-        </fieldset>
+            </fieldset>
     </div>
 </asp:Content>

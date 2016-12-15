@@ -64,7 +64,7 @@ Public Class AccountCommisionCommit
                 oThanhKhoan.isTK_QUY_DAO_TAO = 0
                 If ds.QUY_TIEN_MAT >= 3000000 Then   'Thanh khoản 100%
                     oThanhKhoan.QUY_TIEN_MAT_TK = ds.QUY_TIEN_MAT
-                    ds.QUY_TIEN_MAT = 0
+                    'ds.QUY_TIEN_MAT = 0
                     oThanhKhoan.isTK_QUY_TIEN_MAT = 1
                     'Else
                     '    oThanhKhoan.QUY_TIEN_MAT_TK = 0
@@ -72,22 +72,23 @@ Public Class AccountCommisionCommit
                 End If
 
                 'KIEM TRA TINH TRANG THANH KHOAN
-                Dim i As Integer = daoThanhKhoan.Get_So_Thang_TK_PHONG_CACH_SONG_CHOT_LAI_HH(ds.MA_KH, ds.THANG, ds.NAM)
+                Dim i As Integer = daoThanhKhoan.Get_So_Thang_TK_PHONG_CACH_SONG(ds.MA_KH)
                 If i = 0 Then   'CHUA THANH KHOAN
                     If ds.QUY_PHONG_CACH >= 300000000 Then
                         oThanhKhoan.QUY_PHONG_CACH_TK = 10000000
                         oThanhKhoan.isTK_QUY_PHONG_CACH = 1
-                        ds.QUY_PHONG_CACH = ds.QUY_PHONG_CACH - oThanhKhoan.QUY_PHONG_CACH_TK
+                        'ds.QUY_PHONG_CACH = ds.QUY_PHONG_CACH - oThanhKhoan.QUY_PHONG_CACH_TK
                     End If
                 ElseIf i <= 12 Then 'THANH KHOAN 10TR/THANG
                     oThanhKhoan.QUY_PHONG_CACH_TK = 10000000
                     oThanhKhoan.isTK_QUY_PHONG_CACH = 1
-                    ds.QUY_PHONG_CACH = ds.QUY_PHONG_CACH - oThanhKhoan.QUY_PHONG_CACH_TK
+                    'ds.QUY_PHONG_CACH = ds.QUY_PHONG_CACH - oThanhKhoan.QUY_PHONG_CACH_TK
                 Else    'THANH KHOAN 20TR/THANG
                     oThanhKhoan.QUY_PHONG_CACH_TK = 20000000
                     oThanhKhoan.isTK_QUY_PHONG_CACH = 1
-                    ds.QUY_PHONG_CACH = ds.QUY_PHONG_CACH - oThanhKhoan.QUY_PHONG_CACH_TK
+                    'ds.QUY_PHONG_CACH = ds.QUY_PHONG_CACH - oThanhKhoan.QUY_PHONG_CACH_TK
                 End If
+
 
                 daoThanhKhoan.Insert_Recalculate(oThanhKhoan, ds.THANG, ds.NAM)
 
@@ -117,7 +118,7 @@ Public Class AccountCommisionCommit
 
     Public Sub Chot_Doanh_So(ByVal thang As Integer, ByVal nam As Integer)
         Try
-            'thang = 10 ' fix code vl --> dung de chot lai doanh so
+            thang = 11 ' fix code vl --> dung de chot lai doanh so
 
             Dim daoMem As New MSA_MemberDAO
             Dim daoThanhKhoan As New THANH_KHOAN_DAO

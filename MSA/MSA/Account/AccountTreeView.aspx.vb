@@ -35,6 +35,52 @@ Public Class AccountTreeView
         ' bo luon luon hien thi root cua ma_cay dang tim kiem
         'Đổi tên thành mã
 
+            Dim ma_cay_tt As Object
+            If String.IsNullOrEmpty(ma_cay) Then
+                Return Nothing
+            End If
+            Dim query As String = get_Chart_Data(ma_cay)
+
+            Using con As New SqlConnection(ConfigurationManager.ConnectionStrings("SqlServerConnString").ConnectionString)
+                Using cmd As New SqlCommand(query)
+                    Dim chartData As New List(Of Object)()
+                    cmd.CommandType = CommandType.Text
+                    cmd.Connection = con
+
+                    Try
+                        con.Open()
+                        Using sdr As SqlDataReader = cmd.ExecuteReader()
+                            While sdr.Read()
+                                If sdr("MA_CAY").ToString() = ma_cay Then
+                                    ma_cay_tt = Nothing
+                                Else
+                                    ma_cay_tt = sdr("MA_CAY_TT")
+                                End If
+
+                                chartData.Add(New Object() {sdr("ID"), sdr("MA_KH"), sdr("MA_CAY"), sdr("MA_BAO_TRO"), sdr("TEN"), sdr("MA_BAO_TRO_TT"), _
+                                    ma_cay_tt, sdr("NHANH_CAY_TT"), sdr("NGAY_THAM_GIA"), sdr("TRANG_THAI"), sdr("MA_GOI_DAU_TU"), sdr("MA_DANH_HIEU")})
+                            End While
+                        End Using
+                        con.Close()
+
+                    Catch ex As Exception
+
+                    End Try
+
+                    Return chartData
+                End Using
+            End Using
+    End Function
+
+    <WebMethod> _
+    Public Shared Function GetChartDataNode(ma_cay As String) As List(Of Object)
+        '
+        ' ko nhap ma_cay vao textbox thi mac dinh la root
+        'If String.IsNullOrEmpty(ma_cay) Then
+        '    ma_cay = "0"
+        'End If
+        ' bo luon luon hien thi root cua ma_cay dang tim kiem
+        'Đổi tên thành mã
 
         Dim ma_cay_tt As Object
         If String.IsNullOrEmpty(ma_cay) Then
@@ -72,7 +118,6 @@ Public Class AccountTreeView
             End Using
         End Using
     End Function
-
     Public Shared Function get_Chart_Data(ma_cay As String) As String
         If ma_cay = "" Then
             ma_cay = Singleton(Of MSACurrentSession).Inst.SessionMember.MA_CAY
@@ -92,7 +137,8 @@ Public Class AccountTreeView
             query += ", MA_GOI_DAU_TU"
             query += ", MA_DANH_HIEU"
             query += " FROM MEMBERS"
-            query += " WHERE ((MA_CAY ='" & ma_cay + "')) "
+            'query += " WHERE ((MA_CAY ='" & ma_cay + "') and len(MA_CAY) < " & (Len(ma_cay) + 21).ToString & " ) "
+            query += " WHERE (MA_CAY ='" & ma_cay + "')"
             query += " UNION "
         End If
 
@@ -111,7 +157,7 @@ Public Class AccountTreeView
         query += " FROM MEMBERS"
         query += " WHERE ((MA_CAY ='" & ma_cay + "') OR (MA_CAY_TT like '" & ma_cay + "%'))"
         query += " AND TRANG_THAI <> 0 and NV=0 and MA_BAO_TRO_TT is not null and MA_BAO_TRO_TT <> ''"
-
+        'query += " AND TRANG_THAI <> 0 and NV=0 and MA_BAO_TRO_TT is not null and MA_BAO_TRO_TT <> '' and len(MA_CAY) < " & (Len(ma_cay) + 21).ToString
         query += " UNION "
 
         query += "select null ID "
@@ -129,6 +175,7 @@ Public Class AccountTreeView
         query += "from members "
         query += "where "
         query += "(ma_cay='" & ma_cay + "' or ma_cay_tt like '" & ma_cay + "%') "
+        'query += "(ma_cay='" & ma_cay + "' or ma_cay_tt like '" & ma_cay + "%') and len(MA_CAY) < " & (Len(ma_cay) + 21).ToString
         query += "and ma_cay_tt in ("
         query += "select a.ma_cay_tt "
         query += "from "

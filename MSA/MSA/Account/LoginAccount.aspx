@@ -27,10 +27,9 @@
                                             <img src="/images/slide9.jpg" />
                                             <address style="color: black">
                                                 <h5 style="font-family: 'Times New Roman'"><font color="#010101">Thông tin liên lạc.</font></h5>
-                                                <strong>Tòa nhà Bitexco ,02 Hải Triều, Quận 1, Thành phố Hồ Chí Minh, Việt Nam</strong>
+                                                <%--<strong>Tòa nhà Bitexco ,02 Hải Triều, Quận 1, Thành phố Hồ Chí Minh, Việt Nam</strong>--%>
                                                 <ul>
-                                                    <li>Số ĐT: +44 20 7156 6217</li>
-                                                    <li>FAX: +44 20 7156 6220</li>
+                                                    <li>Số ĐT: 0933683344 / 0933253344</li>
                                                     <li>E-mail: <a href="mailto:admin@lifebetter.com.vn">admin@lifebetter.com.vn</a></li>
                                                 </ul>
                                             </address>

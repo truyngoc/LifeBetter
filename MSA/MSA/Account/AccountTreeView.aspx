@@ -6,8 +6,8 @@
         function view_Data() {
             var ma_cay = $("#<%=txtMA_CAY.ClientID%>")[0].value;
 
-            var w = 650;
-            var h = 580;
+            var w = 1000;
+            var h = 700;
             var x = screen.width / 2 - w / 2;
             var y = screen.height / 2 - h / 2;
             window.open("AccountSponsorTree.aspx?MA_CAY=" + ma_cay, 'Xem cây bảo trợ',
@@ -125,23 +125,23 @@
                         var currZoom = 1;
 
                         $(document).ready(function () {
-                            $("#ZoomIn").click(function () {
-                                var w = $("#chart_div").width();
-                                var w_chart = $("table.google-visualization-orgchart-table").width();
+                            //$("#ZoomIn").click(function () {
+                            //    var w = $("#chart_div").width();
+                            //    var w_chart = $("table.google-visualization-orgchart-table").width();
 
-                                currZoom += 0.1;
-                                $(".chart_div").css({
-                                    'zoom': currZoom
-                                }
-                                );
-                            });
-                            $("#ZoomOut").click(function () {
-                                currZoom -= 0.1;
-                                $(".chart_div").css({
-                                    'zoom': currZoom
-                                }
-                                );
-                            });
+                            //    currZoom += 0.1;
+                            //    $(".chart_div").css({
+                            //        'zoom': currZoom
+                            //    }
+                            //    );
+                            //});
+                            //$("#ZoomOut").click(function () {
+                            //    currZoom -= 0.1;
+                            //    $(".chart_div").css({
+                            //        'zoom': currZoom
+                            //    }
+                            //    );
+                            //});
                         });
                     </script>
 
@@ -159,7 +159,8 @@
                             google.charts.setOnLoadCallback(drawChart1);
                         }
 
-                        function drawChart1() {
+                        function drawChart1() { 
+                           
                             $.ajax({
                                 type: "POST",
                                 url: "AccountTreeView.aspx/GetChartData",
@@ -168,25 +169,32 @@
                                 contentType: "application/json; charset=utf-8",
                                 dataType: "json",
                                 success: function (r) {
+                                    alert('ok');
                                     var data = new google.visualization.DataTable();
                                     data.addColumn('string', 'Entity');
                                     data.addColumn('string', 'ParentEntity');
                                     data.addColumn('string', 'ToolTip');
+                                    var tang = 1;
 
+                                    alert(r.d.length); 
                                     for (var i = 0; i < r.d.length; i++) {
-                                        var ma_cay = r.d[i][2].toString();
-                                        var ma_kh = r.d[i][1] != null ? r.d[i][1].toString() : 'Trống';
-                                        var memberName = r.d[i][4];
-                                        var ma_cay_tt = r.d[i][6] != null ? r.d[i][6].toString() : '';
-                                        var ma_goi_dau_tu = r.d[i][10];
-
-                                        data.addRows([[{
-                                            v: ma_cay,
-                                            f: memberName
-                                                + '<div>(<span style="color:red">'
-                                                + ma_kh
-                                                + '</span>)<div><img src = "../images/goi_' + ma_goi_dau_tu + '.png" "height="31" width="35" /></div>'
-                                        }, ma_cay_tt, ma_kh]]);
+                                       
+                                            var ma_cay = r.d[i][2].toString();
+                                            var ma_kh = r.d[i][1] != null ? r.d[i][1].toString() : 'Trống';
+                                            var memberName = r.d[i][4];
+                                            var ma_cay_tt = r.d[i][6] != null ? r.d[i][6].toString() : '';
+                                            var ma_goi_dau_tu = r.d[i][10];
+                                            alert(ma_cay);
+                                            if (i >= 8) {
+                                                alert(ma_cay);
+                                            }
+                                            data.addRows([[{
+                                                v: ma_cay,
+                                                f: memberName
+                                                    + '<div>(<span style="color:red">'
+                                                    + ma_kh
+                                                    + '</span>)<div><img src = "../images/goi_' + ma_goi_dau_tu + '.png" "height="31" width="35" /></div>'
+                                            }, ma_cay_tt, ma_kh]]);
                                     }
                                     var chart = new google.visualization.OrgChart($("#chart_div")[0]);
 
@@ -225,7 +233,7 @@
                                     //alert(r.d);
                                 },
                                 error: function (r) {
-                                    //alert(r.d);
+                                    alert(r.toString());
                                 }
                             });
                         }
