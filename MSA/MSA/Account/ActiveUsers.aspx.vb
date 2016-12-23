@@ -124,6 +124,24 @@ Public Class ActiveUsers
             Exit Sub
         End If
 
+        Dim info As MSA_MemberInfo = Singleton(Of MSA_MemberDAO).Inst.FindByMA_KH(txtMa_KH.Text.Trim)
+        If info Is Nothing Then
+            lblError.Text = "Không tìm thấy mã khách hàng"
+            lblError.Visible = True
+            VisbleForm()
+            Exit Sub
+        ElseIf info.NV = 1 Then
+            lblError.Text = "Tài khoản nhân viên không được kích hoạt"
+            lblError.Visible = True
+            VisbleForm()
+            Exit Sub
+        ElseIf info.TRANG_THAI = 1 Or info.TRANG_THAI = 2 Then
+            lblError.Text = "Tài khoản đã được kích hoạt"
+            lblError.Visible = True
+            VisbleForm()
+            Exit Sub
+        End If
+
         If chkDungQuyDaoTao.Checked Then
             Dim oThanhKhoan As THANH_KHOAN_Info = TKQuyDaoTao()
             If oThanhKhoan Is Nothing Then
@@ -133,7 +151,7 @@ Public Class ActiveUsers
             End If
         End If
 
-        Dim info As New MSA_MemberInfo
+        info = New MSA_MemberInfo
         info.MA_KH = txtMa_KH.Text
         info.MA_CAY_TT = txtMA_UPLINE.Text
         If lstVITRI.SelectedIndex = 0 Then
@@ -245,10 +263,9 @@ Public Class ActiveUsers
                 rtn = False
             End If
             o = Singleton(Of MSA_DOANH_SO_DAO).Inst.Tinh_Hoa_Hong(txtMA_BAO_TRO.Text, _
-                                                 txtMA_KH_BAO_TRO.Text, _
+                                                 txtBaoTro.Text, _
                                                  DateTime.Today.Month, DateTime.Today.Year)
             If Not o Is Nothing Then
-                o.MA_KH = txtMA_KH_BAO_TRO.Text
                 Select Case (lstGOI_DAU_TU.SelectedIndex + 1)
                     Case 1
                         lblError.Text = "Chỉ được sử dụng quỹ đào tạo kích hoạt các gói CHUYÊN NGHIỆP, KIM CƯƠNG, CHỦ TỊCH"
@@ -277,6 +294,8 @@ Public Class ActiveUsers
                         Else
                             TK = 36300000
                         End If
+                    Case Else
+                        rtn = False
                 End Select
             End If
         Else
@@ -288,11 +307,11 @@ Public Class ActiveUsers
             lblError.Visible = False
             'TUNGND THANH KHOẢN QUỸ TIỀN MẶT
             oThanhKhoan.ID = 0
-            oThanhKhoan.MA_KH = o.MA_KH
-            oThanhKhoan.MA_CAY = o.MA_KH
+            oThanhKhoan.MA_KH = txtBaoTro.Text
+            oThanhKhoan.MA_CAY = txtBaoTro.Text
             oThanhKhoan.MA_DAU_TU = o.MA_DAU_TU
             oThanhKhoan.NGAY_RUT = DateTime.Now
-            oThanhKhoan.TEN_KH = txtTEN.Text 'Luu ten nguoi duoc nang cap bang tien quy dao tao trong bang thanh khoan
+            oThanhKhoan.TEN_KH = txtMa_KH.Text & "-" & txtTEN.Text 'Luu ten nguoi duoc nang cap bang tien quy dao tao trong bang thanh khoan
             oThanhKhoan.QUY_TIEN_MAT = Nothing
             oThanhKhoan.QUY_PHONG_CACH = Nothing
             oThanhKhoan.QUY_DAO_TAO = Nothing

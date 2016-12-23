@@ -137,8 +137,8 @@ Public Class AccountTreeView
             query += ", MA_GOI_DAU_TU"
             query += ", MA_DANH_HIEU"
             query += " FROM MEMBERS"
-            'query += " WHERE ((MA_CAY ='" & ma_cay + "') and len(MA_CAY) < " & (Len(ma_cay) + 21).ToString & " ) "
-            query += " WHERE (MA_CAY ='" & ma_cay + "')"
+            query += " WHERE ((MA_CAY ='" & ma_cay + "') and len(MA_CAY) < " & (Len(ma_cay) + 27).ToString & " ) "
+            'query += " WHERE (MA_CAY ='" & ma_cay + "')"
             query += " UNION "
         End If
 
@@ -156,8 +156,8 @@ Public Class AccountTreeView
         query += ", MA_DANH_HIEU"
         query += " FROM MEMBERS"
         query += " WHERE ((MA_CAY ='" & ma_cay + "') OR (MA_CAY_TT like '" & ma_cay + "%'))"
-        query += " AND TRANG_THAI <> 0 and NV=0 and MA_BAO_TRO_TT is not null and MA_BAO_TRO_TT <> ''"
-        'query += " AND TRANG_THAI <> 0 and NV=0 and MA_BAO_TRO_TT is not null and MA_BAO_TRO_TT <> '' and len(MA_CAY) < " & (Len(ma_cay) + 21).ToString
+        'query += " AND TRANG_THAI <> 0 and NV=0 and MA_BAO_TRO_TT is not null and MA_BAO_TRO_TT <> ''"
+        query += " AND TRANG_THAI <> 0 and NV=0 and MA_BAO_TRO_TT is not null and MA_BAO_TRO_TT <> '' and len(MA_CAY) < " & (Len(ma_cay) + 27).ToString
         query += " UNION "
 
         query += "select null ID "
@@ -174,8 +174,8 @@ Public Class AccountTreeView
         query += ",null MA_DANH_HIEU "
         query += "from members "
         query += "where "
-        query += "(ma_cay='" & ma_cay + "' or ma_cay_tt like '" & ma_cay + "%') "
-        'query += "(ma_cay='" & ma_cay + "' or ma_cay_tt like '" & ma_cay + "%') and len(MA_CAY) < " & (Len(ma_cay) + 21).ToString
+        'query += "(ma_cay='" & ma_cay + "' or ma_cay_tt like '" & ma_cay + "%') "
+        query += "(ma_cay='" & ma_cay + "' or ma_cay_tt like '" & ma_cay + "%') and len(MA_CAY) < " & (Len(ma_cay) + 27).ToString
         query += "and ma_cay_tt in ("
         query += "select a.ma_cay_tt "
         query += "from "

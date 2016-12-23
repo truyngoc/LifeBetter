@@ -125,23 +125,23 @@
                         var currZoom = 1;
 
                         $(document).ready(function () {
-                            //$("#ZoomIn").click(function () {
-                            //    var w = $("#chart_div").width();
-                            //    var w_chart = $("table.google-visualization-orgchart-table").width();
+                            $("#ZoomIn").click(function () {
+                                var w = $("#chart_div").width();
+                                var w_chart = $("table.google-visualization-orgchart-table").width();
 
-                            //    currZoom += 0.1;
-                            //    $(".chart_div").css({
-                            //        'zoom': currZoom
-                            //    }
-                            //    );
-                            //});
-                            //$("#ZoomOut").click(function () {
-                            //    currZoom -= 0.1;
-                            //    $(".chart_div").css({
-                            //        'zoom': currZoom
-                            //    }
-                            //    );
-                            //});
+                                currZoom += 0.1;
+                                $(".chart_div").css({
+                                    'zoom': currZoom
+                                }
+                                );
+                            });
+                            $("#ZoomOut").click(function () {
+                                currZoom -= 0.1;
+                                $(".chart_div").css({
+                                    'zoom': currZoom
+                                }
+                                );
+                            });
                         });
                     </script>
 
@@ -169,25 +169,18 @@
                                 contentType: "application/json; charset=utf-8",
                                 dataType: "json",
                                 success: function (r) {
-                                    alert('ok');
                                     var data = new google.visualization.DataTable();
                                     data.addColumn('string', 'Entity');
                                     data.addColumn('string', 'ParentEntity');
                                     data.addColumn('string', 'ToolTip');
                                     var tang = 1;
 
-                                    alert(r.d.length); 
-                                    for (var i = 0; i < r.d.length; i++) {
-                                       
+                                    for (var i = 0; i < r.d.length; i++) {                                       
                                             var ma_cay = r.d[i][2].toString();
                                             var ma_kh = r.d[i][1] != null ? r.d[i][1].toString() : 'Trống';
                                             var memberName = r.d[i][4];
                                             var ma_cay_tt = r.d[i][6] != null ? r.d[i][6].toString() : '';
                                             var ma_goi_dau_tu = r.d[i][10];
-                                            alert(ma_cay);
-                                            if (i >= 8) {
-                                                alert(ma_cay);
-                                            }
                                             data.addRows([[{
                                                 v: ma_cay,
                                                 f: memberName
@@ -233,7 +226,7 @@
                                     //alert(r.d);
                                 },
                                 error: function (r) {
-                                    alert(r.toString());
+                                    //alert(r.toString());
                                 }
                             });
                         }
